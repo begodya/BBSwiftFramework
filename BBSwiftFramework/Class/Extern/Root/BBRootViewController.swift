@@ -46,17 +46,14 @@ class BBRootViewController: UIViewController {
     // MARK: 设置标题
     func setCustomTitle(title: NSString) {
         
-        let view = UIView(frame: CGRectMake(0, 0, BBDevice.deviceWidth(BBDevice())(), BBDevice.deviceHeight(BBDevice())()))
-        local {
-            let titleLabel = UILabel(frame: CGRectMake(0, 0, BBDevice.deviceWidth(BBDevice())(), BBDevice.deviceHeight(BBDevice())()))
+        let titleLabel = UILabel(frame: CGRectMake(0, 0, BBDevice.deviceWidth(BBDevice())(), BBDevice.deviceHeight(BBDevice())()))
+        local { () -> () in
             titleLabel.textAlignment = NSTextAlignment.Center
             titleLabel.font = BBFont.customFontWithSize(BBFont())(17)
             titleLabel.textColor = BBColor.titleColor(BBColor())()
             titleLabel.text = title as String
-            view.addSubview(titleLabel)
         }
-        self.navigationItem.titleView = view
-        
+        self.navigationItem.titleView = titleLabel
     }
 
 
