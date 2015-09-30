@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         // set up start view controller
         setupStartViewController()
@@ -46,8 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func setupStartViewController() {
-        let startVC = BBStartViewController()
-        self.window!.rootViewController = startVC
+        self.window!.rootViewController = UINavigationController(rootViewController: BBStartViewController())
         self.window!.backgroundColor = UIColor .whiteColor()
         self.window!.makeKeyAndVisible()
     }

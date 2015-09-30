@@ -15,6 +15,8 @@ class BBStartViewController: BBRootViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.setCustomTitle("Just Start")
     }
     
     override func didReceiveMemoryWarning() {

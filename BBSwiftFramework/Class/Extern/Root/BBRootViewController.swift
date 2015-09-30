@@ -24,7 +24,10 @@ class BBRootViewController: UIViewController {
     }
     
     // MARK: - --------------------功能函数--------------------
-    // MARK: 初始化
+    // MARK: 局部代码分隔
+    func local(closure: ()->()) {
+        closure()
+    }
     
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释
@@ -40,7 +43,21 @@ class BBRootViewController: UIViewController {
     // MARK: 属性操作函数注释
     
     // MARK: - --------------------接口API--------------------
-    // MARK: 分块内接口函数注释
+    // MARK: 设置标题
+    func setCustomTitle(title: NSString) {
+        
+        let view = UIView(frame: CGRectMake(0, 0, BBDevice.deviceWidth(BBDevice())(), BBDevice.deviceHeight(BBDevice())()))
+        local {
+            let titleLabel = UILabel(frame: CGRectMake(0, 0, BBDevice.deviceWidth(BBDevice())(), BBDevice.deviceHeight(BBDevice())()))
+            titleLabel.textAlignment = NSTextAlignment.Center
+            titleLabel.font = BBFont.customFontWithSize(BBFont())(17)
+            titleLabel.textColor = BBColor.titleColor(BBColor())()
+            titleLabel.text = title as String
+            view.addSubview(titleLabel)
+        }
+        self.navigationItem.titleView = view
+        
+    }
 
 
 }
