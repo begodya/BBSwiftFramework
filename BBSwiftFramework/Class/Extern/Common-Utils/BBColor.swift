@@ -29,9 +29,9 @@ class BBColor: NSObject {
             cString = (cString as NSString).substringFromIndex(1)
         }
         
-//        if (count(cString) != 6) {
-//            return UIColor.grayColor()
-//        }
+        if (cString.size() != 6) {
+            return UIColor.grayColor()
+        }
         
         let rString = (cString as NSString).substringToIndex(2)
         let gString = ((cString as NSString).substringFromIndex(2) as NSString).substringToIndex(2)

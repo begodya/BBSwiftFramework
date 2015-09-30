@@ -11,25 +11,25 @@ import UIKit
 class BBDevice: NSObject {
     
     // MARK: - 获取设备版本号
-    func iOSString() -> NSString {
+    func iOSVersion() -> NSString {
         return UIDevice.currentDevice().systemVersion;
     }
 
     // MARK: - 获取设备型号
-    func deviceString() -> NSString {
+    func deviceName() -> NSString {
         return UIDevice.currentDevice().systemName;
     }
     
     // MARK: - 获取App Version
     func appVersion() -> NSString {
-        let infoDict:NSDictionary = NSBundle.mainBundle().infoDictionary!
-        return infoDict.objectForKey("CFBundleShortVersionString") as! String;
+        let infoDict: NSDictionary = NSBundle.mainBundle().infoDictionary!
+        return infoDict.objectForKey("CFBundleShortVersionString") as! String
     }
 
     // MARK: - 获取App Build
     func appBuild() -> NSString {
-        let infoDict:NSDictionary = NSBundle.mainBundle().infoDictionary!
-        return infoDict.objectForKey("CFBundleVersion") as! String;
+        let infoDict: NSDictionary = NSBundle.mainBundle().infoDictionary!
+        return infoDict.objectForKey("CFBundleVersion") as! String
     }
 
 
