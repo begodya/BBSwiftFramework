@@ -41,31 +41,26 @@ class BBStartViewController: BBRootViewController {
     // MARK: - --------------------代理方法--------------------
 
     // MARK: - UITableView Delegate
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int{
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!{
-        
+    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView .dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         let row=indexPath.row as Int
         cell.textLabel!.text=self.items[row]
         return cell;
     }
 
-    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!){
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         let index=indexPath.row as Int
         self.items.removeAtIndex(index)
         self.contentTableView?.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
         NSLog("删除\(indexPath.row)")
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
-        let alertController = UIAlertController(title: "标题", message: "你选择的是\(self.items[indexPath.row])", preferredStyle: UIAlertControllerStyle.Alert)
-        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
-        let okAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.Default, handler: nil)
-        alertController.addAction(cancelAction)
-        alertController.addAction(okAction)
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        let alertController = BBAlertController().initWithMessage("test")
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
