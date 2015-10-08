@@ -21,6 +21,8 @@
 		3B561DE51BBBBFB5000CAC0E /* BBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DE41BBBBFB5000CAC0E /* BBColor.swift */; settings = {ASSET_TAGS = (); }; };
 		3B561DE71BBBC3CF000CAC0E /* BBDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DE61BBBC3CF000CAC0E /* BBDevice.swift */; settings = {ASSET_TAGS = (); }; };
 		3B561DF41BBBE72F000CAC0E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DF31BBBE72F000CAC0E /* String.swift */; settings = {ASSET_TAGS = (); }; };
+		3BBB68051BC60CC60011ED71 /* BBTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB68041BC60CC60011ED71 /* BBTableView.swift */; settings = {ASSET_TAGS = (); }; };
+		3BBB68071BC60D480011ED71 /* BBRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB68061BC60D480011ED71 /* BBRootView.swift */; settings = {ASSET_TAGS = (); }; };
 		48701F323AAEE95CFF9F98C4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E603B474DBC094241CCA26 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		3B561DE41BBBBFB5000CAC0E /* BBColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBColor.swift; sourceTree = "<group>"; };
 		3B561DE61BBBC3CF000CAC0E /* BBDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDevice.swift; sourceTree = "<group>"; };
 		3B561DF31BBBE72F000CAC0E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3BBB68041BC60CC60011ED71 /* BBTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBTableView.swift; sourceTree = "<group>"; };
+		3BBB68061BC60D480011ED71 /* BBRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBRootView.swift; sourceTree = "<group>"; };
 		3BDF6E44726604B2B09C0CAC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3DD08952C6213AF686BFE229 /* Pods-BBSwiftFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBSwiftFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBSwiftFramework/Pods-BBSwiftFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		63E603B474DBC094241CCA26 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +203,7 @@
 		3B561DD21BBB866D000CAC0E /* Common-UI */ = {
 			isa = PBXGroup;
 			children = (
+				3BBB68031BC60C8F0011ED71 /* BBTableView */,
 			);
 			path = "Common-UI";
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				3B561DD81BBB8794000CAC0E /* BBRootViewController.swift */,
+				3BBB68061BC60D480011ED71 /* BBRootView.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -251,6 +257,14 @@
 				3B561DF31BBBE72F000CAC0E /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3BBB68031BC60C8F0011ED71 /* BBTableView */ = {
+			isa = PBXGroup;
+			children = (
+				3BBB68041BC60CC60011ED71 /* BBTableView.swift */,
+			);
+			path = BBTableView;
 			sourceTree = "<group>";
 		};
 		D9CF1F8599590A98F4286CC7 /* Pods */ = {
@@ -450,9 +464,11 @@
 				3B561DA31BBB84BF000CAC0E /* ViewController.swift in Sources */,
 				3B561DA11BBB84BF000CAC0E /* AppDelegate.swift in Sources */,
 				3B561DE71BBBC3CF000CAC0E /* BBDevice.swift in Sources */,
+				3BBB68051BC60CC60011ED71 /* BBTableView.swift in Sources */,
 				3B561DE51BBBBFB5000CAC0E /* BBColor.swift in Sources */,
 				3B561DD91BBB8794000CAC0E /* BBRootViewController.swift in Sources */,
 				3B561DF41BBBE72F000CAC0E /* String.swift in Sources */,
+				3BBB68071BC60D480011ED71 /* BBRootView.swift in Sources */,
 				3B561DE01BBB8F51000CAC0E /* BBStartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
