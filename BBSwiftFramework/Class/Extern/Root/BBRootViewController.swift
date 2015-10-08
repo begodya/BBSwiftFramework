@@ -56,7 +56,6 @@ class BBRootViewController: UIViewController {
         self.navigationItem.titleView = titleLabel
     }
 
-
 }
 
 
