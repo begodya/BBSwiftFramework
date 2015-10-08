@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBStartViewController" customModule="BBSwiftFramework" customModuleProvider="target">
             <connections>
-                <outlet property="contentTableView" destination="qWO-pM-LfR" id="XND-JF-LdA"/>
+                <outlet property="contentTableView" destination="qWO-pM-LfR" id="PsF-CX-5CQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

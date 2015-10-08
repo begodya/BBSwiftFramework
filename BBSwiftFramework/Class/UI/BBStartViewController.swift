@@ -48,12 +48,12 @@ class BBStartViewController: BBRootViewController {
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView .dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         let row=indexPath.row as Int
-        cell.textLabel!.text=self.items[row]
+        cell.textLabel!.text = self.items[row]
         return cell;
     }
 
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        let index=indexPath.row as Int
+        let index = indexPath.row as Int
         self.items.removeAtIndex(index)
         self.contentTableView?.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
         NSLog("删除\(indexPath.row)")
