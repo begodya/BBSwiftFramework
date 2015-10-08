@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBStartViewController" customModule="BBSwiftFramework" customModuleProvider="target">
             <connections>
+                <outlet property="contentTableView" destination="qWO-pM-LfR" id="XND-JF-LdA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,6 +14,23 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qWO-pM-LfR" customClass="BBTableView" customModule="BBSwiftFramework" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="UhY-aW-lpv"/>
+                        <outlet property="delegate" destination="-1" id="Pdo-sF-Zff"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="qWO-pM-LfR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Gxb-hi-BwL"/>
+                <constraint firstItem="qWO-pM-LfR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hND-be-hE2"/>
+                <constraint firstAttribute="trailing" secondItem="qWO-pM-LfR" secondAttribute="trailing" id="n83-wf-P9n"/>
+                <constraint firstAttribute="bottom" secondItem="qWO-pM-LfR" secondAttribute="bottom" id="r7B-IC-vnn"/>
+            </constraints>
+            <point key="canvasLocation" x="337" y="353"/>
         </view>
     </objects>
 </document>
