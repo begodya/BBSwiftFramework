@@ -45,12 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
     func setupStartViewController() {
         self.window!.rootViewController = UINavigationController(rootViewController: BBStartViewController())
         self.window!.backgroundColor = UIColor .whiteColor()
         self.window!.makeKeyAndVisible()
     }
-
 }
 

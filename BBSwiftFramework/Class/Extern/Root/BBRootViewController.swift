@@ -23,10 +23,6 @@ class BBRootViewController: UIViewController {
     }
     
     // MARK: - --------------------功能函数--------------------
-    // MARK: 局部代码分隔
-    func local(closure: ()->()) {
-        closure()
-    }
     
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释
@@ -42,6 +38,11 @@ class BBRootViewController: UIViewController {
     // MARK: 属性操作函数注释
     
     // MARK: - --------------------接口API--------------------
+    // MARK: 局部代码分隔
+    func local(closure: ()->()) {
+        closure()
+    }
+
     // MARK: 设置标题
     func setCustomTitle(title: String) {
         self.title = title
