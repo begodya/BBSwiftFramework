@@ -42,8 +42,8 @@ class BBAlertController: UIAlertController {
 
     /**
     *  显示提示信息，内容格式为：提示信息 + 内容 + 知道了
-    *
-    *  @param message  内容体
+    *  @param message              内容体
+    *  @return                     初始化好的弹出框
     */
     func initWithMessage(message: String) -> BBAlertController {
         let alertAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.Default, handler: nil)
@@ -52,8 +52,9 @@ class BBAlertController: UIAlertController {
 
     /**
     *  显示提示信息，内容格式为：提示信息 + 内容 + 知道了
-    *  @param clickedAction                点击事件
-    *  @param message  内容体
+    *  @param clickedAction        点击事件
+    *  @param message              内容体
+    *  @return                     初始化好的弹出框
     */
     func initWithTitle(title: String, message: String, alertAction: UIAlertAction) -> BBAlertController {
         let alertController = BBAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
@@ -62,7 +63,7 @@ class BBAlertController: UIAlertController {
     }
     
     /**
-    *  使用block创建一个弹出框。如果某个按钮没有动作要求，请提供nil
+    *  两个按钮响应操作
     *  @param title                标题
     *  @param message              信息
     *  @param cancalAction         取消按钮的动作

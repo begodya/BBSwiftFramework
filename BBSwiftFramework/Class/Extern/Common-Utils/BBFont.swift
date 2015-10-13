@@ -14,4 +14,5 @@ class BBFont: NSObject {
     func customFontWithSize(size: CGFloat) -> UIFont {
         return UIFont.systemFontOfSize(size)
     }
+
 }

@@ -60,8 +60,10 @@ class BBStartViewController: BBRootViewController {
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        let alertController = BBAlertController().initWithMessage("test")
-        self.presentViewController(alertController, animated: true, completion: nil)
+//        let alertController = BBAlertController().initWithMessage("test")
+//        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        BBH5ViewController().loadURL(NSURL(string: "http://www.baidu.com")!, title: "百度", fromViewController: self)
     }
     
     // MARK: - --------------------属性相关--------------------
