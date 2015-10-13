@@ -19,6 +19,10 @@ class BBColor: NSObject {
         return colorWithHexString("646464", alpha: 1)
     }
     
+    func redColor() -> UIColor {
+        return UIColor.redColor()
+    }
+    
     
     
     // MARK: - Creates a UIColor from a Hex string.

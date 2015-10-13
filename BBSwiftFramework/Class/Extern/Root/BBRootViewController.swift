@@ -10,7 +10,6 @@ import UIKit
 
 class BBRootViewController: UIViewController {
     
-    
     // MARK: - --------------------System--------------------
     
     override func viewDidLoad() {
@@ -44,16 +43,18 @@ class BBRootViewController: UIViewController {
     
     // MARK: - --------------------接口API--------------------
     // MARK: 设置标题
-    func setCustomTitle(title: NSString) {
+    func setCustomTitle(title: String) {
+        self.title = title
         
-        let titleLabel = UILabel(frame: CGRectMake(0, 0, BBDevice().deviceWidth(), BBDevice().deviceHeight()))
-        local { () -> () in
-            titleLabel.textAlignment = NSTextAlignment.Center
-            titleLabel.font = BBFont().customFontWithSize(17)
-            titleLabel.textColor = BBColor().titleColor()
-            titleLabel.text = title as String
-        }
-        self.navigationItem.titleView = titleLabel
+//        let titleLabel = UILabel(frame: CGRectMake(0, 0, BBDevice().deviceWidth(), kNavigationBarTitleViewMaxHeight))
+//        local { () -> () in
+//            titleLabel.textAlignment = NSTextAlignment.Center
+//            titleLabel.font = BBFont().customFontWithSize(17)
+//            titleLabel.textColor = BBColor().titleColor()
+//            titleLabel.text = title as String
+//            titleLabel.backgroundColor = BBColor().redColor()
+//        }
+//        self.navigationItem.titleView = titleLabel
     }
 
 }
