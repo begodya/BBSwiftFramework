@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBH5ViewController" customModule="BBSwiftFramework" customModuleProvider="target">
             <connections>
-                <outlet property="h5WebView" destination="gfv-pT-Pf7" id="eoy-pE-hge"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,25 +13,9 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfv-pT-Pf7" customClass="BBH5WebView" customModule="BBSwiftFramework" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="hd2-4v-A0X"/>
-                    </connections>
-                </webView>
-            </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="gfv-pT-Pf7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="h0y-gZ-YEJ"/>
-                <constraint firstAttribute="trailing" secondItem="gfv-pT-Pf7" secondAttribute="trailing" id="mNA-27-m4F"/>
-                <constraint firstItem="gfv-pT-Pf7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="r0x-Rq-rEe"/>
-                <constraint firstAttribute="bottom" secondItem="gfv-pT-Pf7" secondAttribute="bottom" id="zq8-0S-ZLX"/>
-            </constraints>
-            <point key="canvasLocation" x="247" y="353"/>
+            <point key="canvasLocation" x="38" y="112"/>
         </view>
     </objects>
 </document>

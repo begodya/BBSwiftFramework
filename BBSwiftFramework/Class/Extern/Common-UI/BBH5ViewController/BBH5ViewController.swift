@@ -8,10 +8,9 @@
 
 import UIKit
 
-class BBH5ViewController: BBRootViewController {
-
-    @IBOutlet weak var h5WebView: BBH5WebView!
+class BBH5ViewController: BBRootViewController, UIWebViewDelegate {
     
+    var h5WebView: BBH5WebView!
     // MARK: - --------------------System--------------------
     
     override func viewDidLoad() {
@@ -26,7 +25,18 @@ class BBH5ViewController: BBRootViewController {
     }
     
     // MARK: - --------------------功能函数--------------------
-    // MARK: 初始化
+    func initWithURL(url: NSURL) -> BBH5ViewController{
+        h5WebView = BBH5WebView(frame:CGRectMake(0, 0, BBDevice().deviceWidth(), BBDevice().deviceHeight()))
+        local { () -> () in
+            self.h5WebView.autoresizesSubviews = true
+            self.h5WebView.scalesPageToFit = true
+            self.h5WebView.loadRequest(NSURLRequest(URL: url))
+            self.h5WebView.delegate = self
+            self.view.addSubview(self.h5WebView)
+        }
+        
+        return self;
+    }
     
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释
@@ -35,8 +45,23 @@ class BBH5ViewController: BBRootViewController {
     // MARK: 按钮点击函数注释
     
     // MARK: - --------------------代理方法--------------------
-    // MARK: - 代理种类注释
-    // MARK: 代理函数注释
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        return true
+    }
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        self.setCustomTitle(webView.stringByEvaluatingJavaScriptFromString("document.title")!)
+    }
+    
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+
+    }
+
     
     // MARK: - --------------------属性相关--------------------
     // MARK: 属性操作函数注释
@@ -58,7 +83,7 @@ class BBH5ViewController: BBRootViewController {
     */
     func loadURL(url: NSURL, title: String, fromViewController: BBRootViewController) {
         self.setCustomTitle(title)
-//        self.h5WebView.loadRequest(NSURLRequest(URL: url))
+        self.initWithURL(url)
         fromViewController.navigationController?.pushViewController(self, animated: true)
     }
 }
