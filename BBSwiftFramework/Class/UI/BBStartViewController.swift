@@ -21,6 +21,9 @@ class BBStartViewController: BBRootViewController {
         
         self.setCustomTitle("Just Start")
         
+        self.setMoreBarButtonWithTarget(self, action: Selector("moreAction"))
+        self.setInboxBarButtonWithTarget(self, action: Selector("inboxAction"))
+        
         self.contentTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
@@ -31,6 +34,14 @@ class BBStartViewController: BBRootViewController {
     
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
+    
+    func moreAction() {
+        
+    }
+    
+    func inboxAction() {
+        
+    }
     
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释

@@ -15,6 +15,8 @@ class BBRootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.setBackBarButtonWithTarget(self, action: Selector("backBarButtonAction"))
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,11 +26,23 @@ class BBRootViewController: UIViewController {
     
     // MARK: - --------------------功能函数--------------------
     
+    func setLeftBarButtonItem(item: UIBarButtonItem) {
+        self.navigationItem.leftBarButtonItem = item
+    }
+    
+    func setRightBarButtonItem(item: UIBarButtonItem) {
+        self.navigationItem.rightBarButtonItem = item
+    }
+    
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释
     
     // MARK: - --------------------按钮事件--------------------
     // MARK: 按钮点击函数注释
+    
+    func backBarButtonAction() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     
     // MARK: - --------------------代理方法--------------------
     // MARK: - 代理种类注释
@@ -43,7 +57,7 @@ class BBRootViewController: UIViewController {
         closure()
     }
 
-    // MARK: 设置标题
+    // MARK: 设置自定义标题
     func setCustomTitle(title: String) {
         self.title = title
         
@@ -56,6 +70,37 @@ class BBRootViewController: UIViewController {
 //            titleLabel.backgroundColor = BBColor().redColor()
 //        }
 //        self.navigationItem.titleView = titleLabel
+    }
+
+    // MARK: 返回按钮
+    func setBackBarButtonWithTarget(target: AnyObject?, action: Selector) {
+        let backItem:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_back_arrow"), style: UIBarButtonItemStyle.Plain, target: target, action: action)
+        setLeftBarButtonItem(backItem)
+    }
+    
+    // MARK: 关闭按钮
+    func setCloseBarButtonWithTarget(target: AnyObject?, action: Selector) {
+        let backItem:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_close_cross"), style: UIBarButtonItemStyle.Plain, target: target, action: action)
+        setLeftBarButtonItem(backItem)
+    }
+    
+    // MARK: 更多按钮
+    func setMoreBarButtonWithTarget(target: AnyObject?, action: Selector) {
+        let backItem:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_more_normal"), style: UIBarButtonItemStyle.Plain, target: target, action: action)
+        setLeftBarButtonItem(backItem)
+    }
+
+    // MARK: 消息按钮
+    func setInboxBarButtonWithTarget(target: AnyObject?, action: Selector) {
+        let backItem:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_inbox_normal"), style: UIBarButtonItemStyle.Plain, target: target, action: action)
+        setRightBarButtonItem(backItem)
+    }
+
+
+    // MARK: 右边文字按钮
+    func setRightBarButtonWithTitle(title: String, target: AnyObject?, action: Selector) {
+        let rightItem:UIBarButtonItem = UIBarButtonItem(title: title, style: UIBarButtonItemStyle.Plain, target: self, action: action)
+        setRightBarButtonItem(rightItem)
     }
 
 }
