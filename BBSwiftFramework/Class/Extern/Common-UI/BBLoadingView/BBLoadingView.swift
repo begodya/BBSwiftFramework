@@ -10,10 +10,6 @@ import UIKit
 
 class BBLoadingView: BBRootView {
     
-    // MARK: - --------------------System--------------------
-    
-    // MARK: - --------------------功能函数--------------------
-    
     // MARK: Constants
     let Size            : CGFloat           = 150
     let FadeDuration    : NSTimeInterval    = 0.3
@@ -30,6 +26,10 @@ class BBLoadingView: BBRootView {
     private var didTapClosure: (() -> Void)?
     private var swipeGesture: UISwipeGestureRecognizer?
     private var didSwipeClosure: (() -> Void)?
+
+    // MARK: - --------------------System--------------------
+    
+    // MARK: - --------------------功能函数--------------------
     
     // MARK: Singleton
     class var sharedInstance : BBLoadingView {
