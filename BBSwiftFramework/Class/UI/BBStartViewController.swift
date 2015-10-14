@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class BBStartViewController: BBRootViewController {
     
@@ -24,7 +25,7 @@ class BBStartViewController: BBRootViewController {
         self.setMoreBarButtonWithTarget(self, action: Selector("moreAction"))
         self.setInboxBarButtonWithTarget(self, action: Selector("inboxAction"))
         
-        self.contentTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.setupView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,6 +36,25 @@ class BBStartViewController: BBRootViewController {
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
     
+    func setupView() {
+        
+        // config tableView
+        self.contentTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        // Alamofire Service
+        Alamofire.request(.GET, "http://httpbin.org/get")
+            .responseJSON { _, _, result in
+                print(result)
+                debugPrint(result)
+        }
+    }
+    
+    // MARK: - --------------------手势事件--------------------
+    // MARK: 各种手势处理函数注释
+    
+    // MARK: - --------------------按钮事件--------------------
+    // MARK: 按钮点击函数注释
+    
     func moreAction() {
         let alertController = BBAlertController().initWithMessage("响应左边按钮")
         self.presentViewController(alertController, animated: true, completion: nil)
@@ -44,12 +64,6 @@ class BBStartViewController: BBRootViewController {
         let alertController = BBAlertController().initWithMessage("响应右边按钮")
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
-    // MARK: - --------------------手势事件--------------------
-    // MARK: 各种手势处理函数注释
-    
-    // MARK: - --------------------按钮事件--------------------
-    // MARK: 按钮点击函数注释
     
     // MARK: - --------------------代理方法--------------------
 
