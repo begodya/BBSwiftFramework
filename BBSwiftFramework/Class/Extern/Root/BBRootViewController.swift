@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BBRootViewController: UIViewController, UINavigationControllerDelegate {
+class BBRootViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
     // MARK: - --------------------System--------------------
     
@@ -27,7 +27,11 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.delegate = self
+        // Enable gesture recognizers
+        if (self.navigationController!.respondsToSelector(Selector("interactivePopGestureRecognizer"))) {
+            self.navigationController?.delegate = self
+            self.navigationController!.interactivePopGestureRecognizer?.delegate = self;
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
