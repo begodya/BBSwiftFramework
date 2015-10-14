@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BBRootViewController: UIViewController {
+class BBRootViewController: UIViewController, UINavigationControllerDelegate {
     
     // MARK: - --------------------System--------------------
     
@@ -22,6 +22,18 @@ class BBRootViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.delegate = self
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.delegate = nil
     }
     
     // MARK: - --------------------功能函数--------------------
@@ -45,8 +57,13 @@ class BBRootViewController: UIViewController {
     }
     
     // MARK: - --------------------代理方法--------------------
-    // MARK: - 代理种类注释
-    // MARK: 代理函数注释
+    
+    // MARK: UINavigationControllerDelegate
+    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+        if (navigationController.respondsToSelector(Selector("interactivePopGestureRecognizer"))) {
+            navigationController.interactivePopGestureRecognizer?.enabled = true
+        }
+    }
     
     // MARK: - --------------------属性相关--------------------
     // MARK: 属性操作函数注释
