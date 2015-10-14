@@ -73,6 +73,7 @@ extension UIImageView {
 
 
 class GIFImage: UIImage {
+    
     func CGImageSourceContainsAnimatedGIF(imageSource: CGImageSource) -> Bool {
         let isTypeGIF = UTTypeConformsTo(CGImageSourceGetType(imageSource)!, kUTTypeGIF)
         let imageCount = CGImageSourceGetCount(imageSource)

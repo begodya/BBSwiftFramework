@@ -10,8 +10,11 @@ import UIKit
 
 class BBLoadingView: BBRootView {
     
-    // MARK: Constants
+    // MARK: - --------------------System--------------------
     
+    // MARK: - --------------------功能函数--------------------
+    
+    // MARK: Constants
     let Size            : CGFloat           = 150
     let FadeDuration    : NSTimeInterval    = 0.3
     let GifSpeed        : CGFloat           = 0.3
@@ -20,7 +23,6 @@ class BBLoadingView: BBRootView {
     
     
     // MARK: Variables
-    
     var overlayView     : UIView?
     var imageView       : UIImageView?
     var shown           : Bool
@@ -30,17 +32,15 @@ class BBLoadingView: BBRootView {
     private var didSwipeClosure: (() -> Void)?
     
     // MARK: Singleton
-    
-    class var instance : BBLoadingView {
+    class var sharedInstance : BBLoadingView {
         struct Static {
-            static let inst : BBLoadingView = BBLoadingView ()
+            static let instance : BBLoadingView = BBLoadingView ()
         }
-        return Static.inst
+        return Static.instance
     }
     
     
     // MARK: Init
-    
     init () {
         self.shown = false
         super.init(frame: CGRect (x: 0, y: 0, width: Size, height: Size))
@@ -61,97 +61,35 @@ class BBLoadingView: BBRootView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     
+    // MARK: - --------------------手势事件--------------------
+    // MARK: 各种手势处理函数注释
     
-    // MARK: HUD
-    
-    class func showWithOverlay () {
-        dismiss ({
-            self.instance.Window.addSubview(self.instance.overlay())
-            self.show()
-        })
-    }
-    
-    class func show () {
-        dismiss({
-            
-            if let anim = self.instance.imageView?.animationImages {
-                self.instance.imageView?.startAnimating()
-            } else {
-                self.instance.imageView?.startAnimatingGif()
-            }
-            
-            self.instance.Window.bringSubviewToFront(self.instance)
-            self.instance.shown = true
-            self.instance.fadeIn()
-        })
-    }
-    
-    class func showForSeconds (seconds: Double) {
-        show()
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
-        dispatch_after(time, dispatch_get_main_queue(), {
-            BBLoadingView.dismiss()
-        })
-    }
-    
-    class func dismissOnTap (didTap: (() -> Void)? = nil) {
-        self.instance.tapGesture = UITapGestureRecognizer(target: self, action: "userTapped")
-        self.instance.addGestureRecognizer(self.instance.tapGesture!)
-        self.instance.didTapClosure = didTap
-    }
+    // MARK: - --------------------按钮事件--------------------
+    // MARK: 按钮点击函数注释
     
     @objc private class func userTapped () {
         BBLoadingView.dismiss()
-        self.instance.tapGesture = nil
-        self.instance.didTapClosure?()
-        self.instance.didTapClosure = nil
-    }
-    
-    class func dismissOnSwipe (didTap: (() -> Void)? = nil) {
-        self.instance.swipeGesture = UISwipeGestureRecognizer(target: self, action: "userSwiped")
-        self.instance.addGestureRecognizer(self.instance.swipeGesture!)
+        self.sharedInstance.tapGesture = nil
+        self.sharedInstance.didTapClosure?()
+        self.sharedInstance.didTapClosure = nil
     }
     
     @objc private class func userSwiped () {
         BBLoadingView.dismiss()
-        self.instance.swipeGesture = nil
-        self.instance.didSwipeClosure?()
-        self.instance.didSwipeClosure = nil
+        self.sharedInstance.swipeGesture = nil
+        self.sharedInstance.didSwipeClosure?()
+        self.sharedInstance.didSwipeClosure = nil
     }
+
     
-    class func dismiss () {
-        if (!self.instance.shown) {
-            return
-        }
-        
-        self.instance.overlay().removeFromSuperview()
-        self.instance.fadeOut()
-        
-        if let anim = self.instance.imageView?.animationImages {
-            self.instance.imageView?.stopAnimating()
-        } else {
-            self.instance.imageView?.stopAnimatingGif()
-        }
-    }
+    // MARK: - --------------------代理方法--------------------
+    // MARK: - 代理种类注释
+    // MARK: 代理函数注释
     
-    class func dismiss (complate: ()->Void) {
-        if (!self.instance.shown) {
-            return complate ()
-        }
-        
-        self.instance.fadeOut({
-            self.instance.overlay().removeFromSuperview()
-            complate ()
-        })
-        
-        if let anim = self.instance.imageView?.animationImages {
-            self.instance.imageView?.stopAnimating()
-        } else {
-            self.instance.imageView?.stopAnimatingGif()
-        }
-    }
-    
+    // MARK: - --------------------属性相关--------------------
+    // MARK: 属性操作函数注释
     
     // MARK: Effects
     
@@ -165,19 +103,19 @@ class BBLoadingView: BBRootView {
     func fadeOut () {
         UIView.animateWithDuration(FadeDuration, animations: {
             self.alpha = 0
-            }, completion: { (complate) in
+            }, completion: { (complete) in
                 self.shown = false
                 self.imageView?.stopAnimatingGif()
         })
     }
     
-    func fadeOut (complated: ()->Void) {
+    func fadeOut (completed: ()->Void) {
         UIView.animateWithDuration(FadeDuration, animations: {
             self.alpha = 0
-            }, completion: { (complate) in
+            }, completion: { (complete) in
                 self.shown = false
                 self.imageView?.stopAnimatingGif()
-                complated ()
+                completed ()
         })
     }
     
@@ -195,50 +133,106 @@ class BBLoadingView: BBRootView {
         return overlayView!
     }
     
+    // MARK: - --------------------接口API--------------------
+    // MARK: 分块内接口函数注释
+    
+    class func showWithOverlay () {
+        dismiss ({
+            self.sharedInstance.Window.addSubview(self.sharedInstance.overlay())
+            self.show()
+        })
+    }
+    
+    class func show () {
+        dismiss({
+            
+            if let _ = self.sharedInstance.imageView?.animationImages {
+                self.sharedInstance.imageView?.startAnimating()
+            } else {
+                self.sharedInstance.imageView?.startAnimatingGif()
+            }
+            
+            self.sharedInstance.Window.bringSubviewToFront(self.sharedInstance)
+            self.sharedInstance.shown = true
+            self.sharedInstance.fadeIn()
+        })
+    }
+    
+    class func showForSeconds (seconds: Double) {
+        show()
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
+        dispatch_after(time, dispatch_get_main_queue(), {
+            BBLoadingView.dismiss()
+        })
+    }
+    
+    class func dismissOnTap (didTap: (() -> Void)? = nil) {
+        self.sharedInstance.tapGesture = UITapGestureRecognizer(target: self, action: "userTapped")
+        self.sharedInstance.addGestureRecognizer(self.sharedInstance.tapGesture!)
+        self.sharedInstance.didTapClosure = didTap
+    }
+    
+    class func dismissOnSwipe (didTap: (() -> Void)? = nil) {
+        self.sharedInstance.swipeGesture = UISwipeGestureRecognizer(target: self, action: "userSwiped")
+        self.sharedInstance.addGestureRecognizer(self.sharedInstance.swipeGesture!)
+    }
+    
+    class func dismiss () {
+        if (!self.sharedInstance.shown) {
+            return
+        }
+        
+        self.sharedInstance.overlay().removeFromSuperview()
+        self.sharedInstance.fadeOut()
+        
+        if let _ = self.sharedInstance.imageView?.animationImages {
+            self.sharedInstance.imageView?.stopAnimating()
+        } else {
+            self.sharedInstance.imageView?.stopAnimatingGif()
+        }
+    }
+    
+    class func dismiss (complete: ()->Void) {
+        if (!self.sharedInstance.shown) {
+            return complete ()
+        }
+        
+        self.sharedInstance.fadeOut({
+            self.sharedInstance.overlay().removeFromSuperview()
+            complete ()
+        })
+        
+        if let _ = self.sharedInstance.imageView?.animationImages {
+            self.sharedInstance.imageView?.stopAnimating()
+        } else {
+            self.sharedInstance.imageView?.stopAnimatingGif()
+        }
+    }
+    
+    
+    
     
     // MARK: Gif
     
     class func setGif (name: String) {
-        self.instance.imageView?.animationImages = nil
-        self.instance.imageView?.stopAnimating()
+        self.sharedInstance.imageView?.animationImages = nil
+        self.sharedInstance.imageView?.stopAnimating()
         
-        self.instance.imageView?.image = GIFImage.imageWithName(name, delegate: self.instance.imageView)
+        self.sharedInstance.imageView?.image = GIFImage.imageWithName(name, delegate: self.sharedInstance.imageView)
     }
     
     class func setGifBundle (bundle: NSBundle) {
-        self.instance.imageView?.animationImages = nil
-        self.instance.imageView?.stopAnimating()
+        self.sharedInstance.imageView?.animationImages = nil
+        self.sharedInstance.imageView?.stopAnimating()
         
-        self.instance.imageView?.image = GIFImage (data: NSData(contentsOfURL: bundle.resourceURL!)!, delegate: nil)
+        self.sharedInstance.imageView?.image = GIFImage (data: NSData(contentsOfURL: bundle.resourceURL!)!, delegate: nil)
     }
     
     class func setGifImages (images: [UIImage]) {
-        self.instance.imageView?.stopAnimatingGif()
+        self.sharedInstance.imageView?.stopAnimatingGif()
         
-        self.instance.imageView?.animationImages = images
-        self.instance.imageView?.animationDuration = NSTimeInterval(self.instance.GifSpeed)
+        self.sharedInstance.imageView?.animationImages = images
+        self.sharedInstance.imageView?.animationDuration = NSTimeInterval(self.sharedInstance.GifSpeed)
     }
-
-
-    // MARK: - --------------------System--------------------
-    
-    // MARK: - --------------------功能函数--------------------
-    // MARK: 初始化
-    
-    // MARK: - --------------------手势事件--------------------
-    // MARK: 各种手势处理函数注释
-    
-    // MARK: - --------------------按钮事件--------------------
-    // MARK: 按钮点击函数注释
-    
-    // MARK: - --------------------代理方法--------------------
-    // MARK: - 代理种类注释
-    // MARK: 代理函数注释
-    
-    // MARK: - --------------------属性相关--------------------
-    // MARK: 属性操作函数注释
-    
-    // MARK: - --------------------接口API--------------------
-    // MARK: 分块内接口函数注释
 
 }
