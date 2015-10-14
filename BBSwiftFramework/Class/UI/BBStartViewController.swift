@@ -22,8 +22,8 @@ class BBStartViewController: BBRootViewController {
         
         self.setCustomTitle("BB Swift 框架")
         
-        self.setMoreBarButtonWithTarget(self, action: Selector("moreAction"))
-        self.setInboxBarButtonWithTarget(self, action: Selector("inboxAction"))
+        self.setMoreBarButtonWithTarget(self, action: Selector("clickedMoreAction"))
+        self.setInboxBarButtonWithTarget(self, action: Selector("clickedInboxAction"))
         
         self.setupView()
     }
@@ -41,11 +41,14 @@ class BBStartViewController: BBRootViewController {
         // config tableView
         self.contentTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        BBLoadingView.setGif("Loading.gif")
+        BBLoadingView.showWithOverlay()
         // Alamofire Service
         Alamofire.request(.GET, "http://httpbin.org/get")
             .responseJSON { _, _, result in
                 print(result)
                 debugPrint(result)
+                BBLoadingView.dismiss()
         }
     }
     
@@ -55,12 +58,12 @@ class BBStartViewController: BBRootViewController {
     // MARK: - --------------------按钮事件--------------------
     // MARK: 按钮点击函数注释
     
-    func moreAction() {
+    func clickedMoreAction() {
         let alertController = BBAlertController().initWithMessage("响应左边按钮")
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func inboxAction() {
+    func clickedInboxAction() {
         let alertController = BBAlertController().initWithMessage("响应右边按钮")
         self.presentViewController(alertController, animated: true, completion: nil)
     }
