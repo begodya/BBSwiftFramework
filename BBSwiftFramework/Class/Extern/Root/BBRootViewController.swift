@@ -96,6 +96,11 @@ class BBRootViewController: UIViewController {
         setRightBarButtonItem(backItem)
     }
 
+    // MARK: 添加按钮
+    func setAddBarButtonWithTarget(target: AnyObject?, action: Selector) {
+        let backItem:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_add_normal"), style: UIBarButtonItemStyle.Plain, target: target, action: action)
+        setRightBarButtonItem(backItem)
+    }
 
     // MARK: 右边文字按钮
     func setRightBarButtonWithTitle(title: String, target: AnyObject?, action: Selector) {
