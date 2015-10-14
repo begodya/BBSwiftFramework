@@ -19,7 +19,7 @@ class BBStartViewController: BBRootViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.setCustomTitle("Just Start")
+        self.setCustomTitle("BB Swift 框架")
         
         self.setMoreBarButtonWithTarget(self, action: Selector("moreAction"))
         self.setInboxBarButtonWithTarget(self, action: Selector("inboxAction"))
@@ -36,11 +36,13 @@ class BBStartViewController: BBRootViewController {
     // MARK: 初始化
     
     func moreAction() {
-        
+        let alertController = BBAlertController().initWithMessage("响应左边按钮")
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func inboxAction() {
-        
+        let alertController = BBAlertController().initWithMessage("响应右边按钮")
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     // MARK: - --------------------手势事件--------------------
@@ -58,7 +60,7 @@ class BBStartViewController: BBRootViewController {
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView .dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-        let row=indexPath.row as Int
+        let row = indexPath.row as Int
         cell.textLabel!.text = self.items[row]
         return cell;
     }
@@ -71,10 +73,8 @@ class BBStartViewController: BBRootViewController {
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-//        let alertController = BBAlertController().initWithMessage("test")
-//        self.presentViewController(alertController, animated: true, completion: nil)
-        
-        BBH5ViewController().loadURL(NSURL(string: "http://www.baidu.com")!, title: "百度", fromViewController: self)
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        BBH5ViewController().loadURL(NSURL(string: "http://www.baidu.com")!, fromViewController: self)
     }
     
     // MARK: - --------------------属性相关--------------------
