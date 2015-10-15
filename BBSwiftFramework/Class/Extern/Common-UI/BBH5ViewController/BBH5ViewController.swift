@@ -51,15 +51,17 @@ class BBH5ViewController: BBRootViewController, UIWebViewDelegate {
     }
     
     func webViewDidStartLoad(webView: UIWebView) {
-
+        BBLoadingView.setGif("Loading.gif")
+        BBLoadingView.show()
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
         self.setCustomTitle(webView.stringByEvaluatingJavaScriptFromString("document.title")!)
+        BBLoadingView.dismiss()
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-
+        BBLoadingView.dismiss()
     }
 
     

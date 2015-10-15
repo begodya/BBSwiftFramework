@@ -23,7 +23,14 @@ class BBAlertController: UIAlertController {
     }
     
     // MARK: - --------------------功能函数--------------------
-    // MARK: 初始化
+
+    // MARK: Singleton
+    class var sharedInstance : BBAlertController {
+        struct Manager {
+            static let instance : BBAlertController = BBAlertController ()
+        }
+        return Manager.instance
+    }
     
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释

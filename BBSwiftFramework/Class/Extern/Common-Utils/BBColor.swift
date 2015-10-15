@@ -9,24 +9,11 @@
 import UIKit
 
 class BBColor: NSObject {
-
-    // MARK: - 颜色接口
-    func titleColor() -> UIColor {
-        return colorWithHexString("000000", alpha: 1)
-    }
-
-    func detailColor() -> UIColor {
-        return colorWithHexString("646464", alpha: 1)
-    }
     
-    func redColor() -> UIColor {
-        return UIColor.redColor()
-    }
+    // MARK: - --------------------功能函数--------------------
     
-    
-    
-    // MARK: - Creates a UIColor from a Hex string.
-    private func colorWithHexString (hex: String, alpha: CGFloat) -> UIColor {
+    // MARK: Creates a UIColor from a Hex string.
+    @objc private class func colorWithHexString (hex: String, alpha: CGFloat) -> UIColor {
         var cString: String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercaseString
         
         if (cString.hasPrefix("#")) {
@@ -48,4 +35,22 @@ class BBColor: NSObject {
         
         return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: alpha)
     }
+
+    
+    
+    // MARK: - --------------------接口API--------------------
+    
+    // MARK: 颜色接口
+    func titleColor() -> UIColor {
+        return BBColor.colorWithHexString("000000", alpha: 1)
+    }
+
+    func detailColor() -> UIColor {
+        return BBColor.colorWithHexString("646464", alpha: 1)
+    }
+    
+    func redColor() -> UIColor {
+        return UIColor.redColor()
+    }
+    
 }

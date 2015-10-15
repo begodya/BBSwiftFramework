@@ -10,6 +10,11 @@ import UIKit
 
 class BBDevice: NSObject {
     
+    // MARK: - --------------------功能函数--------------------
+
+    
+    // MARK: - --------------------接口API--------------------
+    
     // MARK: - 获取设备版本号
     func iOSVersion() -> NSString {
         return UIDevice.currentDevice().systemVersion;
