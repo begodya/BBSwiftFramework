@@ -18,10 +18,10 @@ class BBDataSource: NSObject {
 
     // MARK: Singleton
     class var sharedInstance : BBDataSource {
-        struct Manager {
+        struct Static {
             static let instance : BBDataSource = BBDataSource()
         }
-        return Manager.instance
+        return Static.instance
     }
 
     class func initDataSource() {

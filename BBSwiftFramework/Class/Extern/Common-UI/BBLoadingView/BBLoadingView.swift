@@ -33,10 +33,10 @@ class BBLoadingView: BBRootView {
     
     // MARK: Singleton
     class var sharedInstance : BBLoadingView {
-        struct Manager {
+        struct Static {
             static let instance : BBLoadingView = BBLoadingView()
         }
-        return Manager.instance
+        return Static.instance
     }
     
     
