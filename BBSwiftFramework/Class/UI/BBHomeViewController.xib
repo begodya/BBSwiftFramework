@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBHomeViewController" customModule="BBSwiftFramework" customModuleProvider="target">
+            <connections>
+                <outlet property="contentTableView" destination="ZIp-cJ-Fbv" id="yhA-Ki-gtQ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZIp-cJ-Fbv" customClass="BBTableView" customModule="BBSwiftFramework" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="OoH-16-PzL"/>
+                        <outlet property="delegate" destination="-1" id="6ua-le-nZi"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ZIp-cJ-Fbv" secondAttribute="trailing" id="9UA-6Z-Zao"/>
+                <constraint firstAttribute="bottom" secondItem="ZIp-cJ-Fbv" secondAttribute="bottom" id="Fqs-QY-M2i"/>
+                <constraint firstItem="ZIp-cJ-Fbv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Xyw-ta-Svd"/>
+                <constraint firstItem="ZIp-cJ-Fbv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cdI-zd-VbW"/>
+            </constraints>
+            <point key="canvasLocation" x="173" y="333"/>
+        </view>
+    </objects>
+</document>

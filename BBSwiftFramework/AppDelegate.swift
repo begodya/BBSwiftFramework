@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setupStartViewController() {
-        self.window!.rootViewController = BBNavigationController(rootViewController: BBStartViewController())
+        self.window!.rootViewController = BBNavigationController(rootViewController: BBHomeViewController())
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
     }

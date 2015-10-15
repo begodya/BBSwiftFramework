@@ -14,8 +14,6 @@
 		3B561DB61BBB84BF000CAC0E /* BBSwiftFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DB51BBB84BF000CAC0E /* BBSwiftFrameworkTests.swift */; };
 		3B561DC11BBB84BF000CAC0E /* BBSwiftFrameworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DC01BBB84BF000CAC0E /* BBSwiftFrameworkUITests.swift */; };
 		3B561DD91BBB8794000CAC0E /* BBRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DD81BBB8794000CAC0E /* BBRootViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3B561DE01BBB8F51000CAC0E /* BBStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DDE1BBB8F51000CAC0E /* BBStartViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3B561DE11BBB8F51000CAC0E /* BBStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DDF1BBB8F51000CAC0E /* BBStartViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		3B561DE31BBBB37A000CAC0E /* BBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DE21BBBB37A000CAC0E /* BBFont.swift */; settings = {ASSET_TAGS = (); }; };
 		3B561DE51BBBBFB5000CAC0E /* BBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DE41BBBBFB5000CAC0E /* BBColor.swift */; settings = {ASSET_TAGS = (); }; };
 		3B561DE71BBBC3CF000CAC0E /* BBDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DE61BBBC3CF000CAC0E /* BBDevice.swift */; settings = {ASSET_TAGS = (); }; };
@@ -45,6 +43,15 @@
 		3BD069941BCE667200E656FC /* BBNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069931BCE667200E656FC /* BBNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
 		3BD069971BCF838700E656FC /* BBDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069961BCF838700E656FC /* BBDataSource.swift */; settings = {ASSET_TAGS = (); }; };
 		3BD0699D1BCFABEC00E656FC /* TrendSansOne.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3BD0699C1BCFABEC00E656FC /* TrendSansOne.otf */; settings = {ASSET_TAGS = (); }; };
+		3BD069A61BCFB5E200E656FC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069A11BCFB5E200E656FC /* Menu.swift */; settings = {ASSET_TAGS = (); }; };
+		3BD069A71BCFB5E200E656FC /* MenuItemsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069A21BCFB5E200E656FC /* MenuItemsAnimator.swift */; settings = {ASSET_TAGS = (); }; };
+		3BD069A81BCFB5E200E656FC /* MenuSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069A31BCFB5E200E656FC /* MenuSegue.swift */; settings = {ASSET_TAGS = (); }; };
+		3BD069A91BCFB5E200E656FC /* MenuTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069A41BCFB5E200E656FC /* MenuTransitionAnimator.swift */; settings = {ASSET_TAGS = (); }; };
+		3BD069AE1BCFB61A00E656FC /* AnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069AB1BCFB61A00E656FC /* AnimationDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		3BD069AF1BCFB61A00E656FC /* CircularRevealAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069AC1BCFB61A00E656FC /* CircularRevealAnimator.swift */; settings = {ASSET_TAGS = (); }; };
+		3BD069B01BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069AD1BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift */; settings = {ASSET_TAGS = (); }; };
+		3BD069B31BCFB69600E656FC /* BBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069B11BCFB69600E656FC /* BBHomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3BD069B41BCFB69600E656FC /* BBHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD069B21BCFB69600E656FC /* BBHomeViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		48701F323AAEE95CFF9F98C4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E603B474DBC094241CCA26 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,8 +87,6 @@
 		3B561DC01BBB84BF000CAC0E /* BBSwiftFrameworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBSwiftFrameworkUITests.swift; sourceTree = "<group>"; };
 		3B561DC21BBB84BF000CAC0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B561DD81BBB8794000CAC0E /* BBRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBRootViewController.swift; sourceTree = "<group>"; };
-		3B561DDE1BBB8F51000CAC0E /* BBStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBStartViewController.swift; sourceTree = "<group>"; };
-		3B561DDF1BBB8F51000CAC0E /* BBStartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBStartViewController.xib; sourceTree = "<group>"; };
 		3B561DE21BBBB37A000CAC0E /* BBFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBFont.swift; sourceTree = "<group>"; };
 		3B561DE41BBBBFB5000CAC0E /* BBColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBColor.swift; sourceTree = "<group>"; };
 		3B561DE61BBBC3CF000CAC0E /* BBDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDevice.swift; sourceTree = "<group>"; };
@@ -111,6 +116,16 @@
 		3BD069931BCE667200E656FC /* BBNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNavigationController.swift; sourceTree = "<group>"; };
 		3BD069961BCF838700E656FC /* BBDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDataSource.swift; sourceTree = "<group>"; };
 		3BD0699C1BCFABEC00E656FC /* TrendSansOne.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TrendSansOne.otf; sourceTree = "<group>"; };
+		3BD069A11BCFB5E200E656FC /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		3BD069A21BCFB5E200E656FC /* MenuItemsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsAnimator.swift; sourceTree = "<group>"; };
+		3BD069A31BCFB5E200E656FC /* MenuSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSegue.swift; sourceTree = "<group>"; };
+		3BD069A41BCFB5E200E656FC /* MenuTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTransitionAnimator.swift; sourceTree = "<group>"; };
+		3BD069A51BCFB5E200E656FC /* SideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenu.h; sourceTree = "<group>"; };
+		3BD069AB1BCFB61A00E656FC /* AnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationDelegate.swift; sourceTree = "<group>"; };
+		3BD069AC1BCFB61A00E656FC /* CircularRevealAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealAnimator.swift; sourceTree = "<group>"; };
+		3BD069AD1BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealTransitionAnimator.swift; sourceTree = "<group>"; };
+		3BD069B11BCFB69600E656FC /* BBHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeViewController.swift; sourceTree = "<group>"; };
+		3BD069B21BCFB69600E656FC /* BBHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeViewController.xib; sourceTree = "<group>"; };
 		3BDF6E44726604B2B09C0CAC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3DD08952C6213AF686BFE229 /* Pods-BBSwiftFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBSwiftFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBSwiftFramework/Pods-BBSwiftFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		63E603B474DBC094241CCA26 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +244,7 @@
 		3B561DD01BBB866D000CAC0E /* 3rdParty */ = {
 			isa = PBXGroup;
 			children = (
+				3BD069A01BCFB5E200E656FC /* SideMenu */,
 			);
 			path = 3rdParty;
 			sourceTree = "<group>";
@@ -276,8 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				3BD069951BCF834700E656FC /* Extern */,
-				3B561DDE1BBB8F51000CAC0E /* BBStartViewController.swift */,
-				3B561DDF1BBB8F51000CAC0E /* BBStartViewController.xib */,
+				3BD069B11BCFB69600E656FC /* BBHomeViewController.swift */,
+				3BD069B21BCFB69600E656FC /* BBHomeViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -395,6 +411,29 @@
 				3BD0699C1BCFABEC00E656FC /* TrendSansOne.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3BD069A01BCFB5E200E656FC /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3BD069AA1BCFB61A00E656FC /* Misc */,
+				3BD069A11BCFB5E200E656FC /* Menu.swift */,
+				3BD069A21BCFB5E200E656FC /* MenuItemsAnimator.swift */,
+				3BD069A31BCFB5E200E656FC /* MenuSegue.swift */,
+				3BD069A41BCFB5E200E656FC /* MenuTransitionAnimator.swift */,
+				3BD069A51BCFB5E200E656FC /* SideMenu.h */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		3BD069AA1BCFB61A00E656FC /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				3BD069AB1BCFB61A00E656FC /* AnimationDelegate.swift */,
+				3BD069AC1BCFB61A00E656FC /* CircularRevealAnimator.swift */,
+				3BD069AD1BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		D9CF1F8599590A98F4286CC7 /* Pods */ = {
@@ -516,6 +555,7 @@
 			files = (
 				3B87B4301BCDF04E00890E2B /* btn_add_normal@2x.png in Resources */,
 				3B87B4331BCDF04E00890E2B /* btn_back_arrow@3x.png in Resources */,
+				3BD069B41BCFB69600E656FC /* BBHomeViewController.xib in Resources */,
 				3B87B43D1BCDF04E00890E2B /* btn_more_normal@3x.png in Resources */,
 				3BD069921BCE4D0100E656FC /* Loading.gif in Resources */,
 				3BBB680B1BC6125A0011ED71 /* BBTableViewCell.xib in Resources */,
@@ -528,7 +568,6 @@
 				3B561DA61BBB84BF000CAC0E /* Main.storyboard in Resources */,
 				3B87B43B1BCDF04E00890E2B /* btn_inbox_normal@3x.png in Resources */,
 				3B87B4371BCDF04E00890E2B /* btn_close_cross@3x.png in Resources */,
-				3B561DE11BBB8F51000CAC0E /* BBStartViewController.xib in Resources */,
 				3B87B4361BCDF04E00890E2B /* btn_close_cross@2x.png in Resources */,
 				3B87B43A1BCDF04E00890E2B /* btn_inbox_normal@2x.png in Resources */,
 				3B87B4311BCDF04E00890E2B /* btn_add_normal@3x.png in Resources */,
@@ -607,21 +646,28 @@
 				3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */,
 				3B561DE31BBBB37A000CAC0E /* BBFont.swift in Sources */,
 				3BD0698E1BCE4AF100E656FC /* GIFImage.swift in Sources */,
+				3BD069B31BCFB69600E656FC /* BBHomeViewController.swift in Sources */,
 				3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */,
 				3BD0698C1BCE499D00E656FC /* BBLoadingView.swift in Sources */,
 				3BD069971BCF838700E656FC /* BBDataSource.swift in Sources */,
 				3BBB680A1BC6125A0011ED71 /* BBTableViewCell.swift in Sources */,
 				3BD069941BCE667200E656FC /* BBNavigationController.swift in Sources */,
+				3BD069A91BCFB5E200E656FC /* MenuTransitionAnimator.swift in Sources */,
 				3B561DA11BBB84BF000CAC0E /* AppDelegate.swift in Sources */,
 				3B561DE71BBBC3CF000CAC0E /* BBDevice.swift in Sources */,
 				3BBB68051BC60CC60011ED71 /* BBTableView.swift in Sources */,
+				3BD069A61BCFB5E200E656FC /* Menu.swift in Sources */,
+				3BD069AE1BCFB61A00E656FC /* AnimationDelegate.swift in Sources */,
 				3BBB680E1BC6402E0011ED71 /* BBAlertController.swift in Sources */,
 				3B561DE51BBBBFB5000CAC0E /* BBColor.swift in Sources */,
 				3B561DD91BBB8794000CAC0E /* BBRootViewController.swift in Sources */,
+				3BD069A81BCFB5E200E656FC /* MenuSegue.swift in Sources */,
+				3BD069B01BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift in Sources */,
 				3B561DF41BBBE72F000CAC0E /* String.swift in Sources */,
+				3BD069A71BCFB5E200E656FC /* MenuItemsAnimator.swift in Sources */,
 				3BBB68071BC60D480011ED71 /* BBRootView.swift in Sources */,
 				3BD069901BCE4BA300E656FC /* UIImageView.swift in Sources */,
-				3B561DE01BBB8F51000CAC0E /* BBStartViewController.swift in Sources */,
+				3BD069AF1BCFB61A00E656FC /* CircularRevealAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

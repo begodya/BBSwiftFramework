@@ -1,5 +1,5 @@
 //
-//  BBStartViewController.swift
+//  BBHomeViewController.swift
 //  BBSwiftFramework
 //
 //  Created by Bei Wang on 9/30/15.
@@ -9,8 +9,8 @@
 import UIKit
 import Alamofire
 
-class BBStartViewController: BBRootViewController {
-    
+class BBHomeViewController: BBRootViewController {
+
     @IBOutlet weak var contentTableView: BBTableView!
     var items = ["武汉","上海","北京","深圳","广州","重庆","香港","台海","天津"]
     
@@ -32,7 +32,7 @@ class BBStartViewController: BBRootViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-        
+    
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
     
@@ -45,28 +45,28 @@ class BBStartViewController: BBRootViewController {
         BBLoadingView.showWithOverlay()
         
         // Alamofire Service
-//        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
-//            .response { request, response, data, error in
-//                print(request)
-//                print(response)
-//                print(data)
-//                print(error)
-//                
-//                BBLoadingView.dismiss()
-//        }
-
-
+        //        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
+        //            .response { request, response, data, error in
+        //                print(request)
+        //                print(response)
+        //                print(data)
+        //                print(error)
+        //
+        //                BBLoadingView.dismiss()
+        //        }
         
-//        let user = "user"
-//        let password = "password"
-//        
-//        Alamofire.request(.GET, "https://httpbin.org/basic-auth/\(user)/\(password)")
-//            .authenticate(user: user, password: password)
-//            .responseJSON { response in
-//                debugPrint(response)
-//                
-//                BBLoadingView.dismiss()
-//        }
+        
+        
+        //        let user = "user"
+        //        let password = "password"
+        //
+        //        Alamofire.request(.GET, "https://httpbin.org/basic-auth/\(user)/\(password)")
+        //            .authenticate(user: user, password: password)
+        //            .responseJSON { response in
+        //                debugPrint(response)
+        //
+        //                BBLoadingView.dismiss()
+        //        }
         
         Alamofire.request(.GET, "https://api.500px.com/v1/photos").responseJSON { response in
             debugPrint(response)
@@ -93,7 +93,7 @@ class BBStartViewController: BBRootViewController {
     }
     
     // MARK: - --------------------代理方法--------------------
-
+    
     // MARK: - UITableView Delegate
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
@@ -104,7 +104,7 @@ class BBStartViewController: BBRootViewController {
         cell.textLabel!.text = self.items[indexPath.row as Int]
         return cell;
     }
-
+    
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         self.items.removeAtIndex(indexPath.row as Int)
         self.contentTableView?.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
