@@ -25,6 +25,12 @@ class BBH5ViewController: BBRootViewController, UIWebViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        BBLoadingView.dismiss()
+    }
+    
     // MARK: - --------------------功能函数--------------------
     private func initWithURL(url: NSURL) -> BBH5ViewController{
         h5WebView = BBH5WebView(frame:CGRectMake(0, 0, BBDevice.deviceWidth(), BBDevice.deviceHeight()))
