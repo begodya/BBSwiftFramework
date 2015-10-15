@@ -20,7 +20,7 @@ class BBStartViewController: BBRootViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.setCustomTitle("BB Swift 框架")
+        self.setCustomTitle("BB Swift")
         
         self.setMoreBarButtonWithTarget(self, action: Selector("clickedMoreAction"))
         self.setInboxBarButtonWithTarget(self, action: Selector("clickedInboxAction"))

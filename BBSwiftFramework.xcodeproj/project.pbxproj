@@ -44,6 +44,7 @@
 		3BD069921BCE4D0100E656FC /* Loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3BD069911BCE4D0100E656FC /* Loading.gif */; settings = {ASSET_TAGS = (); }; };
 		3BD069941BCE667200E656FC /* BBNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069931BCE667200E656FC /* BBNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
 		3BD069971BCF838700E656FC /* BBDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069961BCF838700E656FC /* BBDataSource.swift */; settings = {ASSET_TAGS = (); }; };
+		3BD0699D1BCFABEC00E656FC /* TrendSansOne.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3BD0699C1BCFABEC00E656FC /* TrendSansOne.otf */; settings = {ASSET_TAGS = (); }; };
 		48701F323AAEE95CFF9F98C4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E603B474DBC094241CCA26 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,7 @@
 		3BD069911BCE4D0100E656FC /* Loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loading.gif; sourceTree = "<group>"; };
 		3BD069931BCE667200E656FC /* BBNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNavigationController.swift; sourceTree = "<group>"; };
 		3BD069961BCF838700E656FC /* BBDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDataSource.swift; sourceTree = "<group>"; };
+		3BD0699C1BCFABEC00E656FC /* TrendSansOne.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TrendSansOne.otf; sourceTree = "<group>"; };
 		3BDF6E44726604B2B09C0CAC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3DD08952C6213AF686BFE229 /* Pods-BBSwiftFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBSwiftFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBSwiftFramework/Pods-BBSwiftFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		63E603B474DBC094241CCA26 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,9 +183,6 @@
 				3BD069891BCE484F00E656FC /* Supporting Files */,
 				3B561DD61BBB866D000CAC0E /* Resources */,
 				3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */,
-				3B561DA41BBB84BF000CAC0E /* Main.storyboard */,
-				3B561DA71BBB84BF000CAC0E /* Assets.xcassets */,
-				3B561DA91BBB84BF000CAC0E /* LaunchScreen.storyboard */,
 			);
 			path = BBSwiftFramework;
 			sourceTree = "<group>";
@@ -286,6 +285,7 @@
 		3B561DD61BBB866D000CAC0E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3BD0699B1BCFABEC00E656FC /* Fonts */,
 				3B87B4201BCDF04E00890E2B /* Images */,
 			);
 			path = Resources;
@@ -363,6 +363,9 @@
 		3BD069891BCE484F00E656FC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3B561DA41BBB84BF000CAC0E /* Main.storyboard */,
+				3B561DA71BBB84BF000CAC0E /* Assets.xcassets */,
+				3B561DA91BBB84BF000CAC0E /* LaunchScreen.storyboard */,
 				3B561DAC1BBB84BF000CAC0E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -384,6 +387,14 @@
 				3BD069961BCF838700E656FC /* BBDataSource.swift */,
 			);
 			path = Extern;
+			sourceTree = "<group>";
+		};
+		3BD0699B1BCFABEC00E656FC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3BD0699C1BCFABEC00E656FC /* TrendSansOne.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		D9CF1F8599590A98F4286CC7 /* Pods */ = {
@@ -508,6 +519,7 @@
 				3B87B43D1BCDF04E00890E2B /* btn_more_normal@3x.png in Resources */,
 				3BD069921BCE4D0100E656FC /* Loading.gif in Resources */,
 				3BBB680B1BC6125A0011ED71 /* BBTableViewCell.xib in Resources */,
+				3BD0699D1BCFABEC00E656FC /* TrendSansOne.otf in Resources */,
 				3B87B41F1BCCF4A400890E2B /* BBH5ViewController.xib in Resources */,
 				3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */,
 				3B87B43C1BCDF04E00890E2B /* btn_more_normal@2x.png in Resources */,

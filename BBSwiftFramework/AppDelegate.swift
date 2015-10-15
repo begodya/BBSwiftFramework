@@ -67,6 +67,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: 初始化
     private func initDataSource() {
         BBDataSource.initDataSource()
+        
+        setupNavigationBarAppearance()
+    }
+    
+    private func setupNavigationBarAppearance() {
+        let appearance = UINavigationBar.appearance()
+        appearance.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "TrendSansOne", size: 20)!,
+            NSForegroundColorAttributeName: BBColor.titleColor()
+        ]
     }
     
     private func registerNotification() {

@@ -32,7 +32,6 @@ public let ErrorUnsupportedType: Int! = 999
 public let ErrorIndexOutOfBounds: Int! = 900
 public let ErrorWrongType: Int! = 901
 public let ErrorNotExist: Int! = 500
-public let ErrorInvalidJSON: Int! = 490
 
 // MARK: - JSON Type
 
@@ -102,9 +101,9 @@ public struct JSON {
     /**
     Creates a JSON from a [String: JSON]
     
-    - parameter jsonDictionary: A Swift dictionary of JSON objects
+    :param: jsonDictionary A Swift dictionary of JSON objects
     
-    - returns: The created JSON
+    :returns: The created JSON
     */
     public init(_ jsonDictionary:[String: JSON]) {
         var dictionary = [String: AnyObject]()
@@ -611,10 +610,6 @@ extension JSON: Swift.RawRepresentable {
     }
     
     public func rawData(options opt: NSJSONWritingOptions = NSJSONWritingOptions(rawValue: 0)) throws -> NSData {
-        guard NSJSONSerialization.isValidJSONObject(self.object) else {
-            throw NSError(domain: ErrorDomain, code: ErrorInvalidJSON, userInfo: [NSLocalizedDescriptionKey: "JSON is invalid"])
-        }
-        
         return try NSJSONSerialization.dataWithJSONObject(self.object, options: opt)
     }
     
@@ -847,11 +842,13 @@ extension JSON {
         get {
             switch self.type {
             case .String:
-                let decimal = NSDecimalNumber(string: self.object as? String)
-                if decimal == NSDecimalNumber.notANumber() {  // indicates parse error
-                    return NSDecimalNumber.zero()
+                let scanner = NSScanner(string: self.object as! String)
+                if scanner.scanDouble(nil){
+                    if (scanner.atEnd) {
+                        return NSNumber(double:(self.object as! NSString).doubleValue)
+                    }
                 }
-                return decimal
+                return NSNumber(double: 0.0)
             case .Number, .Bool:
                 return self.object as! NSNumber
             default:
@@ -879,12 +876,6 @@ extension JSON {
         set {
             self.object = NSNull()
         }
-    }
-    public func isExists() -> Bool{
-        if let errorValue = error where errorValue.code == ErrorNotExist{
-            return false
-        }
-        return true
     }
 }
 
@@ -1274,7 +1265,7 @@ private let falseObjCType = String.fromCString(falseNumber.objCType)
 
 // MARK: - NSNumber: Comparable
 
-extension NSNumber {
+extension NSNumber: Swift.Comparable {
     var isBool:Bool {
         get {
             let objCType = String.fromCString(self.objCType)
