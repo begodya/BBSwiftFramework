@@ -33,6 +33,18 @@ class BBStartViewController: BBRootViewController {
         // Dispose of any resources that can be recreated.
     }
     
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        self.navigationController!.interactivePopGestureRecognizer?.enabled = false
+//    }
+//    
+//    override func viewWillDisappear(animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        
+//        self.navigationController!.interactivePopGestureRecognizer?.enabled = true
+//    }
+    
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
     

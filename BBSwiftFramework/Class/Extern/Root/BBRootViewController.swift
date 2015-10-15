@@ -16,28 +16,24 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.setBackBarButtonWithTarget(self, action: Selector("backBarButtonAction"))
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.setBackBarButtonWithTarget(self, action: Selector("clickedBackBarButtonAction"))
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Enable gesture recognizers
-        if (self.navigationController!.respondsToSelector(Selector("interactivePopGestureRecognizer"))) {
-            self.navigationController?.delegate = self
-            self.navigationController!.interactivePopGestureRecognizer?.delegate = self;
-        }
+        self.navigationController?.delegate = self
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
+
         self.navigationController?.delegate = nil
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - --------------------功能函数--------------------
@@ -56,7 +52,7 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
     // MARK: - --------------------按钮事件--------------------
     // MARK: 按钮点击函数注释
     
-    func backBarButtonAction() {
+    func clickedBackBarButtonAction() {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
