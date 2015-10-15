@@ -11,6 +11,7 @@ import UIKit
 class BBH5ViewController: BBRootViewController, UIWebViewDelegate {
     
     var h5WebView: BBH5WebView!
+    
     // MARK: - --------------------System--------------------
     
     override func viewDidLoad() {
@@ -25,13 +26,14 @@ class BBH5ViewController: BBRootViewController, UIWebViewDelegate {
     }
     
     // MARK: - --------------------功能函数--------------------
-    func initWithURL(url: NSURL) -> BBH5ViewController{
+    private func initWithURL(url: NSURL) -> BBH5ViewController{
         h5WebView = BBH5WebView(frame:CGRectMake(0, 0, BBDevice.deviceWidth(), BBDevice.deviceHeight()))
         local { () -> () in
             self.h5WebView.autoresizesSubviews = true
             self.h5WebView.scalesPageToFit = true
             self.h5WebView.loadRequest(NSURLRequest(URL: url))
             self.h5WebView.delegate = self
+            
             self.view.addSubview(self.h5WebView)
         }
         

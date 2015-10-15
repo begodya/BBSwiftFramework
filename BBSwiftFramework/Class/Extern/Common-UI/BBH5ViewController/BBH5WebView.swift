@@ -9,8 +9,6 @@
 import UIKit
 
 class BBH5WebView: UIWebView {
-
-    var mDelegate: UIWebViewDelegate!
     
     // MARK: - --------------------System--------------------
     
@@ -25,28 +23,28 @@ class BBH5WebView: UIWebView {
     
     // MARK: - --------------------代理方法--------------------
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if (self.mDelegate.respondsToSelector(Selector("webView: request: navigationType:"))) {
-            return self.mDelegate.webView!(webView, shouldStartLoadWithRequest: request, navigationType: navigationType)
+        if (self.delegate!.respondsToSelector(Selector("webView: request: navigationType:"))) {
+            return self.delegate!.webView!(webView, shouldStartLoadWithRequest: request, navigationType: navigationType)
         }
         
         return true
     }
     
     func webViewDidStartLoad(webView: UIWebView) {
-        if (self.mDelegate.respondsToSelector(Selector("webViewDidStartLoad:"))) {
-            self.mDelegate.webViewDidFinishLoad!(webView)
+        if (self.delegate!.respondsToSelector(Selector("webViewDidStartLoad:"))) {
+            self.delegate!.webViewDidFinishLoad!(webView)
         }
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        if (self.mDelegate.respondsToSelector(Selector("webViewDidFinishLoad:"))) {
-            self.mDelegate.webViewDidFinishLoad!(webView)
+        if (self.delegate!.respondsToSelector(Selector("webViewDidFinishLoad:"))) {
+            self.delegate!.webViewDidFinishLoad!(webView)
         }
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        if (self.mDelegate.respondsToSelector(Selector("webView: didFailLoadWithError:"))) {
-            self.mDelegate.webView!(webView, didFailLoadWithError: error)
+        if (self.delegate!.respondsToSelector(Selector("webView: didFailLoadWithError:"))) {
+            self.delegate!.webView!(webView, didFailLoadWithError: error)
         }
     }
     
