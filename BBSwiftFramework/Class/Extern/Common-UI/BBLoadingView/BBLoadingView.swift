@@ -33,10 +33,10 @@ class BBLoadingView: BBRootView {
     
     // MARK: Singleton
     class var sharedInstance : BBLoadingView {
-        struct Static {
+        struct Manager {
             static let instance : BBLoadingView = BBLoadingView ()
         }
-        return Static.instance
+        return Manager.instance
     }
     
     
@@ -101,22 +101,22 @@ class BBLoadingView: BBRootView {
     }
     
     func fadeOut () {
-        UIView.animateWithDuration(FadeDuration, animations: {
+        UIView.animateWithDuration(FadeDuration, animations: { () -> Void in
             self.alpha = 0
-            }, completion: { (complete) in
+            }) { (Bool) -> Void in
                 self.shown = false
                 self.imageView?.stopAnimatingGif()
-        })
+        }
     }
     
     func fadeOut (completed: ()->Void) {
-        UIView.animateWithDuration(FadeDuration, animations: {
+        UIView.animateWithDuration(FadeDuration, animations: { () -> Void in
             self.alpha = 0
-            }, completion: { (complete) in
+            }) { (Bool) -> Void in
                 self.shown = false
                 self.imageView?.stopAnimatingGif()
                 completed ()
-        })
+        }
     }
     
     func overlay () -> UIView {
