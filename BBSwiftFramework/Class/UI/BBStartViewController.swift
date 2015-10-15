@@ -113,7 +113,7 @@ class BBStartViewController: BBRootViewController {
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        BBH5ViewController().loadURL(NSURL(string: "http://www.baidu.com")!, fromViewController: self)
+        BBH5ViewController().loadURL(NSURL(string: "https://github.com/")!, fromViewController: self)
     }
     
     // MARK: - --------------------属性相关--------------------
