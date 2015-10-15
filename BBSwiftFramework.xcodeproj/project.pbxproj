@@ -41,7 +41,6 @@
 		3BD069901BCE4BA300E656FC /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0698F1BCE4BA300E656FC /* UIImageView.swift */; settings = {ASSET_TAGS = (); }; };
 		3BD069921BCE4D0100E656FC /* Loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3BD069911BCE4D0100E656FC /* Loading.gif */; settings = {ASSET_TAGS = (); }; };
 		3BD069941BCE667200E656FC /* BBNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069931BCE667200E656FC /* BBNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
-		3BD069971BCF838700E656FC /* BBDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069961BCF838700E656FC /* BBDataSource.swift */; settings = {ASSET_TAGS = (); }; };
 		3BD0699D1BCFABEC00E656FC /* TrendSansOne.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3BD0699C1BCFABEC00E656FC /* TrendSansOne.otf */; settings = {ASSET_TAGS = (); }; };
 		3BD069A61BCFB5E200E656FC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069A11BCFB5E200E656FC /* Menu.swift */; settings = {ASSET_TAGS = (); }; };
 		3BD069A71BCFB5E200E656FC /* MenuItemsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069A21BCFB5E200E656FC /* MenuItemsAnimator.swift */; settings = {ASSET_TAGS = (); }; };
@@ -52,6 +51,9 @@
 		3BD069B01BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069AD1BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift */; settings = {ASSET_TAGS = (); }; };
 		3BD069B31BCFB69600E656FC /* BBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069B11BCFB69600E656FC /* BBHomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		3BD069B41BCFB69600E656FC /* BBHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD069B21BCFB69600E656FC /* BBHomeViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		3BD069BE1BCFB81A00E656FC /* BBDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069BA1BCFB81A00E656FC /* BBDataSource.swift */; settings = {ASSET_TAGS = (); }; };
+		3BD069BF1BCFB81A00E656FC /* BBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069BC1BCFB81A00E656FC /* BBMenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3BD069C01BCFB81A00E656FC /* BBMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD069BD1BCFB81A00E656FC /* BBMenuViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		48701F323AAEE95CFF9F98C4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E603B474DBC094241CCA26 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,7 +116,6 @@
 		3BD0698F1BCE4BA300E656FC /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		3BD069911BCE4D0100E656FC /* Loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loading.gif; sourceTree = "<group>"; };
 		3BD069931BCE667200E656FC /* BBNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNavigationController.swift; sourceTree = "<group>"; };
-		3BD069961BCF838700E656FC /* BBDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDataSource.swift; sourceTree = "<group>"; };
 		3BD0699C1BCFABEC00E656FC /* TrendSansOne.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TrendSansOne.otf; sourceTree = "<group>"; };
 		3BD069A11BCFB5E200E656FC /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		3BD069A21BCFB5E200E656FC /* MenuItemsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsAnimator.swift; sourceTree = "<group>"; };
@@ -126,6 +127,9 @@
 		3BD069AD1BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealTransitionAnimator.swift; sourceTree = "<group>"; };
 		3BD069B11BCFB69600E656FC /* BBHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeViewController.swift; sourceTree = "<group>"; };
 		3BD069B21BCFB69600E656FC /* BBHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeViewController.xib; sourceTree = "<group>"; };
+		3BD069BA1BCFB81A00E656FC /* BBDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDataSource.swift; sourceTree = "<group>"; };
+		3BD069BC1BCFB81A00E656FC /* BBMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBMenuViewController.swift; sourceTree = "<group>"; };
+		3BD069BD1BCFB81A00E656FC /* BBMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuViewController.xib; sourceTree = "<group>"; };
 		3BDF6E44726604B2B09C0CAC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3DD08952C6213AF686BFE229 /* Pods-BBSwiftFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBSwiftFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBSwiftFramework/Pods-BBSwiftFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		63E603B474DBC094241CCA26 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -400,7 +404,8 @@
 		3BD069951BCF834700E656FC /* Extern */ = {
 			isa = PBXGroup;
 			children = (
-				3BD069961BCF838700E656FC /* BBDataSource.swift */,
+				3BD069B91BCFB81A00E656FC /* DataSource */,
+				3BD069BB1BCFB81A00E656FC /* Menu */,
 			);
 			path = Extern;
 			sourceTree = "<group>";
@@ -434,6 +439,23 @@
 				3BD069AD1BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		3BD069B91BCFB81A00E656FC /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				3BD069BA1BCFB81A00E656FC /* BBDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		3BD069BB1BCFB81A00E656FC /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				3BD069BC1BCFB81A00E656FC /* BBMenuViewController.swift */,
+				3BD069BD1BCFB81A00E656FC /* BBMenuViewController.xib */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		D9CF1F8599590A98F4286CC7 /* Pods */ = {
@@ -555,6 +577,7 @@
 			files = (
 				3B87B4301BCDF04E00890E2B /* btn_add_normal@2x.png in Resources */,
 				3B87B4331BCDF04E00890E2B /* btn_back_arrow@3x.png in Resources */,
+				3BD069C01BCFB81A00E656FC /* BBMenuViewController.xib in Resources */,
 				3BD069B41BCFB69600E656FC /* BBHomeViewController.xib in Resources */,
 				3B87B43D1BCDF04E00890E2B /* btn_more_normal@3x.png in Resources */,
 				3BD069921BCE4D0100E656FC /* Loading.gif in Resources */,
@@ -646,10 +669,11 @@
 				3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */,
 				3B561DE31BBBB37A000CAC0E /* BBFont.swift in Sources */,
 				3BD0698E1BCE4AF100E656FC /* GIFImage.swift in Sources */,
+				3BD069BF1BCFB81A00E656FC /* BBMenuViewController.swift in Sources */,
 				3BD069B31BCFB69600E656FC /* BBHomeViewController.swift in Sources */,
 				3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */,
+				3BD069BE1BCFB81A00E656FC /* BBDataSource.swift in Sources */,
 				3BD0698C1BCE499D00E656FC /* BBLoadingView.swift in Sources */,
-				3BD069971BCF838700E656FC /* BBDataSource.swift in Sources */,
 				3BBB680A1BC6125A0011ED71 /* BBTableViewCell.swift in Sources */,
 				3BD069941BCE667200E656FC /* BBNavigationController.swift in Sources */,
 				3BD069A91BCFB5E200E656FC /* MenuTransitionAnimator.swift in Sources */,
