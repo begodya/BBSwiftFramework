@@ -26,7 +26,7 @@ class BBDataSource: NSObject {
 
     class func initDataSource() {
         self.sharedInstance.version = BBDevice.appVersion()
-        self.sharedInstance.platform = "iOS"
+        self.sharedInstance.platform = BBDevice.deviceName()
     }
     
     // MARK: - --------------------功能函数--------------------

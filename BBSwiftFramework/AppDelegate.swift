@@ -70,12 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func registerNotification() {
-        if ((BBDevice.iOSVersion() as NSString).doubleValue >= 8.0) {
-            UIApplication.sharedApplication().registerForRemoteNotifications()
-            UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Badge, categories: nil))
-        } else {
-            UIApplication.sharedApplication().registerForRemoteNotificationTypes(UIRemoteNotificationType.Badge)
-        }
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+        UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Badge, categories: nil))
     }
     
     private func setupStartViewController() {
