@@ -23,14 +23,6 @@ class BBAlertController: UIAlertController {
     }
     
     // MARK: - --------------------功能函数--------------------
-
-    // MARK: Singleton
-    class var sharedInstance : BBAlertController {
-        struct Manager {
-            static let instance : BBAlertController = BBAlertController ()
-        }
-        return Manager.instance
-    }
     
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释
@@ -52,7 +44,7 @@ class BBAlertController: UIAlertController {
     *  @param message              内容体
     *  @return                     初始化好的弹出框
     */
-    func initWithMessage(message: String) -> BBAlertController {
+    class func initWithMessage(message: String) -> BBAlertController {
         let alertAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.Default, handler: nil)
         return self.initWithTitle("", message: message, alertAction: alertAction)
     }
@@ -63,7 +55,7 @@ class BBAlertController: UIAlertController {
     *  @param message              内容体
     *  @return                     初始化好的弹出框
     */
-    func initWithTitle(title: String, message: String, alertAction: UIAlertAction) -> BBAlertController {
+    class func initWithTitle(title: String, message: String, alertAction: UIAlertAction) -> BBAlertController {
         let alertController = BBAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(alertAction)
         return alertController
@@ -77,7 +69,7 @@ class BBAlertController: UIAlertController {
     *  @param otherAction          其他的按钮的动作
     *  @return                     初始化好的弹出框
     */
-    func initWithTitle(title: String, message: String, okAction: UIAlertAction, cancelAction: UIAlertAction) -> BBAlertController {
+    class func initWithTitle(title: String, message: String, okAction: UIAlertAction, cancelAction: UIAlertAction) -> BBAlertController {
         let alertController = BBAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)

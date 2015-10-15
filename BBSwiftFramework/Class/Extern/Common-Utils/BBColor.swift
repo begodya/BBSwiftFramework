@@ -41,15 +41,15 @@ class BBColor: NSObject {
     // MARK: - --------------------接口API--------------------
     
     // MARK: 颜色接口
-    func titleColor() -> UIColor {
+    class func titleColor() -> UIColor {
         return BBColor.colorWithHexString("000000", alpha: 1)
     }
 
-    func detailColor() -> UIColor {
+    class func detailColor() -> UIColor {
         return BBColor.colorWithHexString("646464", alpha: 1)
     }
     
-    func redColor() -> UIColor {
+    class func redColor() -> UIColor {
         return UIColor.redColor()
     }
     

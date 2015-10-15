@@ -16,7 +16,7 @@ class BBFont: NSObject {
     // MARK: - --------------------接口API--------------------
     
     // MAKR: - set custom font size
-    func customFontWithSize(size: CGFloat) -> UIFont {
+    class func customFontWithSize(size: CGFloat) -> UIFont {
         return UIFont.systemFontOfSize(size)
     }
 

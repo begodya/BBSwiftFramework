@@ -16,34 +16,34 @@ class BBDevice: NSObject {
     // MARK: - --------------------接口API--------------------
     
     // MARK: - 获取设备版本号
-    func iOSVersion() -> NSString {
+    class func iOSVersion() -> NSString {
         return UIDevice.currentDevice().systemVersion;
     }
 
     // MARK: - 获取设备型号
-    func deviceName() -> NSString {
+    class func deviceName() -> NSString {
         return UIDevice.currentDevice().systemName;
     }
     
     // MARK: - 获取App Version
-    func appVersion() -> NSString {
+    class func appVersion() -> NSString {
         let infoDict: NSDictionary = NSBundle.mainBundle().infoDictionary!
         return infoDict.objectForKey("CFBundleShortVersionString") as! String
     }
 
     // MARK: - 获取App Build
-    func appBuild() -> NSString {
+    class func appBuild() -> NSString {
         let infoDict: NSDictionary = NSBundle.mainBundle().infoDictionary!
         return infoDict.objectForKey("CFBundleVersion") as! String
     }
 
 
     // MARK: - 获取设备宽和高
-    func deviceWidth() -> CGFloat {
+    class func deviceWidth() -> CGFloat {
         return UIScreen.mainScreen().bounds.size.width
     }
     
-    func deviceHeight() -> CGFloat {
+    class func deviceHeight() -> CGFloat {
         return UIScreen.mainScreen().bounds.size.height
     }
 

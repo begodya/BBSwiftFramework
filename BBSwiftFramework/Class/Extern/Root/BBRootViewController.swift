@@ -78,13 +78,13 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
     func setCustomTitle(title: String) {
         self.title = title
         
-//        let titleLabel = UILabel(frame: CGRectMake(0, 0, BBDevice().deviceWidth(), kNavigationBarTitleViewMaxHeight))
+//        let titleLabel = UILabel(frame: CGRectMake(0, 0, BBDevice.deviceWidth(), kNavigationBarTitleViewMaxHeight))
 //        local { () -> () in
 //            titleLabel.textAlignment = NSTextAlignment.Center
-//            titleLabel.font = BBFont().customFontWithSize(17)
-//            titleLabel.textColor = BBColor().titleColor()
+//            titleLabel.font = BBFont.customFontWithSize(17)
+//            titleLabel.textColor = BBColor.titleColor()
 //            titleLabel.text = title as String
-//            titleLabel.backgroundColor = BBColor().redColor()
+//            titleLabel.backgroundColor = BBColor.redColor()
 //        }
 //        self.navigationItem.titleView = titleLabel
     }
