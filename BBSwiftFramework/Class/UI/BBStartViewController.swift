@@ -55,11 +55,15 @@ class BBStartViewController: BBRootViewController {
         
         BBLoadingView.setGif("Loading.gif")
         BBLoadingView.showWithOverlay()
+        
         // Alamofire Service
-        Alamofire.request(.GET, "http://httpbin.org/get")
-            .responseJSON { _, _, result in
-                print(result)
-                debugPrint(result)
+        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
+            .response { request, response, data, error in
+                print(request)
+                print(response)
+                print(data)
+                print(error)
+                
                 BBLoadingView.dismiss()
         }
     }
