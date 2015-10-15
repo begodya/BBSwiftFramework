@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3B561DA11BBB84BF000CAC0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */; };
-		3B561DA31BBB84BF000CAC0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DA21BBB84BF000CAC0E /* ViewController.swift */; };
 		3B561DA61BBB84BF000CAC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA41BBB84BF000CAC0E /* Main.storyboard */; };
 		3B561DA81BBB84BF000CAC0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA71BBB84BF000CAC0E /* Assets.xcassets */; };
 		3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA91BBB84BF000CAC0E /* LaunchScreen.storyboard */; };
@@ -69,7 +68,6 @@
 		0CC22567AC86C61B60D3D040 /* Pods_BBSwiftFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBSwiftFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B561D9D1BBB84BF000CAC0E /* BBSwiftFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBSwiftFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B561DA21BBB84BF000CAC0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3B561DA51BBB84BF000CAC0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B561DA71BBB84BF000CAC0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B561DAA1BBB84BF000CAC0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 				3BD069891BCE484F00E656FC /* Supporting Files */,
 				3B561DD61BBB866D000CAC0E /* Resources */,
 				3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */,
-				3B561DA21BBB84BF000CAC0E /* ViewController.swift */,
 				3B561DA41BBB84BF000CAC0E /* Main.storyboard */,
 				3B561DA71BBB84BF000CAC0E /* Assets.xcassets */,
 				3B561DA91BBB84BF000CAC0E /* LaunchScreen.storyboard */,
@@ -598,7 +595,6 @@
 				3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */,
 				3B561DE31BBBB37A000CAC0E /* BBFont.swift in Sources */,
 				3BD0698E1BCE4AF100E656FC /* GIFImage.swift in Sources */,
-				3B561DA31BBB84BF000CAC0E /* ViewController.swift in Sources */,
 				3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */,
 				3BD0698C1BCE499D00E656FC /* BBLoadingView.swift in Sources */,
 				3BD069971BCF838700E656FC /* BBDataSource.swift in Sources */,
