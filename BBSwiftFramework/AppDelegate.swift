@@ -13,12 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    // MARK: - --------------------System--------------------
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        // set up start view controller
+        // 1、Init Data Source
+        initDataSource()
+        // 2、Register Notification
+        registerNotification()
+        // 3、Set up start view controller
         setupStartViewController()
         
         return true
@@ -46,10 +51,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func setupStartViewController() {
+    // MARK: APNS
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        var token = deviceToken.description.stringByReplacingOccurrencesOfString("<", withString: "")
+        token = token.stringByReplacingOccurrencesOfString(">", withString: "")
+        BBDataSource.setDeviceToken(token)
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        let token = "eb51381f 775241e1 eed0b011 c85122f2 eefef75c e478f2e7 f4ddb363 171f0cdet";
+        BBDataSource.setDeviceToken(token)
+    }
+
+    // MARK: - --------------------功能函数--------------------
+    // MARK: 初始化
+    private func initDataSource() {
+        BBDataSource.initDataSource()
+    }
+    
+    private func registerNotification() {
+        if ((BBDevice.iOSVersion() as NSString).doubleValue >= 8.0) {
+            UIApplication.sharedApplication().registerForRemoteNotifications()
+            UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Badge, categories: nil))
+        } else {
+            UIApplication.sharedApplication().registerForRemoteNotificationTypes(UIRemoteNotificationType.Badge)
+        }
+    }
+    
+    private func setupStartViewController() {
         self.window!.rootViewController = BBNavigationController(rootViewController: BBStartViewController())
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
     }
+    
+    // MARK: - --------------------手势事件--------------------
+    // MARK: 各种手势处理函数注释
+    
+    // MARK: - --------------------按钮事件--------------------
+    // MARK: 按钮点击函数注释
+    
+    // MARK: - --------------------代理方法--------------------
+    // MARK: - 代理种类注释
+    // MARK: 代理函数注释
+    
+    // MARK: - --------------------属性相关--------------------
+    // MARK: 属性操作函数注释
+    
+    // MARK: - --------------------接口API--------------------
+    // MARK: 分块内接口函数注释
+    
 }
 

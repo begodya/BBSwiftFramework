@@ -16,23 +16,23 @@ class BBDevice: NSObject {
     // MARK: - --------------------接口API--------------------
     
     // MARK: - 获取设备版本号
-    class func iOSVersion() -> NSString {
+    class func iOSVersion() -> String {
         return UIDevice.currentDevice().systemVersion;
     }
 
     // MARK: - 获取设备型号
-    class func deviceName() -> NSString {
+    class func deviceName() -> String {
         return UIDevice.currentDevice().systemName;
     }
     
     // MARK: - 获取App Version
-    class func appVersion() -> NSString {
+    class func appVersion() -> String {
         let infoDict: NSDictionary = NSBundle.mainBundle().infoDictionary!
         return infoDict.objectForKey("CFBundleShortVersionString") as! String
     }
 
     // MARK: - 获取App Build
-    class func appBuild() -> NSString {
+    class func appBuild() -> String {
         let infoDict: NSDictionary = NSBundle.mainBundle().infoDictionary!
         return infoDict.objectForKey("CFBundleVersion") as! String
     }
