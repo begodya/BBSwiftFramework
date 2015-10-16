@@ -17,6 +17,8 @@
 		3B561DE51BBBBFB5000CAC0E /* BBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DE41BBBBFB5000CAC0E /* BBColor.swift */; settings = {ASSET_TAGS = (); }; };
 		3B561DE71BBBC3CF000CAC0E /* BBDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DE61BBBC3CF000CAC0E /* BBDevice.swift */; settings = {ASSET_TAGS = (); }; };
 		3B561DF41BBBE72F000CAC0E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DF31BBBE72F000CAC0E /* String.swift */; settings = {ASSET_TAGS = (); }; };
+		3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */; settings = {ASSET_TAGS = (); }; };
+		3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */; settings = {ASSET_TAGS = (); }; };
 		3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B41A1BCCECD900890E2B /* BBH5WebView.swift */; settings = {ASSET_TAGS = (); }; };
 		3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B41C1BCCF4A400890E2B /* BBH5ViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		3B87B41F1BCCF4A400890E2B /* BBH5ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B87B41D1BCCF4A400890E2B /* BBH5ViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -25,6 +27,7 @@
 		3BBB680A1BC6125A0011ED71 /* BBTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB68081BC6125A0011ED71 /* BBTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		3BBB680B1BC6125A0011ED71 /* BBTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BBB68091BC6125A0011ED71 /* BBTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		3BBB680E1BC6402E0011ED71 /* BBAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB680D1BC6402E0011ED71 /* BBAlertController.swift */; settings = {ASSET_TAGS = (); }; };
+		3BC853771BD0A094001CD7E3 /* BBMenuCellsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC853761BD0A094001CD7E3 /* BBMenuCellsModel.swift */; settings = {ASSET_TAGS = (); }; };
 		3BD0698C1BCE499D00E656FC /* BBLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0698B1BCE499D00E656FC /* BBLoadingView.swift */; settings = {ASSET_TAGS = (); }; };
 		3BD0698E1BCE4AF100E656FC /* GIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0698D1BCE4AF100E656FC /* GIFImage.swift */; settings = {ASSET_TAGS = (); }; };
 		3BD069901BCE4BA300E656FC /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0698F1BCE4BA300E656FC /* UIImageView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -82,6 +85,8 @@
 		3B561DE41BBBBFB5000CAC0E /* BBColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBColor.swift; sourceTree = "<group>"; };
 		3B561DE61BBBC3CF000CAC0E /* BBDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDevice.swift; sourceTree = "<group>"; };
 		3B561DF31BBBE72F000CAC0E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBMenuButtonCell.swift; sourceTree = "<group>"; };
+		3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuButtonCell.xib; sourceTree = "<group>"; };
 		3B87B41A1BCCECD900890E2B /* BBH5WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBH5WebView.swift; sourceTree = "<group>"; };
 		3B87B41C1BCCF4A400890E2B /* BBH5ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBH5ViewController.swift; sourceTree = "<group>"; };
 		3B87B41D1BCCF4A400890E2B /* BBH5ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBH5ViewController.xib; sourceTree = "<group>"; };
@@ -90,6 +95,7 @@
 		3BBB68081BC6125A0011ED71 /* BBTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBTableViewCell.swift; sourceTree = "<group>"; };
 		3BBB68091BC6125A0011ED71 /* BBTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBTableViewCell.xib; sourceTree = "<group>"; };
 		3BBB680D1BC6402E0011ED71 /* BBAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBAlertController.swift; sourceTree = "<group>"; };
+		3BC853761BD0A094001CD7E3 /* BBMenuCellsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBMenuCellsModel.swift; sourceTree = "<group>"; };
 		3BD0698B1BCE499D00E656FC /* BBLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBLoadingView.swift; sourceTree = "<group>"; };
 		3BD0698D1BCE4AF100E656FC /* GIFImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFImage.swift; sourceTree = "<group>"; };
 		3BD0698F1BCE4BA300E656FC /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -343,6 +349,23 @@
 			path = BBAlertController;
 			sourceTree = "<group>";
 		};
+		3BC853741BD0A04E001CD7E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3BC853761BD0A094001CD7E3 /* BBMenuCellsModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3BC853751BD0A04E001CD7E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */,
+				3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3BD069891BCE484F00E656FC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +437,8 @@
 		3BD069BB1BCFB81A00E656FC /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				3BC853741BD0A04E001CD7E3 /* ViewModel */,
+				3BC853751BD0A04E001CD7E3 /* Views */,
 				3BD069BC1BCFB81A00E656FC /* BBMenuViewController.swift */,
 				3BD069BD1BCFB81A00E656FC /* BBMenuViewController.xib */,
 			);
@@ -543,6 +568,7 @@
 				3BD069921BCE4D0100E656FC /* Loading.gif in Resources */,
 				3BBB680B1BC6125A0011ED71 /* BBTableViewCell.xib in Resources */,
 				3BD0699D1BCFABEC00E656FC /* TrendSansOne.otf in Resources */,
+				3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */,
 				3B87B41F1BCCF4A400890E2B /* BBH5ViewController.xib in Resources */,
 				3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */,
 				3B561DA61BBB84BF000CAC0E /* Main.storyboard in Resources */,
@@ -622,7 +648,9 @@
 				3B561DE31BBBB37A000CAC0E /* BBFont.swift in Sources */,
 				3BD0698E1BCE4AF100E656FC /* GIFImage.swift in Sources */,
 				3BD069BF1BCFB81A00E656FC /* BBMenuViewController.swift in Sources */,
+				3BC853771BD0A094001CD7E3 /* BBMenuCellsModel.swift in Sources */,
 				3BD069B31BCFB69600E656FC /* BBHomeViewController.swift in Sources */,
+				3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */,
 				3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */,
 				3BD069BE1BCFB81A00E656FC /* BBDataSource.swift in Sources */,
 				3BD0698C1BCE499D00E656FC /* BBLoadingView.swift in Sources */,

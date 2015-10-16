@@ -8,7 +8,18 @@
 
 import UIKit
 
+//protocol BBMenuViewControllerDelegate: class {
+//    func menu(menu: BBMenuViewController, didSelectItemAtIndex index: Int, atPoint point: CGPoint)
+//    func menuDidCancel(menu: BBMenuViewController)
+//}
+
+
 class BBMenuViewController: BBRootViewController {
+
+    @IBOutlet weak var contentTableView: BBTableView!
+//    weak var delegate: BBMenuViewControllerDelegate?
+//    var selectedItem = 0
+    var viewModel: BBMenuCellsModel?
 
     // MARK: - --------------------System--------------------
     
@@ -16,6 +27,7 @@ class BBMenuViewController: BBRootViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupViewModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +38,11 @@ class BBMenuViewController: BBRootViewController {
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
     
+    func setupViewModel() {
+        self.viewModel = BBMenuCellsModel()
+        self.viewModel?.createTableData()
+    }
+    
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释
     
@@ -33,8 +50,35 @@ class BBMenuViewController: BBRootViewController {
     // MARK: 按钮点击函数注释
     
     // MARK: - --------------------代理方法--------------------
-    // MARK: - 代理种类注释
-    // MARK: 代理函数注释
+
+    // MARK: - UITableView Delegate
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return (self.viewModel?.sectionArray.count)!
+    }
+    
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        let dictionary = self.viewModel?.sectionArray.objectAtIndex(section) as! NSDictionary
+        let key = dictionary.allKeys as NSArray
+        let cells = dictionary.objectForKey(key.firstObject!)
+        return cells!.count;
+    }
+    
+    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+        let identifier: String! = self.viewModel?.getIdentifierByCellIndex(indexPath)
+//        self.contentTableView.registerClass(BBTableViewCell.self, forCellReuseIdentifier: identifier)
+        
+        var cell: BBTableViewCell? = tableView.dequeueReusableCellWithIdentifier(identifier) as? BBTableViewCell
+        if cell == nil {
+            cell = self.viewModel?.cellForRowAtIndexPath(indexPath)
+        }
+        self.viewModel?.configCell(cell!, forRowAtIndexPath: indexPath)
+        
+        
+//        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as UITableViewCell
+//        self.viewModel?.configCell(cell, forRowAtIndexPath: indexPath)
+        return cell;
+    }
+
     
     // MARK: - --------------------属性相关--------------------
     // MARK: 属性操作函数注释

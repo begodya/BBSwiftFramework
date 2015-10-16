@@ -46,7 +46,7 @@ class BBTableViewCell: UITableViewCell {
     *
     *  @param xibName xib名称
     */
-    func cellFromXib(xibName: String) -> BBTableViewCell {
+    class func cellFromXib(xibName: String) -> BBTableViewCell {
         let array = NSBundle.mainBundle().loadNibNamed(xibName, owner: nil, options: nil)
         var cell: BBTableViewCell!
         if (array.count > 0) {
@@ -66,7 +66,7 @@ class BBTableViewCell: UITableViewCell {
     *  @param xibName xib名称
     *  @param index 对象索引
     */
-    func cellFromXib(xibName: String, index: NSInteger) -> BBTableViewCell {
+    class func cellFromXib(xibName: String, index: NSInteger) -> BBTableViewCell {
         let array = NSBundle.mainBundle().loadNibNamed(xibName, owner: nil, options: nil)
         var cell: BBTableViewCell!
         if (array.count > index) {
@@ -86,7 +86,7 @@ class BBTableViewCell: UITableViewCell {
     *  @param xibName xib名称
     *  @param identifier 对象标识
     */
-    func cellFromXib(xibName: String, identifier: String) -> BBTableViewCell {
+    class func cellFromXib(xibName: String, identifier: String) -> BBTableViewCell {
         let array = NSBundle.mainBundle().loadNibNamed(xibName, owner: nil, options: nil)
         var cell: BBTableViewCell!
         var i: Int
