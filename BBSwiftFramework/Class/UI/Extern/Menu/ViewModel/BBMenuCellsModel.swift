@@ -155,4 +155,7 @@ class BBMenuCellsModel: NSObject {
         return self.getCellWithType(self.getCellType(indexPath))
     }
 
+    func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
+        return 70;
+    }
 }

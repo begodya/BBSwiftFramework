@@ -11,9 +11,12 @@ import UIKit
 class BBMenuButtonCell: BBTableViewCell {
 
     @IBOutlet weak var menuImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.backgroundColor = BBColor.redColor()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

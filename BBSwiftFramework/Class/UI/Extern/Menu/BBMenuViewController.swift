@@ -63,23 +63,24 @@ class BBMenuViewController: BBRootViewController {
         return cells!.count;
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return (self.viewModel?.heightForRowAtIndexPath(indexPath))!
+    }
+    
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let identifier: String! = self.viewModel?.getIdentifierByCellIndex(indexPath)
-//        self.contentTableView.registerClass(BBTableViewCell.self, forCellReuseIdentifier: identifier)
-        
         var cell: BBTableViewCell? = tableView.dequeueReusableCellWithIdentifier(identifier) as? BBTableViewCell
         if cell == nil {
             cell = self.viewModel?.cellForRowAtIndexPath(indexPath)
         }
         self.viewModel?.configCell(cell!, forRowAtIndexPath: indexPath)
         
-        
-//        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as UITableViewCell
-//        self.viewModel?.configCell(cell, forRowAtIndexPath: indexPath)
         return cell;
     }
 
-    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    }
     // MARK: - --------------------属性相关--------------------
     // MARK: 属性操作函数注释
     
