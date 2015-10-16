@@ -15,8 +15,38 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2015 BB. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Lew-0w-D8x">
+                                <rect key="frame" x="119" y="559.5" width="362" height="20.5"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="362" id="52u-16-VAs"/>
+                                    <constraint firstAttribute="height" constant="20.5" id="oCH-a4-g9d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BBSwiftFramework" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Oaa-MJ-gNh">
+                                <rect key="frame" x="160" y="179" width="280" height="43"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="MLn-Z8-LBH"/>
+                                    <constraint firstAttribute="height" constant="43" id="s9B-VQ-fDf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Oaa-MJ-gNh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Lj5-Ig-Bac"/>
+                            <constraint firstItem="Lew-0w-D8x" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jVz-am-wx1"/>
+                            <constraint firstItem="Oaa-MJ-gNh" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="159" id="tJL-VM-L8X"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Lew-0w-D8x" secondAttribute="bottom" constant="20" id="tdc-E1-vK3"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
