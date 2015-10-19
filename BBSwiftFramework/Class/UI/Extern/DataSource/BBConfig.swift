@@ -6,4 +6,8 @@
 //  Copyright © 2015 Bei. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class BBConfig: NSObject {
+
+}
