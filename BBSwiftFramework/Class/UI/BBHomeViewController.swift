@@ -60,8 +60,10 @@ class BBHomeViewController: BBRootViewController {
     // MARK: 按钮点击函数注释
     
     func clickedMoreAction() {
-        let alertController = BBAlertController.initWithMessage("响应左边按钮")
-        self.presentViewController(alertController, animated: true, completion: nil)
+//        let alertController = BBAlertController.initWithMessage("响应左边按钮")
+//        self.presentViewController(alertController, animated: true, completion: nil)
+
+        self.navigationController?.pushViewController(BBMenuViewController(), animated: true)
     }
     
     func clickedInboxAction() {
@@ -91,6 +93,8 @@ class BBHomeViewController: BBRootViewController {
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         BBH5ViewController().loadURL(NSURL(string: "https://github.com/")!, fromViewController: self)
+        
+        log.debug("Clicked Cell: \(indexPath.row)")
     }
     
     // MARK: - --------------------属性相关--------------------
