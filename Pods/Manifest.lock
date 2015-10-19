@@ -1,17 +1,20 @@
 PODS:
   - Alamofire (3.0.0-beta.3)
+  - EVReflection (2.9.1)
   - HanekeSwift (0.10.0)
   - SwiftyJSON (2.3.0)
   - XCGLogger (3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0.0-beta.3)
+  - EVReflection (~> 2.9.1)
   - HanekeSwift (~> 0.10.0)
   - SwiftyJSON (~> 2.3.0)
   - XCGLogger (~> 3.0)
 
 SPEC CHECKSUMS:
   Alamofire: c89149e58431f6f94527e8c01f920456afe39bd0
+  EVReflection: 265fe06ecdbd3ef19679c9b97366daa236f2ede8
   HanekeSwift: d6f5bdf9dbdbbc09d59623b2c1d533e46463dd4d
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
   XCGLogger: 5802533aff8bafc8b3b9776ab8972576f31d0a4e

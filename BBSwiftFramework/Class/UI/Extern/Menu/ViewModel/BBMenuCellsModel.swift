@@ -61,15 +61,15 @@ class BBMenuCellsModel: NSObject {
         var cellType: eCellType = .Cell_0
         switch(cells.objectAtIndex(indexPath.row).unsignedIntegerValue) {
             case 0:
-                cellType = eCellType.Cell_0
+                cellType = .Cell_0
             case 1:
-                cellType = eCellType.Cell_1
+                cellType = .Cell_1
             case 2:
-                cellType = eCellType.Cell_2
+                cellType = .Cell_2
             case 3:
-                cellType = eCellType.Cell_3
+                cellType = .Cell_3
             case 4:
-                cellType = eCellType.Cell_4
+                cellType = .Cell_4
             default:
                 break
         }

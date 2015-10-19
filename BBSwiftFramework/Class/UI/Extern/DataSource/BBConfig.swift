@@ -8,6 +8,6 @@
 
 import UIKit
 
-class BBConfig: NSObject {
+struct BBConfig {
 
 }
