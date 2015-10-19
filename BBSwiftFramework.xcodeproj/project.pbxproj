@@ -19,6 +19,7 @@
 		3B561DF41BBBE72F000CAC0E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DF31BBBE72F000CAC0E /* String.swift */; settings = {ASSET_TAGS = (); }; };
 		3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */; settings = {ASSET_TAGS = (); }; };
 		3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */; settings = {ASSET_TAGS = (); }; };
+		3B73CEE71BD4BF8800E5C7F0 /* BBConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CEE61BD4BF8800E5C7F0 /* BBConfig.swift */; settings = {ASSET_TAGS = (); }; };
 		3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B41A1BCCECD900890E2B /* BBH5WebView.swift */; settings = {ASSET_TAGS = (); }; };
 		3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B41C1BCCF4A400890E2B /* BBH5ViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		3B87B41F1BCCF4A400890E2B /* BBH5ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B87B41D1BCCF4A400890E2B /* BBH5ViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -87,6 +88,7 @@
 		3B561DF31BBBE72F000CAC0E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBMenuButtonCell.swift; sourceTree = "<group>"; };
 		3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuButtonCell.xib; sourceTree = "<group>"; };
+		3B73CEE61BD4BF8800E5C7F0 /* BBConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBConfig.swift; sourceTree = "<group>"; };
 		3B87B41A1BCCECD900890E2B /* BBH5WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBH5WebView.swift; sourceTree = "<group>"; };
 		3B87B41C1BCCF4A400890E2B /* BBH5ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBH5ViewController.swift; sourceTree = "<group>"; };
 		3B87B41D1BCCF4A400890E2B /* BBH5ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBH5ViewController.xib; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				3BD069BA1BCFB81A00E656FC /* BBDataSource.swift */,
+				3B73CEE61BD4BF8800E5C7F0 /* BBConfig.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */,
 				3B561DE31BBBB37A000CAC0E /* BBFont.swift in Sources */,
 				3BD0698E1BCE4AF100E656FC /* GIFImage.swift in Sources */,
+				3B73CEE71BD4BF8800E5C7F0 /* BBConfig.swift in Sources */,
 				3BD069BF1BCFB81A00E656FC /* BBMenuViewController.swift in Sources */,
 				3BC853771BD0A094001CD7E3 /* BBMenuCellsModel.swift in Sources */,
 				3BD069B31BCFB69600E656FC /* BBHomeViewController.swift in Sources */,

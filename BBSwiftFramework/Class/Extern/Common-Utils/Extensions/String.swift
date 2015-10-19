@@ -14,4 +14,17 @@ extension String {
     func size() -> Int {
         return self.characters.count
     }
+    
+    // MARK: - 类型转换
+    func floatValue() -> Float {
+        return (self as NSString).floatValue
+    }
+    
+    func intValue() -> Int {
+        return (self as NSString).integerValue
+    }
+    
+    func doubleValue() -> Double {
+        return (self as NSString).doubleValue
+    }
 }

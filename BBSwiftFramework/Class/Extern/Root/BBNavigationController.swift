@@ -8,15 +8,15 @@
 
 import UIKit
 
+public let kGuestureViewTag: Int! = 0xae42
+
 class BBNavigationController: UINavigationController, UIGestureRecognizerDelegate {
 
     // Enable the drag to back interaction, Default is YES.
     var canDragBack: Bool   =   true
-
-    private var kGuestureViewTag: Int = 0xae42
     
     private var startTouch: CGPoint?
-    private var animateTime: NSTimeInterval = 0.0
+    private var animateTime: NSTimeInterval = 0.3
     private var dragAnimated: Bool = true
     
     private var lastScreenShotView: UIImageView?
@@ -48,8 +48,6 @@ class BBNavigationController: UINavigationController, UIGestureRecognizerDelegat
         gestureView.addGestureRecognizer(panGesture)
         gestureView.tag = kGuestureViewTag
         self.view.addSubview(gestureView)
-        
-        self.animateTime = 0.3
     }
 
     // MARK: - --------------------功能函数--------------------
@@ -166,8 +164,12 @@ class BBNavigationController: UINavigationController, UIGestureRecognizerDelegat
         self.lastScreenShotView!.center = CGPointMake(x/2, self.view.center.y);
         
         let shadowWidth: CGFloat = 10
-        self.shadowLayer!.frame = CGRectMake(x-shadowWidth, 0, shadowWidth, self.shadowLayer!.frame.size.height);
-        
+        if (BBDevice.iOSVersion().floatValue() < 7.0) {
+            self.shadowLayer!.frame = CGRectMake(x-shadowWidth, 20, shadowWidth, self.shadowLayer!.frame.size.height);
+        } else {
+            self.shadowLayer!.frame = CGRectMake(x-shadowWidth, 0, shadowWidth, self.shadowLayer!.frame.size.height);
+        }
+
         if (isTransaction) {
             CATransaction.commit()
         }
