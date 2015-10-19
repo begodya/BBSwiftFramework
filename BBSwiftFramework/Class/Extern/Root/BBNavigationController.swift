@@ -8,7 +8,7 @@
 
 import UIKit
 
-public let kGuestureViewTag: Int! = 0xae42
+private let kGuestureViewTag: Int! = 0xae42
 
 class BBNavigationController: UINavigationController, UIGestureRecognizerDelegate {
 
