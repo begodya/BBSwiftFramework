@@ -113,6 +113,96 @@ class BBNavigationController: UINavigationController, UIGestureRecognizerDelegat
         return img;
     }
     
+    func addBackgroundMaskView() {
+        let frame: CGRect = self.view.bounds
+        if (self.backgroundView == nil) {
+            self.backgroundView = UIView.init(frame: frame)
+            self.view.superview!.insertSubview(self.backgroundView!, belowSubview: self.view)
+        }
+        
+        self.backgroundView?.hidden = false
+        if (self.lastScreenShotView == nil) {
+            self.lastScreenShotView = UIImageView.init(frame: frame)
+            self.backgroundView?.addSubview(self.lastScreenShotView!)
+            self.shadowLayer = CAGradientLayer.init()
+            self.shadowLayer?.startPoint = CGPointMake(1.0, 0.5)
+            self.shadowLayer?.frame = frame
+            self.shadowLayer?.endPoint = CGPointMake(0, 0.5)
+            self.shadowLayer?.colors = NSArray(objects:UIColor.init(white: 0.0, alpha: 0.2).CGColor, UIColor.clearColor().CGColor) as [AnyObject]
+            self.backgroundView?.layer.addSublayer(self.shadowLayer!)
+        }
+        
+        if (self.screenShotsList?.count > 0) {
+            self.lastScreenShotView?.image = (self.screenShotsList?.lastObject as! UIImage)
+        }
+    }
+    
+    func addShadowLayerIfNeed() {
+        if ((self.backgroundView?.layer.sublayers?.contains(self.shadowLayer!)) != nil) {
+            return
+        }
+        
+        self.backgroundView?.layer.addSublayer(self.shadowLayer!)
+    }
+    
+    // set lastScreenShotView 's position and alpha when paning
+    func moveViewWithX(x: CGFloat, isTransaction: Bool) {
+        var offsetX: CGFloat = x
+        if (offsetX > self.view.bounds.size.width) {
+            offsetX = self.view.bounds.size.width
+        }
+        if (offsetX < 0) {
+            offsetX = 0
+        }
+        
+        if (isTransaction) {
+            CATransaction.begin()
+            CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+        }
+        
+        var frame: CGRect = self.view.frame
+        frame.origin.x = x
+        self.view.frame = frame
+        self.lastScreenShotView!.center = CGPointMake(x/2, self.view.center.y);
+        
+        let shadowWidth: CGFloat = 10
+        self.shadowLayer!.frame = CGRectMake(x-shadowWidth, 0, shadowWidth, self.shadowLayer!.frame.size.height);
+        
+        if (isTransaction) {
+            CATransaction.commit()
+        }
+        
+    }
+    
+    func shouldInvokeCTRootBackItem() -> Bool {
+        let tmpViewCtr: BBRootViewController = self.visibleViewController as! BBRootViewController
+        var isUseCTRootBackItem: Bool = false
+        
+        if (tmpViewCtr.isKindOfClass(BBRootViewController) && !tmpViewCtr.isKindOfClass(BBH5ViewController)) {
+            let backItem: UIBarButtonItem = (self.visibleViewController?.navigationItem.leftBarButtonItem)!
+            let backBtn: UIButton = backItem.customView as! UIButton
+            if (backBtn.isKindOfClass(UIButton)) {
+//                let targets: NSSet = backBtn.allTargets()
+//                for let target in targets {
+//                    let actions: NSArray = backBtn.actionsForTarget(target, forControlEvent: UIControlEvents.TouchUpInside)!
+//                    for let actionName in actions {
+//                        let selector: Selector = NSSelectorFromString(actionName as! String)
+//                        if selector != nil {
+                            isUseCTRootBackItem = true
+//
+//                        }
+//                    }
+//                }
+            }
+        }
+        
+        return isUseCTRootBackItem;
+    }
+    
+    func shouldCancelDragAction() -> Bool {
+        return false
+    }
+
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释
     
@@ -192,98 +282,6 @@ class BBNavigationController: UINavigationController, UIGestureRecognizerDelegat
             }
         }
 
-    }
-    
-
-    func addBackgroundMaskView() {
-        let frame: CGRect = self.view.bounds
-        if (self.backgroundView == nil) {
-            self.backgroundView = UIView.init(frame: frame)
-            self.view.superview!.insertSubview(self.backgroundView!, belowSubview: self.view)
-        }
-        
-        self.backgroundView?.hidden = false
-        if (self.lastScreenShotView == nil) {
-            self.lastScreenShotView = UIImageView.init(frame: frame)
-            self.backgroundView?.addSubview(self.lastScreenShotView!)
-            self.shadowLayer = CAGradientLayer.init()
-            self.shadowLayer?.startPoint = CGPointMake(1.0, 0.5)
-            self.shadowLayer?.frame = frame
-            self.shadowLayer?.endPoint = CGPointMake(0, 0.5)
-            self.shadowLayer?.colors = NSArray(objects:UIColor.init(white: 0.0, alpha: 0.2).CGColor, UIColor.clearColor().CGColor) as [AnyObject]
-            self.backgroundView?.layer.addSublayer(self.shadowLayer!)
-        }
-        
-        if (self.screenShotsList?.count > 0) {
-            self.lastScreenShotView?.image = (self.screenShotsList?.lastObject as! UIImage)
-        }
-    }
-    
-
-    func addShadowLayerIfNeed() {
-        if ((self.backgroundView?.layer.sublayers?.contains(self.shadowLayer!)) != nil) {
-            return
-        }
-        
-        self.backgroundView?.layer.addSublayer(self.shadowLayer!)
-    }
-    
-    // set lastScreenShotView 's position and alpha when paning
-    func moveViewWithX(x: CGFloat, isTransaction: Bool) {
-        var offsetX: CGFloat = x
-        if (offsetX > self.view.bounds.size.width) {
-            offsetX = self.view.bounds.size.width
-        }
-        if (offsetX < 0) {
-            offsetX = 0
-        }
-        
-        if (isTransaction) {
-            CATransaction.begin()
-            CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-        }
-        
-        var frame: CGRect = self.view.frame
-        frame.origin.x = x
-        self.view.frame = frame
-        self.lastScreenShotView!.center = CGPointMake(x/2, self.view.center.y);
-        
-        let shadowWidth: CGFloat = 10
-        self.shadowLayer!.frame = CGRectMake(x-shadowWidth, 0, shadowWidth, self.shadowLayer!.frame.size.height);
-        
-        if (isTransaction) {
-            CATransaction.commit()
-        }
-
-    }
-    
-    func shouldInvokeCTRootBackItem() -> Bool {
-        let tmpViewCtr: BBRootViewController = self.visibleViewController as! BBRootViewController
-        var isUseCTRootBackItem: Bool = false
-        
-        if (tmpViewCtr.isKindOfClass(BBRootViewController) && !tmpViewCtr.isKindOfClass(BBH5ViewController)) {
-            let backItem: UIBarButtonItem = (self.visibleViewController?.navigationItem.leftBarButtonItem)!
-            let backBtn: UIButton = backItem.customView as! UIButton
-            if (backBtn.isKindOfClass(UIButton)) {
-//                let targets: NSSet = backBtn.allTargets()
-//                for let target in targets {
-//                    let actions: NSArray = backBtn.actionsForTarget(target, forControlEvent: UIControlEvents.TouchUpInside)!
-//                    for let actionName in actions {
-//                        let selector: Selector = NSSelectorFromString(actionName as! String)
-//                        if selector != nil {
-                            isUseCTRootBackItem = true
-//
-//                        }
-//                    }
-//                }
-            }
-        }
-        
-        return isUseCTRootBackItem;
-    }
-    
-    func shouldCancelDragAction() -> Bool {
-        return false
     }
     
     // MARK: - --------------------属性相关--------------------
