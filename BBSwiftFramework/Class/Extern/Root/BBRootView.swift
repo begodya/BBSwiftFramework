@@ -30,12 +30,17 @@ class BBRootView: UIView {
     
     // MARK: - --------------------接口API--------------------
     
-    // 通过XIB获取视图对象
+    // MARK: 局部代码分隔
+    func local(closure: ()->()) {
+        closure()
+    }
+    
+    // MARK: 通过XIB获取视图对象
     func getViewFromXib(xibName: String) -> UIView {
         return getViewFromXib(xibName, index: 0)
     }
     
-    // 通过XIB和index获取视图对象
+    // MARK: 通过XIB和index获取视图对象
     func getViewFromXib(xibName: String, index: NSInteger) -> UIView {
         let array = NSBundle.mainBundle().loadNibNamed(xibName, owner: self, options: nil)
         var view: UIView!
