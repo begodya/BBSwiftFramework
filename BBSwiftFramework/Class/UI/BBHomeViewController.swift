@@ -46,9 +46,12 @@ class BBHomeViewController: BBRootViewController {
 
         
         Alamofire.request(.GET, "https://api.500px.com/v1/photos").responseJSON { response in
+            BBLoadingView.dismiss()
             debugPrint(response)
             
-            BBLoadingView.dismiss()
+            let nameJson: String = "{\"id\": 24, \"name\": \"Bob\"}"
+            let name = Name(json: nameJson)
+            log.info("Object from json string: \n\(name)\n\n")
         }
         
     }

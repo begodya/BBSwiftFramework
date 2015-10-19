@@ -20,6 +20,8 @@
 		3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */; settings = {ASSET_TAGS = (); }; };
 		3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */; settings = {ASSET_TAGS = (); }; };
 		3B73CF001BD4E4C600E5C7F0 /* BBConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */; settings = {ASSET_TAGS = (); }; };
+		3B73CF081BD4F9FD00E5C7F0 /* BBObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CF071BD4F9FD00E5C7F0 /* BBObject.swift */; settings = {ASSET_TAGS = (); }; };
+		3B73CF0A1BD4FA6200E5C7F0 /* BBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CF091BD4FA6200E5C7F0 /* BBModel.swift */; settings = {ASSET_TAGS = (); }; };
 		3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B41A1BCCECD900890E2B /* BBH5WebView.swift */; settings = {ASSET_TAGS = (); }; };
 		3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B41C1BCCF4A400890E2B /* BBH5ViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		3B87B41F1BCCF4A400890E2B /* BBH5ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B87B41D1BCCF4A400890E2B /* BBH5ViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -89,6 +91,8 @@
 		3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBMenuButtonCell.swift; sourceTree = "<group>"; };
 		3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuButtonCell.xib; sourceTree = "<group>"; };
 		3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBConfig.swift; sourceTree = "<group>"; };
+		3B73CF071BD4F9FD00E5C7F0 /* BBObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBObject.swift; sourceTree = "<group>"; };
+		3B73CF091BD4FA6200E5C7F0 /* BBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBModel.swift; sourceTree = "<group>"; };
 		3B87B41A1BCCECD900890E2B /* BBH5WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBH5WebView.swift; sourceTree = "<group>"; };
 		3B87B41C1BCCF4A400890E2B /* BBH5ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBH5ViewController.swift; sourceTree = "<group>"; };
 		3B87B41D1BCCF4A400890E2B /* BBH5ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBH5ViewController.xib; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 		3B561DD71BBB866D000CAC0E /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				3B73CF061BD4F9DE00E5C7F0 /* Models */,
+				3B73CF071BD4F9FD00E5C7F0 /* BBObject.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -313,6 +319,14 @@
 				3BD0698F1BCE4BA300E656FC /* UIImageView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3B73CF061BD4F9DE00E5C7F0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3B73CF091BD4FA6200E5C7F0 /* BBModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3B87B4191BCCECD900890E2B /* BBH5ViewController */ = {
@@ -658,6 +672,7 @@
 				3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */,
 				3BD069BE1BCFB81A00E656FC /* BBDataSource.swift in Sources */,
 				3BD0698C1BCE499D00E656FC /* BBLoadingView.swift in Sources */,
+				3B73CF0A1BD4FA6200E5C7F0 /* BBModel.swift in Sources */,
 				3BBB680A1BC6125A0011ED71 /* BBTableViewCell.swift in Sources */,
 				3BD069941BCE667200E656FC /* BBNavigationController.swift in Sources */,
 				3BD069A91BCFB5E200E656FC /* MenuTransitionAnimator.swift in Sources */,
@@ -665,6 +680,7 @@
 				3B561DE71BBBC3CF000CAC0E /* BBDevice.swift in Sources */,
 				3BBB68051BC60CC60011ED71 /* BBTableView.swift in Sources */,
 				3BD069A61BCFB5E200E656FC /* Menu.swift in Sources */,
+				3B73CF081BD4F9FD00E5C7F0 /* BBObject.swift in Sources */,
 				3BD069AE1BCFB61A00E656FC /* AnimationDelegate.swift in Sources */,
 				3BBB680E1BC6402E0011ED71 /* BBAlertController.swift in Sources */,
 				3B561DE51BBBBFB5000CAC0E /* BBColor.swift in Sources */,
