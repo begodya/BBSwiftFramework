@@ -12,6 +12,7 @@ import Alamofire
 class BBHomeViewController: BBRootViewController {
 
     @IBOutlet weak var contentTableView: BBTableView!
+    
     var items = ["武汉","上海","北京","深圳","广州","重庆","香港","台海","天津"]
     
     // MARK: - --------------------System--------------------
@@ -37,36 +38,12 @@ class BBHomeViewController: BBRootViewController {
     // MARK: 初始化
     
     func setupView() {
-        
         // config tableView
         self.contentTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         BBLoadingView.setGif("Loading.gif")
         BBLoadingView.showWithOverlay()
-        
-        // Alamofire Service
-        //        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
-        //            .response { request, response, data, error in
-        //                print(request)
-        //                print(response)
-        //                print(data)
-        //                print(error)
-        //
-        //                BBLoadingView.dismiss()
-        //        }
-        
-        
-        
-        //        let user = "user"
-        //        let password = "password"
-        //
-        //        Alamofire.request(.GET, "https://httpbin.org/basic-auth/\(user)/\(password)")
-        //            .authenticate(user: user, password: password)
-        //            .responseJSON { response in
-        //                debugPrint(response)
-        //
-        //                BBLoadingView.dismiss()
-        //        }
+
         
         Alamofire.request(.GET, "https://api.500px.com/v1/photos").responseJSON { response in
             debugPrint(response)
@@ -83,10 +60,8 @@ class BBHomeViewController: BBRootViewController {
     // MARK: 按钮点击函数注释
     
     func clickedMoreAction() {
-//        let alertController = BBAlertController.initWithMessage("响应左边按钮")
-//        self.presentViewController(alertController, animated: true, completion: nil)
-
-        self.navigationController?.pushViewController(BBMenuViewController(), animated: true)
+        let alertController = BBAlertController.initWithMessage("响应左边按钮")
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func clickedInboxAction() {
@@ -96,7 +71,7 @@ class BBHomeViewController: BBRootViewController {
     
     // MARK: - --------------------代理方法--------------------
     
-    // MARK: - UITableView Delegate
+    // MARK: UITableView Delegate
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }

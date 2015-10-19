@@ -57,6 +57,7 @@ class BBMenuCellsModel: NSObject {
         let cells = dictionary.objectForKey(key.firstObject!) as! NSArray
 //        let cellType = cells.objectAtIndex(indexPath.row) as! eCellType
         
+        // WARNING: cellType
         var cellType: eCellType = .Cell_0
         switch(cells.objectAtIndex(indexPath.row).unsignedIntegerValue) {
             case 0:

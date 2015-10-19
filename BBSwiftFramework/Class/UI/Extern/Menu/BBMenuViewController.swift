@@ -8,17 +8,9 @@
 
 import UIKit
 
-//protocol BBMenuViewControllerDelegate: class {
-//    func menu(menu: BBMenuViewController, didSelectItemAtIndex index: Int, atPoint point: CGPoint)
-//    func menuDidCancel(menu: BBMenuViewController)
-//}
-
-
 class BBMenuViewController: BBRootViewController {
 
     @IBOutlet weak var contentTableView: BBTableView!
-//    weak var delegate: BBMenuViewControllerDelegate?
-//    var selectedItem = 0
     var viewModel: BBMenuCellsModel?
 
     // MARK: - --------------------System--------------------
@@ -77,10 +69,7 @@ class BBMenuViewController: BBRootViewController {
         
         return cell;
     }
-
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
-    }
+    
     // MARK: - --------------------属性相关--------------------
     // MARK: 属性操作函数注释
     
