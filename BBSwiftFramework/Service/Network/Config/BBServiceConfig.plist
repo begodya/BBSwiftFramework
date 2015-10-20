@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>common</key>
+	<dict>
+		<key>bean</key>
+		<string>BBCommonBean</string>
+		<key>host</key>
+		<string>http://httpbin.org/get</string>
+		<key>api</key>
+		<dict>
+			<key>serviceTest</key>
+			<dict>
+				<key>url</key>
+				<string></string>
+				<key>method</key>
+				<string>get</string>
+				<key>output</key>
+				<string>BBValue</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

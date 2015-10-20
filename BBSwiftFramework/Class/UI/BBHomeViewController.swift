@@ -41,16 +41,21 @@ class BBHomeViewController: BBRootViewController {
         // config tableView
         self.contentTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        BBLoadingView.setGif("Loading.gif")
-        BBLoadingView.showWithOverlay()
+        let bean: BBBean = BBBean.init()
+        bean.foo = "bar"
+        BBNetwork.serverSend(eServiceTags.kCommon_test, bean: bean)
         
-        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
-            .responseString { response in
-                BBLoadingView.dismiss()
-                
-                let value = BBValue(json: response.result.value)
-                log.info("Object from json string: \n\(value)\n\n")
-        }
+        
+//        BBLoadingView.setGif("Loading.gif")
+//        BBLoadingView.showWithOverlay()
+//        
+//        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
+//            .responseString { response in
+//                BBLoadingView.dismiss()
+//                
+//                let value = BBValue(json: response.result.value)
+//                log.info("Object from json string: \n\(value)\n\n")
+//        }
         
 //        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
 //            .responseJSON { response in
