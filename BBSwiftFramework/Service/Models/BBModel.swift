@@ -12,7 +12,23 @@ public class BBModel: BBObject {
 
 }
 
-public class Name: BBModel {
-    var id: Int64       = 0
-    var name: String    = ""
+
+
+public class Args: BBModel {
+    var foo: String = ""
+}
+
+public class Headers: BBModel {
+    var Accept: String = ""
+    var Host: String = ""
+//    var Accept-Encoding: String
+//    var Accept-Language: String
+//    var User-Agent: String
+}
+
+public class BBValue: BBModel {
+    var args: Args?
+    var headers: Headers?
+    var origin: String = ""
+    var url: String = ""
 }

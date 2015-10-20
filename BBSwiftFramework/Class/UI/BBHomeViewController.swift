@@ -43,16 +43,29 @@ class BBHomeViewController: BBRootViewController {
         
         BBLoadingView.setGif("Loading.gif")
         BBLoadingView.showWithOverlay()
-
         
-        Alamofire.request(.GET, "https://api.500px.com/v1/photos").responseJSON { response in
-            BBLoadingView.dismiss()
-            debugPrint(response)
-            
-            let nameJson: String = "{\"id\": 24, \"name\": \"Bob\"}"
-            let name = Name(json: nameJson)
-            log.info("Object from json string: \n\(name)\n\n")
+        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
+            .responseString { response in
+                BBLoadingView.dismiss()
+                
+                let value = BBValue(json: response.result.value)
+                log.info("Object from json string: \n\(value)\n\n")
         }
+        
+//        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
+//            .responseJSON { response in
+//                BBLoadingView.dismiss()
+//                print(response.request)  // original URL request
+//                print(response.response) // URL response
+//                print(response.data)     // server data
+//                print(response.result)   // result of response serialization
+//                
+//                if let valueJSON = response.result.value {
+//                    print("JSON: \(valueJSON)")
+//                    let temp = JSON(json: valueJSON as? String)
+//                    log.info("Object from json string: \n\(temp)\n\n")
+//                }
+//            }
         
     }
     
@@ -64,8 +77,6 @@ class BBHomeViewController: BBRootViewController {
     
     func clickedMoreAction() {
         self.navigationController?.pushViewController(BBMenuViewController(), animated: true)
-        
-//        self.navigationController?.presentViewController(BBMenuViewController(), animated: true, completion: nil)
     }
     
     func clickedInboxAction() {
