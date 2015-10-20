@@ -15,12 +15,13 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        self.setBackBarButtonWithTarget(self, action: Selector("clickedBackBarButtonAction"))
+    
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+    
+        configLeftBarButtonItem()
         
         self.navigationController?.delegate = self
     }
@@ -37,12 +38,31 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     // MARK: - --------------------功能函数--------------------
+    private func configLeftBarButtonItem() {
+        if (self.navigationController != nil) {
+            if (self.navigationController?.viewControllers.count > 1) {
+                self.setBackBarButtonWithTarget(self, action: Selector("clickedBackBarButtonAction"))
+            } else if (self.navigationController?.viewControllers.count == 1) {
+                let applicationWindow: UIWindow! = (UIApplication.sharedApplication().delegate?.window)!
+                var rootViewController = applicationWindow.rootViewController
+                if ((rootViewController?.isKindOfClass(BBNavigationController)) != nil) {
+                    let tempViewController: BBNavigationController = rootViewController as! BBNavigationController
+                    rootViewController = tempViewController.topViewController
+                    if (rootViewController?.presentedViewController != nil) {
+                        self.setCloseBarButtonWithTarget(self, action: Selector("clickedCloseBarButtonAction"))
+                    }
+                }
+            }
+        } else {
+            self.setCloseBarButtonWithTarget(self, action: Selector("clickedCloseBarButtonAction"))
+        }
+    }
     
-    func setLeftBarButtonItem(item: UIBarButtonItem) {
+    private func setLeftBarButtonItem(item: UIBarButtonItem) {
         self.navigationItem.leftBarButtonItem = item
     }
     
-    func setRightBarButtonItem(item: UIBarButtonItem) {
+    private func setRightBarButtonItem(item: UIBarButtonItem) {
         self.navigationItem.rightBarButtonItem = item
     }
     
@@ -54,6 +74,10 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
     
     func clickedBackBarButtonAction() {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+            
+    func clickedCloseBarButtonAction() {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - --------------------代理方法--------------------
@@ -126,5 +150,3 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
     }
 
 }
-
-

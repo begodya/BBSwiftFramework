@@ -63,10 +63,9 @@ class BBHomeViewController: BBRootViewController {
     // MARK: 按钮点击函数注释
     
     func clickedMoreAction() {
-//        let alertController = BBAlertController.initWithMessage("响应左边按钮")
-//        self.presentViewController(alertController, animated: true, completion: nil)
-
         self.navigationController?.pushViewController(BBMenuViewController(), animated: true)
+        
+//        self.navigationController?.presentViewController(BBMenuViewController(), animated: true, completion: nil)
     }
     
     func clickedInboxAction() {
