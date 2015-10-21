@@ -15,7 +15,7 @@
 				<key>url</key>
 				<string></string>
 				<key>method</key>
-				<string>get</string>
+				<string>GET</string>
 				<key>output</key>
 				<string>BBValue</string>
 			</dict>

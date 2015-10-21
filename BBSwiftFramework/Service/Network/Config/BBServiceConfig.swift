@@ -9,5 +9,13 @@
 import Foundation
 
 struct BBServiceConfig {
-    let kServiceConfigName = "BBServiceConfig"
+    let kServiceConfigName      = "BBServiceConfig"
+    
+    let kService_bean           = "bean"
+    let kService_api            = "api"
+    let kService_host           = "host"
+    
+    let kService_API_url        = "url"
+    let kService_API_method     = "method"
+    let kService_API_output     = "output"
 }

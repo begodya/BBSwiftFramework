@@ -11,17 +11,20 @@ import Alamofire
 
 class BBNetwork: BBObject {
 
-    class func serverSend(serviceTage: eServiceTags, bean: BBBean) {
+    class func serverSend(serviceTag: eServiceTags, bean: BBBean) {
         BBLoadingView.setGif("Loading.gif")
         BBLoadingView.showWithOverlay()
+
+        let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
         
-        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": bean.foo])
+        Alamofire.request(.GET, apiModel.url, parameters: ["foo": bean.foo])
             .responseString { response in
-                BBLoadingView.dismiss()
-                
-                let value = BBValue(json: response.result.value)
-                log.info("Object from json string: \n\(value)\n\n")
+            BBLoadingView.dismiss()
+            
+            let value = BBValue(json: response.result.value)
+            log.info("Object from json string: \n\(value)\n\n")
         }
+        
     }
     
 }
