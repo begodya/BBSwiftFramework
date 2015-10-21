@@ -21,10 +21,11 @@ class BBNavigationController: UINavigationController, UIGestureRecognizerDelegat
     
     private var lastScreenShotView: UIImageView?
     private var backgroundView: UIView?
-    private var screenShotsList: NSMutableArray? = NSMutableArray.init(capacity: 2)
+    private var screenShotsList: NSMutableArray! = NSMutableArray.init(capacity: 2)
     private var isMoving: Bool = true
     private var toViewController: UIViewController?
     private var shadowLayer: CAGradientLayer?
+    
     // MARK: - --------------------System--------------------
     
     override func viewDidLoad() {

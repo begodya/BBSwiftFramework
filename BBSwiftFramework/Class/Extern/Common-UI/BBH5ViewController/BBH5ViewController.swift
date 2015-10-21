@@ -79,17 +79,21 @@ class BBH5ViewController: BBRootViewController, UIWebViewDelegate {
     // MARK: - --------------------接口API--------------------
     
     /**
-    *  @param url 进入页面的URL地址
-    *  @param viewController 进入的vc
+    加载URL
+    
+    - parameter url:                页面的URL地址
+    - parameter fromViewController: 来自VC
     */
     func loadURL(url: NSURL, fromViewController: BBRootViewController) {
         loadURL(url, title: "", fromViewController: fromViewController)
     }
 
     /**
-    *  @param url 进入页面的URL地址
-    *  @param title H5页面的标题
-    *  @param viewController 进入的vc
+    加载URL
+    
+    - parameter url:                页面的URL地址
+    - parameter title:              页面标题
+    - parameter fromViewController: 来自VC
     */
     func loadURL(url: NSURL, title: String, fromViewController: BBRootViewController) {
         self.setCustomTitle(title)

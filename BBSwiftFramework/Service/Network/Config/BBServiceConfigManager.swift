@@ -79,7 +79,14 @@ class BBServiceConfigManager: NSObject {
     // MARK: 属性操作函数注释
     
     // MARK: - --------------------接口API--------------------
-    // MARK: 分块内接口函数注释
+
+    /**
+    获取对应的服务类
+    
+    - parameter serviceTag: 服务标志
+    
+    - returns: 返回对应服务类
+    */
     class func getApiModelByTag(serviceTag: eServiceTags) -> BBAPIModel {
 
         BBServiceConfigManager.parseConfigPlist()
