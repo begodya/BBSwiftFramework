@@ -13,7 +13,7 @@ private let kGuestureViewTag: Int! = 0xae42
 class BBNavigationController: UINavigationController, UIGestureRecognizerDelegate {
 
     // Enable the drag to back interaction, Default is YES.
-    var canDragBack: Bool   =   true
+    var canDragBack: Bool = true
     
     private var startTouch: CGPoint?
     private var animateTime: NSTimeInterval = 0.3
@@ -21,7 +21,7 @@ class BBNavigationController: UINavigationController, UIGestureRecognizerDelegat
     
     private var lastScreenShotView: UIImageView?
     private var backgroundView: UIView?
-    private var screenShotsList: NSMutableArray?
+    private var screenShotsList: NSMutableArray? = NSMutableArray.init(capacity: 2)
     private var isMoving: Bool = true
     private var toViewController: UIViewController?
     private var shadowLayer: CAGradientLayer?
@@ -37,10 +37,6 @@ class BBNavigationController: UINavigationController, UIGestureRecognizerDelegat
 //            self.interactivePopGestureRecognizer?.delegate = self
 //        }
         
-
-        if (self.screenShotsList == nil) {
-            self.screenShotsList = NSMutableArray.init(capacity: 2)
-        }
 
         let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer.init(target: self, action: Selector("paningGestureReceive:"))
         panGesture.delaysTouchesBegan = true
