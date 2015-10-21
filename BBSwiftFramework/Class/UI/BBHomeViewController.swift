@@ -63,8 +63,7 @@ class BBHomeViewController: BBRootViewController {
     }
     
     func clickedInboxAction() {
-        let alertController = BBAlertController.initWithMessage("响应右边按钮")
-        self.presentViewController(alertController, animated: true, completion: nil)
+        BBH5ViewController().loadURL(NSURL(string: "https://github.com/")!, fromViewController: self)
     }
     
     // MARK: - --------------------代理方法--------------------
@@ -88,9 +87,9 @@ class BBHomeViewController: BBRootViewController {
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        BBH5ViewController().loadURL(NSURL(string: "https://github.com/")!, fromViewController: self)
-        
-        log.debug("Clicked Cell: \(indexPath.row)")
+
+        let alertController = BBAlertController.initWithMessage("点击选择第\(indexPath.row)行")
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     // MARK: - --------------------属性相关--------------------
