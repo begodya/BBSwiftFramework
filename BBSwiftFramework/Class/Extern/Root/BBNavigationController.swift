@@ -184,17 +184,17 @@ class BBNavigationController: UINavigationController, UIGestureRecognizerDelegat
             let backItem: UIBarButtonItem = (self.visibleViewController?.navigationItem.leftBarButtonItem)!
             let backBtn: UIButton = backItem.customView as! UIButton
             if (backBtn.isKindOfClass(UIButton)) {
-//                let targets: NSSet = backBtn.allTargets()
-//                for let target in targets {
-//                    let actions: NSArray = backBtn.actionsForTarget(target, forControlEvent: UIControlEvents.TouchUpInside)!
-//                    for let actionName in actions {
-//                        let selector: Selector = NSSelectorFromString(actionName as! String)
-//                        if selector != nil {
+                let targets: NSSet = backBtn.allTargets()
+                for target in targets {
+                    let actions: NSArray = backBtn.actionsForTarget(target, forControlEvent: UIControlEvents.TouchUpInside)!
+                    for actionName in actions {
+                        let selector: Selector = NSSelectorFromString(actionName as! String)
+                        if selector != nil {
                             isUseCTRootBackItem = true
-//
-//                        }
-//                    }
-//                }
+
+                        }
+                    }
+                }
             }
         }
         
@@ -251,10 +251,10 @@ class BBNavigationController: UINavigationController, UIGestureRecognizerDelegat
                         
                         self.dragAnimated = true;
                         
-                        if (!self.shouldInvokeCTRootBackItem()) {
+//                        if (!self.shouldInvokeCTRootBackItem()) {
                             self.popViewControllerAnimated(false)
                             
-                        }
+//                        }
                         
                         self.dragAnimated = false;
                         
