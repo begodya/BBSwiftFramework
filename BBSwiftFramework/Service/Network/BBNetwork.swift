@@ -16,15 +16,21 @@ class BBNetwork: BBObject {
         BBLoadingView.showWithOverlay()
 
         let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
+        let parameters: [String: AnyObject]?
         
-        Alamofire.request(.GET, apiModel.url, parameters: ["foo": bean.foo])
+        switch serviceTag {
+            case .kCommon_test:
+            parameters = ["foo": bean.foo]
+            break
+        }
+        
+        Alamofire.request(.GET, apiModel.url, parameters: parameters)
             .responseString { response in
             BBLoadingView.dismiss()
             
             let value = BBValue(json: response.result.value)
             log.info("Object from json string: \n\(value)\n\n")
         }
-        
     }
     
 }

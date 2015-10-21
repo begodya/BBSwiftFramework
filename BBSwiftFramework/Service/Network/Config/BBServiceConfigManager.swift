@@ -38,8 +38,6 @@ class BBServiceConfigManager: NSObject {
     // MARK: Init
     override init () {
         super.init()
-        
-//        BBServiceConfigManager.parseConfigPlist()
     }
     
     required init?(coder aDecoder: NSCoder) {
