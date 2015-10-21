@@ -5,7 +5,7 @@
 	<key>common</key>
 	<dict>
 		<key>bean</key>
-		<string>BBCommonBean</string>
+		<string>BBBean</string>
 		<key>host</key>
 		<string>http://httpbin.org/get</string>
 		<key>api</key>

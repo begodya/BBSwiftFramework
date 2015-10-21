@@ -26,18 +26,18 @@ class BBNetwork: BBObject {
         succeededBlock: (response: BBModel)->Void,
         failedBlock:    (task: NSHTTPURLResponse, error: NSError)->Void) {
             
-        BBLoadingView.setGif("Loading.gif")
-        BBLoadingView.showWithOverlay()
-
-        let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
         let parameters: [String: AnyObject]?
-        
         switch serviceTag {
             case .kCommon_test:
             parameters = ["foo": bean.foo]
             break
         }
         
+            
+        BBLoadingView.setGif("Loading.gif")
+        BBLoadingView.showWithOverlay()
+            
+        let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
         Alamofire.request(.GET, apiModel.url, parameters: parameters)
             .responseString { response in
                 BBLoadingView.dismiss()
