@@ -11,7 +11,21 @@ import Alamofire
 
 class BBNetwork: BBObject {
 
-    class func serverSend(serviceTag: eServiceTags, bean: BBBean) {
+    /**
+    发送服务接口
+    
+    - parameter serviceTag:     服务对象
+    - parameter bean:           服务参数
+    - parameter succeededBlock: 成功回调
+    - parameter failedBlock:    失败回调
+    - parameter error:          失败信息
+    */
+    class func serverSend(
+        serviceTag:     eServiceTags,
+        bean:           BBBean,
+        succeededBlock: (response: BBModel)->Void,
+        failedBlock:    (task: NSHTTPURLResponse, error: NSError)->Void) {
+            
         BBLoadingView.setGif("Loading.gif")
         BBLoadingView.showWithOverlay()
 
@@ -26,10 +40,14 @@ class BBNetwork: BBObject {
         
         Alamofire.request(.GET, apiModel.url, parameters: parameters)
             .responseString { response in
-            BBLoadingView.dismiss()
-            
-            let value = BBValue(json: response.result.value)
-            log.info("Object from json string: \n\(value)\n\n")
+                BBLoadingView.dismiss()
+
+                if (response.result.isSuccess) {
+                    let value = BBValue(json: response.result.value)
+                    succeededBlock(response: value)
+                } else {
+                    failedBlock(task: response.response!, error: response.result.error!)
+                }
         }
     }
     

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class BBHomeViewController: BBRootViewController {
 
@@ -43,12 +42,16 @@ class BBHomeViewController: BBRootViewController {
         
         let bean: BBBean = BBBean.init()
         bean.foo = "bar"
-        BBNetwork.serverSend(eServiceTags.kCommon_test, bean: bean)
+        
+        BBNetwork.serverSend(eServiceTags.kCommon_test, bean: bean, succeededBlock: { (response) -> Void in
+            let model: BBValue = response as! BBValue
+            log.info("response model: \n\(model)\n\n")
+
+            }) { (task, error) -> Void in
+                
+        }
         
         
-//        BBLoadingView.setGif("Loading.gif")
-//        BBLoadingView.showWithOverlay()
-//        
 //        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
 //            .responseString { response in
 //                BBLoadingView.dismiss()
