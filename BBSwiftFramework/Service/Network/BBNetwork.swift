@@ -24,7 +24,7 @@ class BBNetwork: BBObject {
         serviceTag:     eServiceTags,
         bean:           BBBean,
         succeededBlock: (response: BBModel)->Void,
-        failedBlock:    (task: NSHTTPURLResponse, error: NSError)->Void) {
+        failedBlock:    (error: NSError)->Void) {
             
         let parameters: [String: AnyObject]?
         switch serviceTag {
@@ -37,8 +37,8 @@ class BBNetwork: BBObject {
         BBLoadingView.setGif("Loading.gif")
         BBLoadingView.showWithOverlay()
             
-        let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
-        Alamofire.request(.GET, apiModel.url, parameters: parameters)
+//        let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
+        Alamofire.request(.GET, "https://www.pierup.cn:8443/common_api_cn/v1/query/all_provinces", parameters: parameters)
             .responseString { response in
                 BBLoadingView.dismiss()
 
@@ -46,7 +46,7 @@ class BBNetwork: BBObject {
                     let value = BBValue(json: response.result.value)
                     succeededBlock(response: value)
                 } else {
-                    failedBlock(task: response.response!, error: response.result.error!)
+                    failedBlock(error: response.result.error!)
                 }
         }
     }

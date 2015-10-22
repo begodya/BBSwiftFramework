@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let token = "eb51381f 775241e1 eed0b011 c85122f2 eefef75c e478f2e7 f4ddb363 171f0cdet";
         BBDataSource.setDeviceToken(token)
     }
-
+    
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
     private func initDataSource() {

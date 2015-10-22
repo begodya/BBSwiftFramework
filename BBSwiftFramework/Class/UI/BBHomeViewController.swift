@@ -47,7 +47,7 @@ class BBHomeViewController: BBRootViewController {
             let model: BBValue = response as! BBValue
             log.info("response model: \n\(model)\n\n")
 
-            }) { (task, error) -> Void in
+            }) { (error) -> Void in
                 
         }
     }
