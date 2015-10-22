@@ -10,6 +10,15 @@
 		<string></string>
 		<key>api</key>
 		<dict>
+			<key>weather</key>
+			<dict>
+				<key>url</key>
+				<string>http://api.map.baidu.com/telematics/v3/weather</string>
+				<key>method</key>
+				<string>GET</string>
+				<key>output</key>
+				<string>BBModel</string>
+			</dict>
 			<key>serviceHTTPS</key>
 			<dict>
 				<key>url</key>

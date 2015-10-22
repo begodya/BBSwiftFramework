@@ -43,11 +43,15 @@ class BBHomeViewController: BBRootViewController {
     func setupView() {
         
         let bean: BBBean = BBBean.init()
-        bean.foo = "bar"
+        bean.location = "合肥"
+        bean.output = "json"
+        bean.ak = "wl82QREF9dNMEEGYu3LAGqdU"
+//        bean.foo = "bar"
 
         // 第一种方法：调用Alamofire
-        BBNetwork.serverSend(eServiceTags.kCommon_http, bean: bean, succeededBlock: { (response) -> Void in
-            let model: BBValue = response as! BBValue
+        BBNetwork.serverSend(eServiceTags.kCommon_weather, bean: bean, succeededBlock: { (response) -> Void in
+            
+            let model: BBResult = response as! BBResult
             log.info("response model: \n\(model)\n\n")
 
             }) { (error) -> Void in

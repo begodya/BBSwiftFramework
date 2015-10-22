@@ -27,13 +27,16 @@ class BBNetwork: BBObject {
         failedBlock:    (error: NSError)->Void) {
             
         // Alamofire 服务
-        let params: [String: AnyObject]?
+        let params: Dictionary<String, AnyObject>
         switch serviceTag {
             case .kCommon_http:
             params = ["foo": bean.foo]
             break
             case .kCommon_https:
             params = ["foo": bean.foo]
+            break
+            case .kCommon_weather:
+            params = ["location": bean.location, "output": bean.output, "ak": bean.ak]
             break
         }
         
@@ -42,7 +45,7 @@ class BBNetwork: BBObject {
         let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
             
         // 通过自定义网络库发送服务
-        BBHTTPExcutor(url: apiModel.url, method: apiModel.method, params: params!) { (data, response, error) -> Void in
+        BBHTTPExcutor(url: apiModel.url, method: apiModel.method, params: params) { (data, response, error) -> Void in
 
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 BBLoadingView.dismiss()
@@ -51,8 +54,8 @@ class BBNetwork: BBObject {
             if (response.isKindOfClass(NSHTTPURLResponse)) {
                 let response: NSHTTPURLResponse = response as! NSHTTPURLResponse
                 if (response.statusCode == 200 && error == nil) {
-                    let result = NSString(data: data!, encoding: NSASCIIStringEncoding)!
-                    let value = BBValue(json: result as String)
+
+                    let value = BBResult(json: NSString(data: data!, encoding: NSASCIIStringEncoding)! as String)
                     succeededBlock(response: value)
                 } else {
                     failedBlock(error: error)
@@ -76,5 +79,5 @@ class BBNetwork: BBObject {
 //        }
 
     }
-
+    
 }

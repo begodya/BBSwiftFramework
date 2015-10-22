@@ -12,9 +12,13 @@ public class BBBean: BBObject {
 
     var foo: String!
     
-    // MARK: Init
-    required public init () {
-        self.foo = ""
-    }
+    var location: String!
+    var output: String!
+    var ak: String!
+    
+//    // MARK: Init
+//    required public init () {
+//        self.foo = ""
+//    }
 
 }

@@ -11,4 +11,5 @@ import Foundation
 enum eServiceTags: String {
     case kCommon_http = "common_serviceHTTP"
     case kCommon_https = "common_serviceHTTPS"
+    case kCommon_weather = "common_weather"
 }
