@@ -49,18 +49,18 @@ class BBNetwork: BBObject {
 
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 BBLoadingView.dismiss()
-            })
-            
-            if (response.isKindOfClass(NSHTTPURLResponse)) {
-                let response: NSHTTPURLResponse = response as! NSHTTPURLResponse
-                if (response.statusCode == 200 && error == nil) {
-
-                    let value = BBResult(json: NSString(data: data!, encoding: NSASCIIStringEncoding)! as String)
-                    succeededBlock(response: value)
-                } else {
-                    failedBlock(error: error)
+                
+                if (response.isKindOfClass(NSHTTPURLResponse)) {
+                    let response: NSHTTPURLResponse = response as! NSHTTPURLResponse
+                    if (response.statusCode == 200 && error == nil) {                        
+                        let value = BBResult(json: NSString(data: data!, encoding: NSUTF8StringEncoding)! as String)
+                        succeededBlock(response: value)
+                    } else {
+                        failedBlock(error: error)
+                    }
                 }
-            }
+
+            })
             
         }.fire()
             

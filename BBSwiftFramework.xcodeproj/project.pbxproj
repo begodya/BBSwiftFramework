@@ -18,6 +18,9 @@
 		3B561DE71BBBC3CF000CAC0E /* BBDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DE61BBBC3CF000CAC0E /* BBDevice.swift */; };
 		3B561DF41BBBE72F000CAC0E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DF31BBBE72F000CAC0E /* String.swift */; };
 		3B6FA0681BD8AD2D0008BB4C /* BBHTTPExcutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA0671BD8AD2D0008BB4C /* BBHTTPExcutor.swift */; };
+		3B6FA06C1BD8E37F0008BB4C /* BBHomeCellsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA06B1BD8E37F0008BB4C /* BBHomeCellsModel.swift */; };
+		3B6FA06E1BD8E4050008BB4C /* BBHomeClothesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA06D1BD8E4050008BB4C /* BBHomeClothesCell.swift */; };
+		3B6FA0701BD8E4110008BB4C /* BBHomeClothesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FA06F1BD8E4110008BB4C /* BBHomeClothesCell.xib */; };
 		3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */; };
 		3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */; };
 		3B73CF001BD4E4C600E5C7F0 /* BBConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */; };
@@ -96,6 +99,9 @@
 		3B561DE61BBBC3CF000CAC0E /* BBDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDevice.swift; sourceTree = "<group>"; };
 		3B561DF31BBBE72F000CAC0E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3B6FA0671BD8AD2D0008BB4C /* BBHTTPExcutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHTTPExcutor.swift; sourceTree = "<group>"; };
+		3B6FA06B1BD8E37F0008BB4C /* BBHomeCellsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeCellsModel.swift; sourceTree = "<group>"; };
+		3B6FA06D1BD8E4050008BB4C /* BBHomeClothesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeClothesCell.swift; sourceTree = "<group>"; };
+		3B6FA06F1BD8E4110008BB4C /* BBHomeClothesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeClothesCell.xib; sourceTree = "<group>"; };
 		3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBMenuButtonCell.swift; sourceTree = "<group>"; };
 		3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuButtonCell.xib; sourceTree = "<group>"; };
 		3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBConfig.swift; sourceTree = "<group>"; };
@@ -301,6 +307,8 @@
 		3B561DD51BBB866D000CAC0E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3B6FA0691BD8E35F0008BB4C /* ViewModel */,
+				3B6FA06A1BD8E35F0008BB4C /* Views */,
 				3BD069951BCF834700E656FC /* Extern */,
 				3BD069B11BCFB69600E656FC /* BBHomeViewController.swift */,
 				3BD069B21BCFB69600E656FC /* BBHomeViewController.xib */,
@@ -333,6 +341,23 @@
 				3BD0698F1BCE4BA300E656FC /* UIImageView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3B6FA0691BD8E35F0008BB4C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3B6FA06B1BD8E37F0008BB4C /* BBHomeCellsModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3B6FA06A1BD8E35F0008BB4C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B6FA06D1BD8E4050008BB4C /* BBHomeClothesCell.swift */,
+				3B6FA06F1BD8E4110008BB4C /* BBHomeClothesCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3B73CF0B1BD627A900E5C7F0 /* Business */ = {
@@ -637,6 +662,7 @@
 				3BD069B41BCFB69600E656FC /* BBHomeViewController.xib in Resources */,
 				3BD069921BCE4D0100E656FC /* Loading.gif in Resources */,
 				3B73CF141BD628A100E5C7F0 /* BBServiceConfig.plist in Resources */,
+				3B6FA0701BD8E4110008BB4C /* BBHomeClothesCell.xib in Resources */,
 				3BBB680B1BC6125A0011ED71 /* BBTableViewCell.xib in Resources */,
 				3BD0699D1BCFABEC00E656FC /* TrendSansOne.otf in Resources */,
 				3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */,
@@ -725,6 +751,7 @@
 				3BD069B31BCFB69600E656FC /* BBHomeViewController.swift in Sources */,
 				3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */,
 				3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */,
+				3B6FA06C1BD8E37F0008BB4C /* BBHomeCellsModel.swift in Sources */,
 				3BD069BE1BCFB81A00E656FC /* BBDataSource.swift in Sources */,
 				3BD0698C1BCE499D00E656FC /* BBLoadingView.swift in Sources */,
 				3BBB680A1BC6125A0011ED71 /* BBTableViewCell.swift in Sources */,
@@ -750,6 +777,7 @@
 				3BD069A71BCFB5E200E656FC /* MenuItemsAnimator.swift in Sources */,
 				3BBB68071BC60D480011ED71 /* BBRootView.swift in Sources */,
 				3B73CF1D1BD62BE500E5C7F0 /* BBModel.swift in Sources */,
+				3B6FA06E1BD8E4050008BB4C /* BBHomeClothesCell.swift in Sources */,
 				3BD069901BCE4BA300E656FC /* UIImageView.swift in Sources */,
 				3BD069AF1BCFB61A00E656FC /* CircularRevealAnimator.swift in Sources */,
 			);

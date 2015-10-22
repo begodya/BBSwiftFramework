@@ -14,7 +14,7 @@ class BBHomeViewController: BBRootViewController {
     @IBOutlet weak var contentTableView: BBTableView!
     
     var items = ["武汉","上海","北京","深圳","广州","重庆","香港","台海","天津"]
-    
+    var viewModel: BBHomeCellsModel?
     // MARK: - --------------------System--------------------
     
     override func viewDidLoad() {
@@ -30,6 +30,8 @@ class BBHomeViewController: BBRootViewController {
         self.contentTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         self.setupView()
+        
+        self.setupViewModel()
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,6 +41,11 @@ class BBHomeViewController: BBRootViewController {
     
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
+    
+    func setupViewModel() {
+        self.viewModel = BBHomeCellsModel()
+        self.viewModel?.createTableData()
+    }
     
     func setupView() {
         
@@ -52,7 +59,9 @@ class BBHomeViewController: BBRootViewController {
         BBNetwork.serverSend(eServiceTags.kCommon_weather, bean: bean, succeededBlock: { (response) -> Void in
             
             let model: BBResult = response as! BBResult
+            self.viewModel?.dataModel = model
             log.info("response model: \n\(model)\n\n")
+            self.contentTableView.reloadData()
 
             }) { (error) -> Void in
                 
@@ -85,29 +94,40 @@ class BBHomeViewController: BBRootViewController {
     // MARK: - --------------------代理方法--------------------
     
     // MARK: UITableView Delegate
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return (self.viewModel?.sectionArray.count)!
+    }
+    
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        let dictionary = self.viewModel?.sectionArray.objectAtIndex(section) as! NSDictionary
+        let key = dictionary.allKeys as NSArray
+        let cells = dictionary.objectForKey(key.firstObject!)
+        return cells!.count;
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return (self.viewModel?.heightForRowAtIndexPath(indexPath))!
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView .dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel!.text = self.items[indexPath.row as Int]
+        let identifier: String! = self.viewModel?.getIdentifierByCellIndex(indexPath)
+        var cell: BBTableViewCell? = tableView.dequeueReusableCellWithIdentifier(identifier) as? BBTableViewCell
+        if cell == nil {
+            cell = self.viewModel?.cellForRowAtIndexPath(indexPath)
+        }
+        self.viewModel?.configCell(cell!, forRowAtIndexPath: indexPath)
+        
         return cell;
     }
-    
-    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        self.items.removeAtIndex(indexPath.row as Int)
-        self.contentTableView?.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
-        NSLog("删除\(indexPath.row)")
-    }
-    
+
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
-
+        
         let alertController = BBAlertController.initWithMessage("点击选择第\(indexPath.row)行")
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
+
     // MARK: - --------------------属性相关--------------------
     // MARK: 属性操作函数注释
     
