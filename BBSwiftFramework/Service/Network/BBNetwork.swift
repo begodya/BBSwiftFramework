@@ -12,7 +12,7 @@ import Alamofire
 class BBNetwork: BBObject {
 
     /**
-    发送服务接口
+    通过Alamofire发送服务接口
     
     - parameter serviceTag:     服务对象
     - parameter bean:           服务参数
@@ -26,10 +26,14 @@ class BBNetwork: BBObject {
         succeededBlock: (response: BBModel)->Void,
         failedBlock:    (error: NSError)->Void) {
             
-        let parameters: [String: AnyObject]?
+        // Alamofire 服务
+        let params: [String: AnyObject]?
         switch serviceTag {
-            case .kCommon_test:
-            parameters = ["foo": bean.foo]
+            case .kCommon_http:
+            params = ["foo": bean.foo]
+            break
+            case .kCommon_https:
+            params = ["foo": bean.foo]
             break
         }
         
@@ -37,8 +41,8 @@ class BBNetwork: BBObject {
         BBLoadingView.setGif("Loading.gif")
         BBLoadingView.showWithOverlay()
             
-//        let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
-        Alamofire.request(.GET, "https://www.pierup.cn:8443/common_api_cn/v1/query/all_provinces", parameters: parameters)
+        let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
+        Alamofire.request(.GET, apiModel.url, parameters: params)
             .responseString { response in
                 BBLoadingView.dismiss()
 
@@ -49,6 +53,21 @@ class BBNetwork: BBObject {
                     failedBlock(error: response.result.error!)
                 }
         }
+
     }
+    
+    /**
+     通过自定义网络请求库发送服务接口
+     
+     - parameter serviceTag:     服务对象
+     - parameter bean:           服务参数
+     - parameter callback:       回调操作
+     */
+    class func serverSend(serviceTag: eServiceTags, bean: BBBean, callback: (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void) {
+        let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
+        let manager = BBHTTPExcutor(url: apiModel.url, method: apiModel.method, callback: callback)
+        manager.fire()
+    }
+    
     
 }

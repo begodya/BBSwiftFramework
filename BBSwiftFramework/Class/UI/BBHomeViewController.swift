@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class BBHomeViewController: BBRootViewController {
 
@@ -25,6 +26,9 @@ class BBHomeViewController: BBRootViewController {
         self.setMoreBarButtonWithTarget(self, action: Selector("clickedMoreAction"))
         self.setInboxBarButtonWithTarget(self, action: Selector("clickedInboxAction"))
         
+        // config tableView
+        self.contentTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
         self.setupView()
     }
     
@@ -37,19 +41,27 @@ class BBHomeViewController: BBRootViewController {
     // MARK: 初始化
     
     func setupView() {
-        // config tableView
-        self.contentTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         let bean: BBBean = BBBean.init()
         bean.foo = "bar"
-        
-        BBNetwork.serverSend(eServiceTags.kCommon_test, bean: bean, succeededBlock: { (response) -> Void in
+
+        // 第一种方法：调用Alamofire
+        BBNetwork.serverSend(eServiceTags.kCommon_http, bean: bean, succeededBlock: { (response) -> Void in
             let model: BBValue = response as! BBValue
             log.info("response model: \n\(model)\n\n")
 
             }) { (error) -> Void in
                 
         }
+
+        // 第一种方法：调用自定义网络请求库
+        BBNetwork.serverSend(eServiceTags.kCommon_http, bean: bean) { (data, response, error) -> Void in
+            
+            let result = NSString(data: data!, encoding: NSASCIIStringEncoding)!
+            let value = BBValue(json: result as String)
+            log.info("response model: \n\(value)\n\n")
+        }
+        
     }
     
     // MARK: - --------------------手势事件--------------------

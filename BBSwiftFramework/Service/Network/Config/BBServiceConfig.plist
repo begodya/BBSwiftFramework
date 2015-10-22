@@ -7,13 +7,22 @@
 		<key>bean</key>
 		<string>BBBean</string>
 		<key>host</key>
-		<string>http://httpbin.org/get</string>
+		<string></string>
 		<key>api</key>
 		<dict>
-			<key>serviceTest</key>
+			<key>serviceHTTPS</key>
 			<dict>
 				<key>url</key>
-				<string></string>
+				<string>https://www.pierup.cn:8443/common_api_cn/v1/query/all_provinces</string>
+				<key>method</key>
+				<string>GET</string>
+				<key>output</key>
+				<string>BBModel</string>
+			</dict>
+			<key>serviceHTTP</key>
+			<dict>
+				<key>url</key>
+				<string>http://httpbin.org/get</string>
 				<key>method</key>
 				<string>GET</string>
 				<key>output</key>

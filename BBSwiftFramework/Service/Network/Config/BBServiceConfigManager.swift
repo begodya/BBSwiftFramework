@@ -97,12 +97,15 @@ class BBServiceConfigManager: NSObject {
 
         let configModel: BBServiceConfigModel = self.sharedInstance.configDict.objectForKey(keyService) as! BBServiceConfigModel
         let apiModel: BBAPIModel = configModel.apis.objectForKey(keyApi) as! BBAPIModel
-        if apiModel.url.isEmpty {
-            apiModel.url = configModel.host
-        } else {
-            apiModel.url = configModel.host + "/" + apiModel.url
+        
+        if !configModel.host.isEmpty {
+            if apiModel.url.isEmpty {
+                apiModel.url = configModel.host
+            } else {
+                apiModel.url = configModel.host + "/" + apiModel.url
+            }
         }
-
+        
         return apiModel
     }
 }

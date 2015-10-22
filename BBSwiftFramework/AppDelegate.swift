@@ -36,7 +36,7 @@ let log: XCGLogger = {
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, NSURLConnectionDelegate {
 
     var window: UIWindow?
 

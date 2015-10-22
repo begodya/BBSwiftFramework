@@ -27,4 +27,8 @@ extension String {
     func doubleValue() -> Double {
         return (self as NSString).doubleValue
     }
+    
+    var encodingdata: NSData {
+        return self.dataUsingEncoding(NSUTF8StringEncoding)!
+    }
 }
