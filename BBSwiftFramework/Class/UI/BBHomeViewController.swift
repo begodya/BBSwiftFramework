@@ -55,12 +55,12 @@ class BBHomeViewController: BBRootViewController {
         }
 
         // 第一种方法：调用自定义网络请求库
-        BBNetwork.serverSend(eServiceTags.kCommon_http, bean: bean) { (data, response, error) -> Void in
-            
-            let result = NSString(data: data!, encoding: NSASCIIStringEncoding)!
-            let value = BBValue(json: result as String)
-            log.info("response model: \n\(value)\n\n")
-        }
+//        BBNetwork.serverSend(eServiceTags.kCommon_http, bean: bean) { (data, response, error) -> Void in
+//            
+//            let result = NSString(data: data!, encoding: NSASCIIStringEncoding)!
+//            let value = BBValue(json: result as String)
+//            log.info("response model: \n\(value)\n\n")
+//        }
         
     }
     

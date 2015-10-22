@@ -37,37 +37,44 @@ class BBNetwork: BBObject {
             break
         }
         
-            
         BBLoadingView.setGif("Loading.gif")
         BBLoadingView.showWithOverlay()
-            
         let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
-        Alamofire.request(.GET, apiModel.url, parameters: params)
-            .responseString { response in
-                BBLoadingView.dismiss()
+            
+        // 通过自定义网络库发送服务
+        BBHTTPExcutor(url: apiModel.url, method: apiModel.method, params: params!) { (data, response, error) -> Void in
 
-                if (response.result.isSuccess) {
-                    let value = BBValue(json: response.result.value)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                BBLoadingView.dismiss()
+            })
+            
+            if (response.isKindOfClass(NSHTTPURLResponse)) {
+                let response: NSHTTPURLResponse = response as! NSHTTPURLResponse
+                if (response.statusCode == 200 && error == nil) {
+                    let result = NSString(data: data!, encoding: NSASCIIStringEncoding)!
+                    let value = BBValue(json: result as String)
                     succeededBlock(response: value)
                 } else {
-                    failedBlock(error: response.result.error!)
+                    failedBlock(error: error)
                 }
-        }
+            }
+            
+        }.fire()
+            
+            
+        // 通过Alamofire发送服务
+//        Alamofire.request(.GET, apiModel.url, parameters: params)
+//            .responseString { response in
+//                BBLoadingView.dismiss()
+//
+//                if (response.result.isSuccess) {
+//                    let value = BBValue(json: response.result.value)
+//                    succeededBlock(response: value)
+//                } else {
+//                    failedBlock(error: response.result.error!)
+//                }
+//        }
 
     }
-    
-    /**
-     通过自定义网络请求库发送服务接口
-     
-     - parameter serviceTag:     服务对象
-     - parameter bean:           服务参数
-     - parameter callback:       回调操作
-     */
-    class func serverSend(serviceTag: eServiceTags, bean: BBBean, callback: (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void) {
-        let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
-        let manager = BBHTTPExcutor(url: apiModel.url, method: apiModel.method, callback: callback)
-        manager.fire()
-    }
-    
-    
+
 }

@@ -126,7 +126,7 @@ class BBHTTPExcutor: NSObject, NSURLSessionDelegate {
     func configHTTPBody() {
         let data = NSMutableData()
         
-        if self.files.count > 0 {
+        if !self.files.isEmpty {
             if self.method == BBServiceConfig().kHTTP_GET {
                 log.info("The remote server may not accept GET method with HTTP body. But Pitaya will send it anyway.")
             }
@@ -147,7 +147,7 @@ class BBHTTPExcutor: NSObject, NSURLSessionDelegate {
             }
             data.appendData("--\(self.boundary)--\r\n".encodingdata)
             
-        } else if self.params.count > 0 && self.method != "GET" {
+        } else if !self.params.isEmpty && self.method != BBServiceConfig().kHTTP_GET {
             data.appendData(buildParams(self.params).encodingdata)
             
         }
