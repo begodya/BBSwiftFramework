@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Haneke
 
 class BBHomeCellsModel: NSObject {
 
@@ -14,10 +15,12 @@ class BBHomeCellsModel: NSObject {
     
     enum eSectionType: Int {
         case Section_0
+        case Section_1
     }
     
     enum eCellType: Int {
         case Cell_0
+        case Cell_1
     }
     
     var sectionArray: NSMutableArray = NSMutableArray()
@@ -39,6 +42,18 @@ class BBHomeCellsModel: NSObject {
                     cells.addObject(eCellType.Cell_0.rawValue)
                 }
             }
+            break
+        case .Section_1:
+            
+            if self.dataModel != nil {
+                let cities: [City] = self.dataModel!.results
+                let city: City = cities.first!
+                let weatheres: [Weather] = city.weather_data
+                for _ in 0..<weatheres.count {
+                    cells.addObject(eCellType.Cell_1.rawValue)
+                }
+            }
+            break
         }
         
         dictionary.setObject(cells, forKey: sectionType.rawValue)
@@ -56,6 +71,10 @@ class BBHomeCellsModel: NSObject {
         switch(cells.objectAtIndex(indexPath.row).unsignedIntegerValue) {
         case 0:
             cellType = .Cell_0
+            break
+        case 1:
+            cellType = .Cell_1
+            break
         default:
             break
         }
@@ -68,14 +87,24 @@ class BBHomeCellsModel: NSObject {
         switch (type) {
         case .Cell_0:
             identifier = "BBHomeClothesCell"
+            break
+        case .Cell_1:
+            identifier = "BBHomeWeatherCell"
+            break
         }
+        
         return identifier
     }
     
     private func getCellWithType(type: eCellType) -> BBTableViewCell {
-        let cell: BBHomeClothesCell = BBTableViewCell.cellFromXib("BBHomeClothesCell") as! BBHomeClothesCell
+        var cell: BBTableViewCell
         switch (type) {
-        case .Cell_0:break
+        case .Cell_0:
+            cell = BBTableViewCell.cellFromXib("BBHomeClothesCell") as! BBHomeClothesCell
+            break
+        case .Cell_1:
+            cell = BBTableViewCell.cellFromXib("BBHomeWeatherCell") as! BBHomeWeatherCell
+            break
         }
         
         return cell
@@ -99,6 +128,7 @@ class BBHomeCellsModel: NSObject {
     
     func createTableData() {
         self.sectionArray.addObject(self.addCellsToSection(eSectionType.Section_0))
+        self.sectionArray.addObject(self.addCellsToSection(eSectionType.Section_1))
     }
     
     func getIdentifierByCellIndex(indexPath: NSIndexPath) -> String {
@@ -108,10 +138,11 @@ class BBHomeCellsModel: NSObject {
     func configCell(cell: BBTableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if self.dataModel != nil {
-            let customCell: BBHomeClothesCell = cell as! BBHomeClothesCell
+
             let cellType: eCellType = self.getCellType(indexPath)
             switch (cellType) {
             case .Cell_0:
+                let customCell: BBHomeClothesCell = cell as! BBHomeClothesCell
                 let cities: [City] = self.dataModel!.results
                 let city: City = cities.first!
                 
@@ -122,6 +153,23 @@ class BBHomeCellsModel: NSObject {
                 customCell.zsLabel.text = clothes.zs
                 customCell.tiptLabel.text = clothes.tipt
                 customCell.desLabel.text = clothes.des
+                break
+            case .Cell_1:
+                let customCell: BBHomeWeatherCell = cell as! BBHomeWeatherCell
+                let cities: [City] = self.dataModel!.results
+                let city: City = cities.first!
+                
+                let weatheres: [Weather] = city.weather_data
+                let weather = weatheres[indexPath.row]
+                
+                customCell.dateLabel.text = weather.date
+                customCell.weatherLabel.text = weather.weather
+                customCell.windLabel.text = weather.wind
+                customCell.temperatureLabel.text = weather.temperature
+                customCell.dayImageView.hnk_setImageFromURL(NSURL(string: weather.dayPictureUrl)!)
+                customCell.nightImageView.hnk_setImageFromURL(NSURL(string: weather.nightPictureUrl)!)
+                
+                break
             }
         }
     }
@@ -137,10 +185,13 @@ class BBHomeCellsModel: NSObject {
     func heightForHeaderInSection(section: NSInteger) -> CGFloat {
         var height: CGFloat = 0.0
         switch section {
-            case eSectionType.Section_0.rawValue:
-                height = 25.0
-                break
-            default:
+        case eSectionType.Section_0.rawValue:
+            height = 25.0
+            break
+        case eSectionType.Section_1.rawValue:
+            height = 25.0
+            break
+        default:
                 break
         }
         
@@ -158,6 +209,10 @@ class BBHomeCellsModel: NSObject {
             case eSectionType.Section_0.rawValue:
                 sectionLabel.text = "穿衣指数"
                 break
+            case eSectionType.Section_1.rawValue:
+                sectionLabel.text = "天气指数"
+                break
+
             default:
                 break
             }

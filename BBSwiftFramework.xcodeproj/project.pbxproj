@@ -22,6 +22,8 @@
 		3B6FA06E1BD8E4050008BB4C /* BBHomeClothesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA06D1BD8E4050008BB4C /* BBHomeClothesCell.swift */; };
 		3B6FA0701BD8E4110008BB4C /* BBHomeClothesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FA06F1BD8E4110008BB4C /* BBHomeClothesCell.xib */; };
 		3B6FA0721BD9F0300008BB4C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA0711BD9F0300008BB4C /* UIView.swift */; };
+		3B6FA0741BD9F2170008BB4C /* BBHomeWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA0731BD9F2170008BB4C /* BBHomeWeatherCell.swift */; };
+		3B6FA0761BD9F2220008BB4C /* BBHomeWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FA0751BD9F2220008BB4C /* BBHomeWeatherCell.xib */; };
 		3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */; };
 		3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */; };
 		3B73CF001BD4E4C600E5C7F0 /* BBConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */; };
@@ -104,6 +106,8 @@
 		3B6FA06D1BD8E4050008BB4C /* BBHomeClothesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeClothesCell.swift; sourceTree = "<group>"; };
 		3B6FA06F1BD8E4110008BB4C /* BBHomeClothesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeClothesCell.xib; sourceTree = "<group>"; };
 		3B6FA0711BD9F0300008BB4C /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		3B6FA0731BD9F2170008BB4C /* BBHomeWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeWeatherCell.swift; sourceTree = "<group>"; };
+		3B6FA0751BD9F2220008BB4C /* BBHomeWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeWeatherCell.xib; sourceTree = "<group>"; };
 		3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBMenuButtonCell.swift; sourceTree = "<group>"; };
 		3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuButtonCell.xib; sourceTree = "<group>"; };
 		3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBConfig.swift; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 			children = (
 				3B6FA06D1BD8E4050008BB4C /* BBHomeClothesCell.swift */,
 				3B6FA06F1BD8E4110008BB4C /* BBHomeClothesCell.xib */,
+				3B6FA0731BD9F2170008BB4C /* BBHomeWeatherCell.swift */,
+				3B6FA0751BD9F2220008BB4C /* BBHomeWeatherCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -669,6 +675,7 @@
 				3BBB680B1BC6125A0011ED71 /* BBTableViewCell.xib in Resources */,
 				3BD0699D1BCFABEC00E656FC /* TrendSansOne.otf in Resources */,
 				3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */,
+				3B6FA0761BD9F2220008BB4C /* BBHomeWeatherCell.xib in Resources */,
 				3B87B41F1BCCF4A400890E2B /* BBH5ViewController.xib in Resources */,
 				3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */,
 				3B561DA61BBB84BF000CAC0E /* Main.storyboard in Resources */,
@@ -772,6 +779,7 @@
 				3B73CF1F1BD62C3500E5C7F0 /* BBBean.swift in Sources */,
 				3B561DE51BBBBFB5000CAC0E /* BBColor.swift in Sources */,
 				3B561DD91BBB8794000CAC0E /* BBRootViewController.swift in Sources */,
+				3B6FA0741BD9F2170008BB4C /* BBHomeWeatherCell.swift in Sources */,
 				3B73CF251BD6381F00E5C7F0 /* BBServiceConfigManager.swift in Sources */,
 				3BD069A81BCFB5E200E656FC /* MenuSegue.swift in Sources */,
 				3BD069B01BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift in Sources */,
