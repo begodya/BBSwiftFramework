@@ -25,6 +25,9 @@
 		3B6FA0741BD9F2170008BB4C /* BBHomeWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA0731BD9F2170008BB4C /* BBHomeWeatherCell.swift */; };
 		3B6FA0761BD9F2220008BB4C /* BBHomeWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FA0751BD9F2220008BB4C /* BBHomeWeatherCell.xib */; };
 		3B6FA0781BD9FE060008BB4C /* BBServiceTest.cer in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FA0771BD9FE060008BB4C /* BBServiceTest.cer */; };
+		3B6FA07B1BDA01CE0008BB4C /* BBServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA07A1BDA01CE0008BB4C /* BBServiceHandler.swift */; };
+		3B6FA07F1BDA08A60008BB4C /* BBServiceCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA07E1BDA08A60008BB4C /* BBServiceCallback.swift */; };
+		3B6FA0811BDA108B0008BB4C /* BBServiceDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA0801BDA108B0008BB4C /* BBServiceDispatch.swift */; };
 		3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */; };
 		3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */; };
 		3B73CF001BD4E4C600E5C7F0 /* BBConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */; };
@@ -110,6 +113,9 @@
 		3B6FA0731BD9F2170008BB4C /* BBHomeWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeWeatherCell.swift; sourceTree = "<group>"; };
 		3B6FA0751BD9F2220008BB4C /* BBHomeWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeWeatherCell.xib; sourceTree = "<group>"; };
 		3B6FA0771BD9FE060008BB4C /* BBServiceTest.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = BBServiceTest.cer; sourceTree = "<group>"; };
+		3B6FA07A1BDA01CE0008BB4C /* BBServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBServiceHandler.swift; sourceTree = "<group>"; };
+		3B6FA07E1BDA08A60008BB4C /* BBServiceCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBServiceCallback.swift; sourceTree = "<group>"; };
+		3B6FA0801BDA108B0008BB4C /* BBServiceDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBServiceDispatch.swift; sourceTree = "<group>"; };
 		3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBMenuButtonCell.swift; sourceTree = "<group>"; };
 		3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuButtonCell.xib; sourceTree = "<group>"; };
 		3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBConfig.swift; sourceTree = "<group>"; };
@@ -371,10 +377,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3B6FA0791BDA01B10008BB4C /* ServiceHandler */ = {
+			isa = PBXGroup;
+			children = (
+				3B6FA07A1BDA01CE0008BB4C /* BBServiceHandler.swift */,
+				3B6FA07E1BDA08A60008BB4C /* BBServiceCallback.swift */,
+			);
+			path = ServiceHandler;
+			sourceTree = "<group>";
+		};
 		3B73CF0B1BD627A900E5C7F0 /* Business */ = {
 			isa = PBXGroup;
 			children = (
 				3B73CF181BD62BE500E5C7F0 /* BBObject.swift */,
+				3B6FA0791BDA01B10008BB4C /* ServiceHandler */,
 				3B73CF191BD62BE500E5C7F0 /* Beans */,
 				3B73CF1A1BD62BE500E5C7F0 /* Models */,
 			);
@@ -387,6 +403,7 @@
 				3B73CF0F1BD627A900E5C7F0 /* Config */,
 				3B73CF201BD62D2300E5C7F0 /* BBNetwork.swift */,
 				3B6FA0671BD8AD2D0008BB4C /* BBHTTPExcutor.swift */,
+				3B6FA0801BDA108B0008BB4C /* BBServiceDispatch.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -757,12 +774,14 @@
 			files = (
 				3B6FA0721BD9F0300008BB4C /* UIView.swift in Sources */,
 				3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */,
+				3B6FA07F1BDA08A60008BB4C /* BBServiceCallback.swift in Sources */,
 				3B561DE31BBBB37A000CAC0E /* BBFont.swift in Sources */,
 				3BD0698E1BCE4AF100E656FC /* GIFImage.swift in Sources */,
 				3B73CF001BD4E4C600E5C7F0 /* BBConfig.swift in Sources */,
 				3BD069BF1BCFB81A00E656FC /* BBMenuViewController.swift in Sources */,
 				3BC853771BD0A094001CD7E3 /* BBMenuCellsModel.swift in Sources */,
 				3B73CF1C1BD62BE500E5C7F0 /* BBObject.swift in Sources */,
+				3B6FA07B1BDA01CE0008BB4C /* BBServiceHandler.swift in Sources */,
 				3BD069B31BCFB69600E656FC /* BBHomeViewController.swift in Sources */,
 				3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */,
 				3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */,
@@ -772,6 +791,7 @@
 				3BBB680A1BC6125A0011ED71 /* BBTableViewCell.swift in Sources */,
 				3BD069941BCE667200E656FC /* BBNavigationController.swift in Sources */,
 				3B73CF231BD62D6E00E5C7F0 /* BBServiceTags.swift in Sources */,
+				3B6FA0811BDA108B0008BB4C /* BBServiceDispatch.swift in Sources */,
 				3BD069A91BCFB5E200E656FC /* MenuTransitionAnimator.swift in Sources */,
 				3B561DA11BBB84BF000CAC0E /* AppDelegate.swift in Sources */,
 				3B561DE71BBBC3CF000CAC0E /* BBDevice.swift in Sources */,

@@ -29,17 +29,6 @@ class BBLoadingView: BBRootView {
 
     // MARK: - --------------------System--------------------
     
-    // MARK: - --------------------功能函数--------------------
-    
-    // MARK: Singleton
-    class var sharedInstance : BBLoadingView {
-        struct Static {
-            static let instance : BBLoadingView = BBLoadingView()
-        }
-        return Static.instance
-    }
-    
-    
     // MARK: Init
     init () {
         self.shown = false
@@ -62,6 +51,16 @@ class BBLoadingView: BBRootView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    
+    // MARK: - --------------------功能函数--------------------
+    
+    // MARK: Singleton
+    class var sharedInstance : BBLoadingView {
+        struct Static {
+            static let instance : BBLoadingView = BBLoadingView()
+        }
+        return Static.instance
+    }
     
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释

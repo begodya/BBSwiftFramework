@@ -56,7 +56,7 @@ class BBHomeViewController: BBRootViewController {
 //        bean.foo = "bar"
 
         // 第一种方法：调用Alamofire
-        BBNetwork.serverSend(eServiceTags.kCommon_weather, bean: bean, succeededBlock: { (response) -> Void in
+        BBNetwork.serverSend(eServiceTags.kCommon_weather, bean: bean, succeeded: { (response) -> Void in
             
             let model: BBResult = response as! BBResult
             self.viewModel?.dataModel = model
