@@ -108,7 +108,7 @@ class BBHomeCellsModel: NSObject {
                 let city: City = cities.first!
                 
                 let clotheses: [Clothes] = city.index
-                let clothes = clotheses.first!
+                let clothes = clotheses[indexPath.row]
                 
                 customCell.titleLabel.text = clothes.title
                 customCell.zsLabel.text = clothes.zs
