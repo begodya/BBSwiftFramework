@@ -36,7 +36,6 @@ class BBNetwork: BBObject {
         succeeded:      succeededBlock,
         failed:         failedBlock) {
             
-            
             let serviceHandler: BBServiceHandler = BBServiceHandler()
             serviceHandler.isNeedErrorAlert = BBNetwork().isNeedErrorAlert
             serviceHandler.isNeedLoadingView = BBNetwork().isNeedLoadingView
@@ -44,45 +43,6 @@ class BBNetwork: BBObject {
             serviceHandler.bean = bean
             serviceHandler.apiModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
             serviceHandler.serviceHandlerRequest(succeeded, failed: failed)
-            
-            
-//        // Alamofire 服务
-//        let params: Dictionary<String, AnyObject>
-//        switch serviceTag {
-//            case .kCommon_http:
-//            params = ["foo": bean.foo]
-//            break
-//            case .kCommon_https:
-//            params = ["foo": bean.foo]
-//            break
-//            case .kCommon_weather:
-//            params = ["location": bean.location, "output": bean.output, "ak": bean.ak]
-//            break
-//        }
-//        
-//        BBLoadingView.setGif("Loading.gif")
-//        BBLoadingView.showWithOverlay()
-//        let apiModel: BBAPIModel = BBServiceConfigManager.getApiModelByTag(serviceTag)
-//            
-//        // 通过自定义网络库发送服务
-//        BBHTTPExcutor(url: apiModel.url, method: apiModel.method, params: params) { (data, response, error) -> Void in
-//
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                BBLoadingView.dismiss()
-//                
-//                if (response.isKindOfClass(NSHTTPURLResponse)) {
-//                    let response: NSHTTPURLResponse = response as! NSHTTPURLResponse
-//                    if (response.statusCode == 200 && error == nil) {                        
-//                        let value = BBResult(json: NSString(data: data!, encoding: NSUTF8StringEncoding)! as String)
-//                        succeeded(response: value)
-//                    } else {
-//                        failed(error: error)
-//                    }
-//                }
-//
-//            })
-//            
-//        }.fire()
             
             
         // 通过Alamofire发送服务
