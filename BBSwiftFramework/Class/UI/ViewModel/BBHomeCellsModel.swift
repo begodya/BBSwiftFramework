@@ -30,7 +30,15 @@ class BBHomeCellsModel: NSObject {
         let cells: NSMutableArray = NSMutableArray()
         switch sectionType {
         case .Section_0:
-            cells.addObject(eCellType.Cell_0.rawValue)
+            
+            if self.dataModel != nil {
+                let cities: [City] = self.dataModel!.results
+                let city: City = cities.first!
+                let clotheses: [Clothes] = city.index
+                for _ in 0..<clotheses.count {
+                    cells.addObject(eCellType.Cell_0.rawValue)
+                }
+            }
         }
         
         dictionary.setObject(cells, forKey: sectionType.rawValue)
@@ -41,7 +49,7 @@ class BBHomeCellsModel: NSObject {
         let dictionary = self.sectionArray.objectAtIndex(indexPath.section) as! NSDictionary
         let key = dictionary.allKeys as NSArray
         let cells = dictionary.objectForKey(key.firstObject!) as! NSArray
-        //        let cellType = cells.objectAtIndex(indexPath.row) as! eCellType
+//        let cellType = cells.objectAtIndex(indexPath.row) as! eCellType
         
         // WARNING: cellType
         var cellType: eCellType = .Cell_0
@@ -126,4 +134,8 @@ class BBHomeCellsModel: NSObject {
         return 120;
     }
 
+    func reloadTableData() {
+        self.sectionArray.removeAllObjects()
+        createTableData()
+    }
 }
