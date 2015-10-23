@@ -133,7 +133,7 @@ class BBHomeViewController: BBRootViewController {
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         
-        let alertController = BBAlertController.initWithMessage("点击选择第\(indexPath.row)行")
+        let alertController = BBAlertController.initWithMessage("点击选择第\(indexPath.section)组的第\(indexPath.row)行")
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 
