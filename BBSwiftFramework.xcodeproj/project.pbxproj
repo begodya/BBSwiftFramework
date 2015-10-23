@@ -24,6 +24,7 @@
 		3B6FA0721BD9F0300008BB4C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA0711BD9F0300008BB4C /* UIView.swift */; };
 		3B6FA0741BD9F2170008BB4C /* BBHomeWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA0731BD9F2170008BB4C /* BBHomeWeatherCell.swift */; };
 		3B6FA0761BD9F2220008BB4C /* BBHomeWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FA0751BD9F2220008BB4C /* BBHomeWeatherCell.xib */; };
+		3B6FA0781BD9FE060008BB4C /* BBServiceTest.cer in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FA0771BD9FE060008BB4C /* BBServiceTest.cer */; };
 		3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */; };
 		3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */; };
 		3B73CF001BD4E4C600E5C7F0 /* BBConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */; };
@@ -108,6 +109,7 @@
 		3B6FA0711BD9F0300008BB4C /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3B6FA0731BD9F2170008BB4C /* BBHomeWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeWeatherCell.swift; sourceTree = "<group>"; };
 		3B6FA0751BD9F2220008BB4C /* BBHomeWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeWeatherCell.xib; sourceTree = "<group>"; };
+		3B6FA0771BD9FE060008BB4C /* BBServiceTest.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = BBServiceTest.cer; sourceTree = "<group>"; };
 		3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBMenuButtonCell.swift; sourceTree = "<group>"; };
 		3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuButtonCell.xib; sourceTree = "<group>"; };
 		3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBConfig.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 		3B73CF0F1BD627A900E5C7F0 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				3B6FA0771BD9FE060008BB4C /* BBServiceTest.cer */,
 				3B73CF111BD6280F00E5C7F0 /* BBServiceConfig.swift */,
 				3B73CF131BD628A100E5C7F0 /* BBServiceConfig.plist */,
 				3B73CF221BD62D6E00E5C7F0 /* BBServiceTags.swift */,
@@ -676,6 +679,7 @@
 				3BD0699D1BCFABEC00E656FC /* TrendSansOne.otf in Resources */,
 				3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */,
 				3B6FA0761BD9F2220008BB4C /* BBHomeWeatherCell.xib in Resources */,
+				3B6FA0781BD9FE060008BB4C /* BBServiceTest.cer in Resources */,
 				3B87B41F1BCCF4A400890E2B /* BBH5ViewController.xib in Resources */,
 				3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */,
 				3B561DA61BBB84BF000CAC0E /* Main.storyboard in Resources */,

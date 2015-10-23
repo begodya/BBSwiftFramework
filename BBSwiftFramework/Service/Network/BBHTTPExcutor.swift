@@ -31,7 +31,8 @@ class BBHTTPExcutor: NSObject, NSURLSessionDelegate {
     var request: NSMutableURLRequest!
     var task: NSURLSessionTask!
     
-    var localCertData: NSData!
+    var localCerData: NSData!
+    var sslValidateErrorCallBack: (() -> Void)?
 
     // MARK: - --------------------System--------------------
     
@@ -47,7 +48,8 @@ class BBHTTPExcutor: NSObject, NSURLSessionDelegate {
         self.params = params
         self.callback = callback
         self.files = files
-        
+        self.localCerData = NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("BBServiceTest", ofType: "cer")!)!
+            
         super.init()
             
         self.session = NSURLSession(configuration: NSURLSession.sharedSession().configuration, delegate: self, delegateQueue: NSURLSession.sharedSession().delegateQueue)
@@ -83,27 +85,54 @@ class BBHTTPExcutor: NSObject, NSURLSessionDelegate {
     }
     
     private func escape(string: String) -> String {
-        let legalURLCharactersToBeEscaped: CFStringRef = ":&=;+!@#$()',*"
-        return CFURLCreateStringByAddingPercentEscapes(nil, string, nil, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as String
+//        let legalURLCharactersToBeEscaped: CFStringRef = ":&=;+!@#$()',*"
+//        return CFURLCreateStringByAddingPercentEscapes(nil, string, nil, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as String
         
-//        return string.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        return string.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+    }
+    
+    func addSSLPinning(SSLValidateErrorCallBack: (()->Void)? = nil) {
+        self.sslValidateErrorCallBack = SSLValidateErrorCallBack
     }
 
-    
     // MARK: - --------------------代理方法--------------------
 
     // MARK: - NSURLSessionDelegate
     @objc func URLSession(session: NSURLSession, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
-        if(challenge.protectionSpace.authenticationMethod == "NSURLAuthenticationMethodServerTrust"){
-            challenge.sender!.useCredential(NSURLCredential(forTrust: challenge.protectionSpace.serverTrust!), forAuthenticationChallenge: challenge)
-            challenge.sender!.continueWithoutCredentialForAuthenticationChallenge(challenge)
+        if let localCertificateData = self.localCerData {
+            if let serverTrust = challenge.protectionSpace.serverTrust,
+                certificate = SecTrustGetCertificateAtIndex(serverTrust, 0),
+                remoteCertificateData: NSData = SecCertificateCopyData(certificate) {
+                    if localCertificateData.isEqualToData(remoteCertificateData) {
+                        let credential = NSURLCredential(forTrust: serverTrust)
+                        challenge.sender?.useCredential(credential, forAuthenticationChallenge: challenge)
+                        completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
+                    } else {
+                        challenge.sender?.cancelAuthenticationChallenge(challenge)
+                        completionHandler(NSURLSessionAuthChallengeDisposition.CancelAuthenticationChallenge, nil)
+                        self.sslValidateErrorCallBack?()
+                    }
+            } else {
+                debugPrint("Get RemoteCertificateData or LocalCertificateData error!")
+            }
+        } else {
+            completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, nil)
         }
     }
     
     // MARK: - --------------------属性相关--------------------
 
     func fireTask() {
+        self.addSSLPinning() { () -> Void in
+            debugPrint("SSL证书错误，遭受中间人攻击！")
+        }
+        
         task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            if let _ = error {
+                NSLog(error!.description)
+            } else {
+                debugPrint("服务发送HTTP请求或是发送HTTPS请求验证证书正确！")
+            }
             self.callback(data: data, response: response, error: error)
         })
         task.resume()
