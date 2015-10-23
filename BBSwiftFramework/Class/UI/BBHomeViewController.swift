@@ -50,7 +50,7 @@ class BBHomeViewController: BBRootViewController {
     func setupView() {
         
         let bean: BBBean = BBBean.init()
-        bean.location = "合肥"
+        bean.location = "上海"
         bean.output = "json"
         bean.ak = "wl82QREF9dNMEEGYu3LAGqdU"
 //        bean.foo = "bar"
@@ -98,6 +98,14 @@ class BBHomeViewController: BBRootViewController {
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return (self.viewModel?.sectionArray.count)!
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return (self.viewModel?.heightForHeaderInSection(section))!
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return self.viewModel?.viewForHeaderInSection(section)
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {

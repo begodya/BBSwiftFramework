@@ -29,12 +29,7 @@ class BBRootView: UIView {
     // MARK: 属性操作函数注释
     
     // MARK: - --------------------接口API--------------------
-    
-    // MARK: 局部代码分隔
-    func local(closure: ()->()) {
-        closure()
-    }
-    
+        
     // MARK: 通过XIB获取视图对象
     func getViewFromXib(xibName: String) -> UIView {
         return getViewFromXib(xibName, index: 0)

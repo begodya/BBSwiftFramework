@@ -21,6 +21,7 @@
 		3B6FA06C1BD8E37F0008BB4C /* BBHomeCellsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA06B1BD8E37F0008BB4C /* BBHomeCellsModel.swift */; };
 		3B6FA06E1BD8E4050008BB4C /* BBHomeClothesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA06D1BD8E4050008BB4C /* BBHomeClothesCell.swift */; };
 		3B6FA0701BD8E4110008BB4C /* BBHomeClothesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FA06F1BD8E4110008BB4C /* BBHomeClothesCell.xib */; };
+		3B6FA0721BD9F0300008BB4C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA0711BD9F0300008BB4C /* UIView.swift */; };
 		3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */; };
 		3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */; };
 		3B73CF001BD4E4C600E5C7F0 /* BBConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */; };
@@ -102,6 +103,7 @@
 		3B6FA06B1BD8E37F0008BB4C /* BBHomeCellsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeCellsModel.swift; sourceTree = "<group>"; };
 		3B6FA06D1BD8E4050008BB4C /* BBHomeClothesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeClothesCell.swift; sourceTree = "<group>"; };
 		3B6FA06F1BD8E4110008BB4C /* BBHomeClothesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeClothesCell.xib; sourceTree = "<group>"; };
+		3B6FA0711BD9F0300008BB4C /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3B70931E1BD0F93500E1E3D2 /* BBMenuButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBMenuButtonCell.swift; sourceTree = "<group>"; };
 		3B70931F1BD0F93500E1E3D2 /* BBMenuButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuButtonCell.xib; sourceTree = "<group>"; };
 		3B73CEFF1BD4E4C600E5C7F0 /* BBConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBConfig.swift; sourceTree = "<group>"; };
@@ -307,11 +309,11 @@
 		3B561DD51BBB866D000CAC0E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3BD069B11BCFB69600E656FC /* BBHomeViewController.swift */,
+				3BD069B21BCFB69600E656FC /* BBHomeViewController.xib */,
 				3B6FA0691BD8E35F0008BB4C /* ViewModel */,
 				3B6FA06A1BD8E35F0008BB4C /* Views */,
 				3BD069951BCF834700E656FC /* Extern */,
-				3BD069B11BCFB69600E656FC /* BBHomeViewController.swift */,
-				3BD069B21BCFB69600E656FC /* BBHomeViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -339,6 +341,7 @@
 			children = (
 				3B561DF31BBBE72F000CAC0E /* String.swift */,
 				3BD0698F1BCE4BA300E656FC /* UIImageView.swift */,
+				3B6FA0711BD9F0300008BB4C /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B6FA0721BD9F0300008BB4C /* UIView.swift in Sources */,
 				3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */,
 				3B561DE31BBBB37A000CAC0E /* BBFont.swift in Sources */,
 				3BD0698E1BCE4AF100E656FC /* GIFImage.swift in Sources */,

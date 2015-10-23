@@ -120,7 +120,7 @@ class BBHomeCellsModel: NSObject {
                 
                 customCell.titleLabel.text = clothes.title
                 customCell.zsLabel.text = clothes.zs
-                customCell.tiptLabel.text = clothes.title
+                customCell.tiptLabel.text = clothes.tipt
                 customCell.desLabel.text = clothes.des
             }
         }
@@ -132,6 +132,38 @@ class BBHomeCellsModel: NSObject {
     
     func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
         return 120;
+    }
+    
+    func heightForHeaderInSection(section: NSInteger) -> CGFloat {
+        var height: CGFloat = 0.0
+        switch section {
+            case eSectionType.Section_0.rawValue:
+                height = 25.0
+                break
+            default:
+                break
+        }
+        
+        return height
+    }
+    
+    func viewForHeaderInSection(section: NSInteger) -> UIView {
+        let headerView: BBRootView = BBRootView()
+        headerView.local { () -> () in
+            let sectionLabel: UILabel = UILabel.init(frame: CGRectMake(15, self.heightForHeaderInSection(section)-25, BBDevice.deviceWidth()-15, 25.0))
+            sectionLabel.backgroundColor = BBColor.defaultColor()
+            headerView.addSubview(sectionLabel)
+            
+            switch section {
+            case eSectionType.Section_0.rawValue:
+                sectionLabel.text = "穿衣指数"
+                break
+            default:
+                break
+            }
+        }
+        
+        return headerView
     }
 
     func reloadTableData() {

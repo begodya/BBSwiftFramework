@@ -49,6 +49,10 @@ class BBColor: NSObject {
         return BBColor.colorWithHexString("646464", alpha: 1)
     }
     
+    class func defaultColor() -> UIColor {
+        return BBColor.colorWithHexString("f5f5f5", alpha: 1)
+    }
+    
     class func redColor() -> UIColor {
         return UIColor.redColor()
     }
