@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias HTTPCallback = (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void   // HTTP回调
+
 struct File {
     let name:   String!
     let url:    NSURL!
@@ -23,7 +25,7 @@ class BBHTTPExcutor: NSObject, NSURLSessionDelegate {
     
     let method: String!
     let params: Dictionary<String, AnyObject>
-    let callback: (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void
+    let callback: HTTPCallback
     var files: Array<File>
     
     var session: NSURLSession!
@@ -40,7 +42,7 @@ class BBHTTPExcutor: NSObject, NSURLSessionDelegate {
         method:     String,
         params:     Dictionary<String, AnyObject> = Dictionary<String, AnyObject>(),
         files:      Array<File> = Array<File>(),
-        callback:   (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void) {
+        callback:   HTTPCallback) {
             
         self.url = url
         self.request = NSMutableURLRequest(URL: NSURL(string: url)!)

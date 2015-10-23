@@ -27,7 +27,11 @@ class BBServiceDispatch: NSObject {
     // MARK: - --------------------接口API--------------------
     
     class func serviceStart(handler: BBServiceHandler, succeeded: succeededBlock, failed: failedBlock) {
-        
+        // 通过自定义网络库发送服务
+        BBHTTPExcutor(url: handler.apiModel.url, method: handler.apiModel.method, params: handler.bean.propertyDictinory()) { (data, response, error) -> Void in
+            handler.serviceHandlerResponse(data, response: response, succeeded: succeeded, failed: failed)
+            
+            }.fire()
     }
     
 }

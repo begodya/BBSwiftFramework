@@ -48,44 +48,64 @@ class BBServiceHandler: NSObject {
             BBLoadingView.showWithOverlay()
         }
 
-        
-        let params: Dictionary<String, AnyObject>
         switch serviceTag {
         case .kCommon_http:
-            params = ["foo": bean.foo]
+            bean.setValue(bean.foo, forKey: "foo")
             break
         case .kCommon_https:
-            params = ["foo": bean.foo]
+            bean.setValue(bean.foo, forKey: "foo")
             break
         case .kCommon_weather:
-            params = ["location": bean.location, "output": bean.output, "ak": bean.ak]
+            bean.setValue(bean.location, forKey: "location")
+            bean.setValue(bean.output, forKey: "output")
+            bean.setValue(bean.ak, forKey: "ak")
             break
         }
         
-//        BBServiceDispatch.serviceStart(self, succeeded: succeeded, failed: failed)
+        BBServiceDispatch.serviceStart(self, succeeded: succeeded, failed: failed)
+        return
         
-        // 通过自定义网络库发送服务
-        BBHTTPExcutor(url: apiModel.url, method: apiModel.method, params: params) { (data, response, error) -> Void in
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                if self.isNeedLoadingView {
-                    BBLoadingView.dismiss()
-                }
-                
-                if (response.isKindOfClass(NSHTTPURLResponse)) {
-                    let response: NSHTTPURLResponse = response as! NSHTTPURLResponse
-                    if (response.statusCode == 200 && error == nil) {
-                        let value = BBResult(json: NSString(data: data!, encoding: NSUTF8StringEncoding)! as String)
-                        succeeded(response: value)
-                    } else {
-                        failed(error: error)
-                    }
-                }
-                
-            })
-            
-        }.fire()
+//        // 通过自定义网络库发送服务
+//        BBHTTPExcutor(url: apiModel.url, method: apiModel.method, params: bean.propertyDictinory()) { (data, response, error) -> Void in
+//            
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                if self.isNeedLoadingView {
+//                    BBLoadingView.dismiss()
+//                }
+//
+//                if (response.isKindOfClass(NSHTTPURLResponse)) {
+//                    let response: NSHTTPURLResponse = response as! NSHTTPURLResponse
+//                    if (response.statusCode == 200 && error == nil) {
+//                        let value = BBResult(json: NSString(data: data!, encoding: NSUTF8StringEncoding)! as String)
+//                        succeeded(response: value)
+//                    } else {
+//                        failed(error: error)
+//                    }
+//                }
+//
+//            })
+//
+//        }.fire()
     }
     
+    
+    func serviceHandlerResponse(data: NSData, response: NSURLResponse, succeeded: succeededBlock, failed: failedBlock) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            if self.isNeedLoadingView {
+                BBLoadingView.dismiss()
+            }
+            
+            if (response.isKindOfClass(NSHTTPURLResponse)) {
+                let response: NSHTTPURLResponse = response as! NSHTTPURLResponse
+                if (response.statusCode == 200) {
+                    let value = BBResult(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
+                    succeeded(response: value)
+                } else {
+                    let userInfo = [NSLocalizedFailureReasonErrorKey: "HTTP statusCode != 200"]
+                    failed(error: NSError(domain: "HTTP", code: 100, userInfo: userInfo))
+                }
+            }
+        })
+    }
     
 }

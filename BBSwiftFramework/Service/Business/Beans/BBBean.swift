@@ -16,9 +16,4 @@ public class BBBean: BBObject {
     var output: String!
     var ak: String!
     
-//    // MARK: Init
-//    required public init () {
-//        self.foo = ""
-//    }
-
 }

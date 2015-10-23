@@ -11,4 +11,7 @@ import EVReflection
 
 public class BBObject: EVObject {
 
+    func propertyDictinory() -> Dictionary<String, AnyObject> {
+        return self.toDictionary(true) as! Dictionary<String, AnyObject>
+    }
 }

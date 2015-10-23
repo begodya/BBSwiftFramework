@@ -62,7 +62,7 @@ class BBHomeViewController: BBRootViewController {
             self.viewModel?.dataModel = model
             log.info("response model: \n\(model)\n\n")
             self.viewModel!.reloadTableData()
-            self.contentTableView.reloadData()
+            self.contentTableView.reloadData()            
 
             }) { (error) -> Void in
                 
