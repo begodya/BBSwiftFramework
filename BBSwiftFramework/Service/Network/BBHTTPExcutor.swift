@@ -124,7 +124,7 @@ class BBHTTPExcutor: NSObject, NSURLSessionDelegate {
     
     // MARK: - --------------------属性相关--------------------
 
-    func fireTask() {
+    private func fireTask() {
         self.addSSLPinning() { () -> Void in
             debugPrint("SSL证书错误，遭受中间人攻击！")
         }
@@ -140,7 +140,7 @@ class BBHTTPExcutor: NSObject, NSURLSessionDelegate {
         task.resume()
     }
     
-    func configHTTPHeader() {
+    private func configHTTPHeader() {
         if self.method == BBServiceConfig().kHTTP_GET && !self.params.isEmpty {
             self.request = NSMutableURLRequest(URL: NSURL(string: url + "?" + buildParams(self.params))!)
         }
@@ -154,7 +154,7 @@ class BBHTTPExcutor: NSObject, NSURLSessionDelegate {
         }
     }
     
-    func configHTTPBody() {
+    private func configHTTPBody() {
         let data = NSMutableData()
         
         if !self.files.isEmpty {
