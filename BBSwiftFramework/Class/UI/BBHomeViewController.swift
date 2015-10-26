@@ -12,9 +12,8 @@ import SwiftyJSON
 class BBHomeViewController: BBRootViewController {
 
     @IBOutlet weak var contentTableView: BBTableView!
-    
-    var items = ["武汉","上海","北京","深圳","广州","重庆","香港","台海","天津"]
     var viewModel: BBHomeCellsModel?
+    
     // MARK: - --------------------System--------------------
     
     override func viewDidLoad() {
@@ -26,12 +25,7 @@ class BBHomeViewController: BBRootViewController {
         self.setMoreBarButtonWithTarget(self, action: Selector("clickedMoreAction"))
         self.setInboxBarButtonWithTarget(self, action: Selector("clickedInboxAction"))
         
-        // config tableView
-        self.contentTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
         self.setupView()
-        
-        self.setupViewModel()
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,18 +36,25 @@ class BBHomeViewController: BBRootViewController {
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
     
-    func setupViewModel() {
+    private func setupView() {
+        self.contentTableView.backgroundColor = BBColor.defaultColor()
+        
+        self.setupViewModel()
+        
+        self.requestService()
+    }
+    
+    private func setupViewModel() {
         self.viewModel = BBHomeCellsModel()
         self.viewModel?.createTableData()
     }
     
-    func setupView() {
-        
+    private func requestService() {
         let bean: BBBean = BBBean.init()
         bean.location = "上海"
         bean.output = "json"
         bean.ak = "wl82QREF9dNMEEGYu3LAGqdU"
-
+        
         // 第一种方法：调用Alamofire
         BBNetwork.serverSend(eServiceTags.kCommon_weather, bean: bean, succeeded: { (response) -> Void in
             
@@ -61,20 +62,19 @@ class BBHomeViewController: BBRootViewController {
             self.viewModel?.dataModel = model
             log.info("response model: \n\(model)\n\n")
             self.viewModel!.reloadTableData()
-            self.contentTableView.reloadData()            
-
+            self.contentTableView.reloadData()
+            
             }) { (error) -> Void in
                 
         }
-
+        
         // 第一种方法：调用自定义网络请求库
 //        BBNetwork.serverSend(eServiceTags.kCommon_http, bean: bean) { (data, response, error) -> Void in
-//            
+//
 //            let result = NSString(data: data!, encoding: NSASCIIStringEncoding)!
 //            let value = BBValue(json: result as String)
 //            log.info("response model: \n\(value)\n\n")
 //        }
-        
     }
     
     // MARK: - --------------------手势事件--------------------

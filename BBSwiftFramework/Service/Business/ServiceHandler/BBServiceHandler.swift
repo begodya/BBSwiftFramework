@@ -40,10 +40,10 @@ class BBServiceHandler: NSObject {
 
         switch serviceTag {
         case .kCommon_http:
-            bean.setValue(bean.foo, forKey: "foo")
+//            bean.setValue(bean.foo, forKey: "foo")
             break
         case .kCommon_https:
-            bean.setValue(bean.foo, forKey: "foo")
+//            bean.setValue(bean.foo, forKey: "foo")
             break
         case .kCommon_weather:
             bean.setValue(bean.location, forKey: "location")
