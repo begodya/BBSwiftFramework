@@ -17,7 +17,7 @@
 				<key>method</key>
 				<string>GET</string>
 				<key>output</key>
-				<string>BBModel</string>
+				<string>BBResult</string>
 			</dict>
 			<key>serviceHTTPS</key>
 			<dict>

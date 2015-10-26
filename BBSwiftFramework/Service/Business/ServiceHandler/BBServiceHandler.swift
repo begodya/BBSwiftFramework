@@ -55,31 +55,19 @@ class BBServiceHandler: NSObject {
     }
     
     
-    
     // MARK: 服务应答
     func serviceHandlerResponse(data: NSData, response: NSURLResponse, succeeded: succeededBlock, failed: failedBlock) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             if self.isNeedLoadingView {
                 BBLoadingView.dismiss()
             }
-
+        
             if ((response as! NSHTTPURLResponse).statusCode == 200) {
-                var value = BBModel()
-                switch self.serviceTag {
-                case .kCommon_http:
-                    value = BBValue(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
-                    break
-                case .kCommon_https:
-                    value = BBModel(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
-                    break
-                case .kCommon_weather:
-                    value = BBResult(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
-                    break
-                }
+                let modelClass = NSClassFromString(self.apiModel.output) as! BBModel.Type
+                let value = modelClass.init(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
                 
                 succeeded(response: value)
             } else {
-                
                 if (self.isNeedErrorAlert) {
                     let alertController = BBAlertController.initWithMessage("HTTP层解析有误！！")
                     BBRootViewController.getCurrentViewController().presentViewController(alertController, animated: true, completion: nil)

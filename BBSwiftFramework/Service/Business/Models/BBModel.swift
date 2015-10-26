@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objc(BBModel)
 public class BBModel: BBObject {
 
 }
@@ -26,6 +27,7 @@ public class Headers: BBModel {
 //    var User-Agent: String
 }
 
+@objc(BBValue)
 public class BBValue: BBModel {
     var args: Args?
     var headers: Headers?
@@ -58,6 +60,7 @@ public class City: BBModel {
     var weather_data: [Weather] = []
 }
 
+@objc(BBResult)
 public class BBResult: BBModel {
     var error: String = ""
     var status: String = ""
