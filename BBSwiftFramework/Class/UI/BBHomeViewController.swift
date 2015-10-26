@@ -22,7 +22,7 @@ class BBHomeViewController: BBRootViewController {
         
         self.setCustomTitle("BooYah")
         
-        self.setMoreBarButtonWithTarget(self, action: Selector("clickedMoreAction"))
+//        self.setMoreBarButtonWithTarget(self, action: Selector("clickedMoreAction"))
         self.setInboxBarButtonWithTarget(self, action: Selector("clickedInboxAction"))
         
         self.setupView()
@@ -67,14 +67,13 @@ class BBHomeViewController: BBRootViewController {
                 
         }
         
-        // 第一种方法：调用自定义网络请求库
-        network.serverSend(eServiceTags.kCommon_http, bean: bean, succeeded: { (response) -> Void in
-            let model: BBValue = response as! BBValue
-            log.info("response BBValue: \n\(model)\n\n")
-            
-            }) { (error) -> Void in
-                
-        }
+//        network.serverSend(eServiceTags.kCommon_http, bean: bean, succeeded: { (response) -> Void in
+//            let model: BBValue = response as! BBValue
+//            log.info("response BBValue: \n\(model)\n\n")
+//            
+//            }) { (error) -> Void in
+//                
+//        }
     }
     
     // MARK: - --------------------手势事件--------------------

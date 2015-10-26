@@ -56,7 +56,7 @@ class BBServiceHandler: NSObject {
     
     
     
-    // MARK: 服务回答    
+    // MARK: 服务应答
     func serviceHandlerResponse(data: NSData, response: NSURLResponse, succeeded: succeededBlock, failed: failedBlock) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             if self.isNeedLoadingView {
