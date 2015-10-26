@@ -14,6 +14,7 @@ struct BBServiceConfig {
     let kServiceConfigName      = "BBServiceConfig"
 
     // MARK: - Plist Structure
+    let kService_handler        = "handler"
     let kService_bean           = "bean"
     let kService_api            = "api"
     let kService_host           = "host"

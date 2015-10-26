@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B4C4BA01BDE1AD0004C33D7 /* BBCommonServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4B9F1BDE1AD0004C33D7 /* BBCommonServiceHandler.swift */; };
 		3B561DA11BBB84BF000CAC0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */; };
 		3B561DA61BBB84BF000CAC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA41BBB84BF000CAC0E /* Main.storyboard */; };
 		3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA91BBB84BF000CAC0E /* LaunchScreen.storyboard */; };
@@ -89,6 +90,7 @@
 
 /* Begin PBXFileReference section */
 		0CC22567AC86C61B60D3D040 /* Pods_BBSwiftFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBSwiftFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4C4B9F1BDE1AD0004C33D7 /* BBCommonServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBCommonServiceHandler.swift; sourceTree = "<group>"; };
 		3B561D9D1BBB84BF000CAC0E /* BBSwiftFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBSwiftFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B561DA51BBB84BF000CAC0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 			children = (
 				3B6FA07A1BDA01CE0008BB4C /* BBServiceHandler.swift */,
 				3B6FA07E1BDA08A60008BB4C /* BBServiceCallback.swift */,
+				3B4C4B9F1BDE1AD0004C33D7 /* BBCommonServiceHandler.swift */,
 			);
 			path = ServiceHandler;
 			sourceTree = "<group>";
@@ -790,6 +793,7 @@
 				3BD0698C1BCE499D00E656FC /* BBLoadingView.swift in Sources */,
 				3BBB680A1BC6125A0011ED71 /* BBTableViewCell.swift in Sources */,
 				3BD069941BCE667200E656FC /* BBNavigationController.swift in Sources */,
+				3B4C4BA01BDE1AD0004C33D7 /* BBCommonServiceHandler.swift in Sources */,
 				3B73CF231BD62D6E00E5C7F0 /* BBServiceTags.swift in Sources */,
 				3B6FA0811BDA108B0008BB4C /* BBServiceDispatch.swift in Sources */,
 				3BD069A91BCFB5E200E656FC /* MenuTransitionAnimator.swift in Sources */,

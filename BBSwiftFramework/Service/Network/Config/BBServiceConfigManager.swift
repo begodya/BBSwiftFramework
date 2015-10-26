@@ -15,6 +15,7 @@ class BBAPIModel: BBObject {
 }
 
 class BBServiceConfigModel: BBObject {
+    var handler: String = ""
     var bean: String = ""
     var host: String = ""
     var apis: NSDictionary = NSDictionary()
@@ -56,6 +57,7 @@ class BBServiceConfigManager: NSObject {
 
             // bean & host
             let configModel: BBServiceConfigModel = BBServiceConfigModel()
+            configModel.handler = serviceMap.objectForKey(BBServiceConfig().kService_handler) as! String
             configModel.bean = serviceMap.objectForKey(BBServiceConfig().kService_bean) as! String
             configModel.host = serviceMap.objectForKey(BBServiceConfig().kService_host) as! String
 
@@ -80,6 +82,25 @@ class BBServiceConfigManager: NSObject {
     
     // MARK: - --------------------接口API--------------------
 
+    /**
+    获取对应的服务配置信息
+    
+    - parameter serviceTag: 服务标志
+    
+    - returns: 返回对应服务类
+    */
+    class func getConfigModelByTag(serviceTag: eServiceTags) -> BBServiceConfigModel {
+        
+        BBServiceConfigManager.parseConfigPlist()
+        
+        let keyArray: NSArray = serviceTag.rawValue.componentsSeparatedByString("_")
+        let keyService: String = keyArray.firstObject as! String
+        let configModel: BBServiceConfigModel = self.sharedInstance.configDict.objectForKey(keyService) as! BBServiceConfigModel
+        
+        return configModel
+    }
+
+    
     /**
     获取对应的服务类
     

@@ -35,8 +35,10 @@ class BBNetwork: BBObject {
         bean:           BBBean,
         succeeded:      succeededBlock,
         failed:         failedBlock) {
-            
-            let serviceHandler: BBServiceHandler = BBServiceHandler()
+
+            let configModel: BBServiceConfigModel = BBServiceConfigManager.getConfigModelByTag(serviceTag)
+            let handlerClass = NSClassFromString(configModel.handler) as! BBServiceHandler.Type
+            let serviceHandler = handlerClass.init()
             serviceHandler.isNeedErrorAlert = BBNetwork().isNeedErrorAlert
             serviceHandler.isNeedLoadingView = BBNetwork().isNeedLoadingView
             serviceHandler.serviceTag = serviceTag

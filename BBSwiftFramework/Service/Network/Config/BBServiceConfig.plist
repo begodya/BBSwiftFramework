@@ -4,6 +4,8 @@
 <dict>
 	<key>common</key>
 	<dict>
+		<key>handler</key>
+		<string>BBCommonServiceHandler</string>
 		<key>bean</key>
 		<string>BBBean</string>
 		<key>host</key>

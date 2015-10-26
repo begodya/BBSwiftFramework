@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objc(BBServiceHandler)
 class BBServiceHandler: NSObject {
 
     var isNeedLoadingView: Bool = true
@@ -18,10 +19,15 @@ class BBServiceHandler: NSObject {
     var apiModel: BBAPIModel = BBAPIModel()
     
     // MARK: - --------------------System--------------------
-    override init() {
+    required override init() {
         super.init()
+        
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
     
@@ -36,18 +42,6 @@ class BBServiceHandler: NSObject {
         if self.isNeedLoadingView {
             BBLoadingView.setGif("Loading.gif")
             BBLoadingView.showWithOverlay()
-        }
-
-        switch serviceTag {
-        case .kCommon_http:
-            break
-        case .kCommon_https:
-            break
-        case .kCommon_weather:
-            bean.setValue(bean.location, forKey: "location")
-            bean.setValue(bean.output, forKey: "output")
-            bean.setValue(bean.ak, forKey: "ak")
-            break
         }
         
         // 服务分发
