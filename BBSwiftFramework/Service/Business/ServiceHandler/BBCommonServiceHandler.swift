@@ -28,8 +28,9 @@ class BBCommonServiceHandler: BBServiceHandler {
         super.serviceHandlerRequest(succeeded, failed: failed)
     }
     
-    override func serviceHandlerResponse(data: NSData, response: NSURLResponse, succeeded: succeededBlock, failed: failedBlock) {
+    override func serviceHandlerResponse(result: BBModel, succeeded: succeededBlock, failed: failedBlock) {
 
+        let bean: BBBean = self.bean
         switch serviceTag {
         case .kCommon_http:
             
@@ -38,10 +39,10 @@ class BBCommonServiceHandler: BBServiceHandler {
             
             break
         case .kCommon_weather:
-
+            bean.resultModel = result as! BBResult
             break
         }
         
-        super.serviceHandlerResponse(data, response: response, succeeded: succeeded, failed: failed)
+        super.serviceHandlerResponse(result, succeeded: succeeded, failed: failed)
     }
 }

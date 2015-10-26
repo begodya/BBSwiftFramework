@@ -13,4 +13,6 @@ public class BBBean: BBObject {
     var output: String!
     var ak: String!
     
+    
+    var resultModel: BBResult!
 }

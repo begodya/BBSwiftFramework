@@ -24,7 +24,7 @@ class BBServiceConfigModel: BBObject {
 
 class BBServiceConfigManager: NSObject {
 
-    var configDict: NSMutableDictionary = NSMutableDictionary()
+    var configDict: NSMutableDictionary!
     
     // MARK: - --------------------System--------------------
 
@@ -39,6 +39,8 @@ class BBServiceConfigManager: NSObject {
     // MARK: Init
     override init () {
         super.init()
+        
+        configDict = NSMutableDictionary()
     }
     
     required init?(coder aDecoder: NSCoder) {

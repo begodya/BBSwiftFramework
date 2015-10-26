@@ -24,10 +24,6 @@ class BBServiceHandler: NSObject {
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
     
@@ -50,23 +46,22 @@ class BBServiceHandler: NSObject {
     
     
     // MARK: 服务应答
-    func serviceHandlerResponse(data: NSData, response: NSURLResponse, succeeded: succeededBlock, failed: failedBlock) {
+    func serviceHandlerResponse(result: BBModel, succeeded: succeededBlock, failed: failedBlock) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             if self.isNeedLoadingView {
                 BBLoadingView.dismiss()
             }
         
-            if ((response as! NSHTTPURLResponse).statusCode == 200) {
-                let modelClass = NSClassFromString(self.apiModel.output) as! BBModel.Type
-                let value = modelClass.init(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
-                
-                succeeded(response: value)
+            let response: NSHTTPURLResponse = BBServiceDispatch.sharedInstance.urlResponse
+            if (response.statusCode == 200) {
+                succeeded(task: response)
             } else {
                 if (self.isNeedErrorAlert) {
                     let alertController = BBAlertController.initWithMessage("HTTP层解析有误！！")
                     BBRootViewController.getCurrentViewController().presentViewController(alertController, animated: true, completion: nil)
                 }
-                failed(error: NSError(domain: "HTTP", code: 100, userInfo: [NSLocalizedFailureReasonErrorKey: "HTTP statusCode != 200"]))
+
+                failed(task: response, error: NSError(domain: "HTTP", code: 100, userInfo: [NSLocalizedFailureReasonErrorKey: "HTTP statusCode != 200"]))
             }
         })
     }

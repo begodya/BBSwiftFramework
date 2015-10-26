@@ -8,5 +8,5 @@
 
 import Foundation
 
-typealias succeededBlock = (response: BBModel!) -> Void    // 成功回调
-typealias failedBlock = (error: NSError!) -> Void          // 失败回调
+typealias succeededBlock = (task: NSHTTPURLResponse!) -> Void               // 成功回调
+typealias failedBlock = (task: NSHTTPURLResponse!, error: NSError!) -> Void // 失败回调

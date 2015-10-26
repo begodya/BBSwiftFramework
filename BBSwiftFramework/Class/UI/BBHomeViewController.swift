@@ -56,16 +56,27 @@ class BBHomeViewController: BBRootViewController {
         bean.ak = "wl82QREF9dNMEEGYu3LAGqdU"
     
         let network: BBNetwork = BBNetwork()
-        network.serverSend(eServiceTags.kCommon_weather, bean: bean, succeeded: { (response) -> Void in
-            let model: BBResult = response as! BBResult
+        network.serverSend(eServiceTags.kCommon_weather, bean: bean, succeeded: { (task) -> Void in
+            let model: BBResult = bean.resultModel
             self.viewModel?.dataModel = model
             log.info("response BBResult: \n\(model)\n\n")
             self.viewModel!.reloadTableData()
             self.contentTableView.reloadData()
-            
-            }) { (error) -> Void in
+
+            }) { (task, error) -> Void in
                 
         }
+        
+//        network.serverSend(eServiceTags.kCommon_weather, bean: bean, succeeded: { (response) -> Void in
+//            let model: BBResult = response as! BBResult
+//            self.viewModel?.dataModel = model
+//            log.info("response BBResult: \n\(model)\n\n")
+//            self.viewModel!.reloadTableData()
+//            self.contentTableView.reloadData()
+//            
+//            }) { (error) -> Void in
+//                
+//        }
         
 //        network.serverSend(eServiceTags.kCommon_http, bean: bean, succeeded: { (response) -> Void in
 //            let model: BBValue = response as! BBValue

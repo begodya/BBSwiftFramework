@@ -11,12 +11,15 @@ import Alamofire
 
 class BBNetwork: BBObject {
     
-    var isNeedLoadingView: Bool = true
-    var isNeedErrorAlert: Bool = true
+    var isNeedLoadingView: Bool!
+    var isNeedErrorAlert: Bool!
 
     // MARK: - --------------------System--------------------
     required init() {
         super.init()
+        
+        isNeedLoadingView = true
+        isNeedErrorAlert = true
     }
     
     // MARK: - --------------------功能函数--------------------
