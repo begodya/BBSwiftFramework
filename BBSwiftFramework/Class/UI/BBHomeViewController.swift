@@ -3,7 +3,7 @@
 //  BBSwiftFramework
 //
 //  Created by Bei Wang on 9/30/15.
-//  Copyright © 2015 Bei. All rights reserved.
+//  Copyright © 2015 BooYah. All rights reserved.
 //
 
 import UIKit
@@ -21,7 +21,7 @@ class BBHomeViewController: BBRootViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.setCustomTitle("BB Swift")
+        self.setCustomTitle("BooYah")
         
         self.setMoreBarButtonWithTarget(self, action: Selector("clickedMoreAction"))
         self.setInboxBarButtonWithTarget(self, action: Selector("clickedInboxAction"))
@@ -53,7 +53,6 @@ class BBHomeViewController: BBRootViewController {
         bean.location = "上海"
         bean.output = "json"
         bean.ak = "wl82QREF9dNMEEGYu3LAGqdU"
-//        bean.foo = "bar"
 
         // 第一种方法：调用Alamofire
         BBNetwork.serverSend(eServiceTags.kCommon_weather, bean: bean, succeeded: { (response) -> Void in

@@ -3,7 +3,7 @@
 //  BBSwiftFrameworkUITests
 //
 //  Created by Bei Wang on 9/30/15.
-//  Copyright © 2015 Bei. All rights reserved.
+//  Copyright © 2015 BooYah. All rights reserved.
 //
 
 import XCTest

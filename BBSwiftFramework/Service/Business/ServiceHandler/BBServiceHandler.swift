@@ -3,7 +3,7 @@
 //  BBSwiftFramework
 //
 //  Created by Bei Wang on 10/23/15.
-//  Copyright © 2015 Bei. All rights reserved.
+//  Copyright © 2015 BooYah. All rights reserved.
 //
 
 import UIKit
