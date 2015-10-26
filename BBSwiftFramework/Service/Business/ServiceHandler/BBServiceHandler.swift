@@ -29,8 +29,8 @@ class BBServiceHandler: NSObject {
     // MARK: 属性操作函数注释
     
     // MARK: - --------------------接口API--------------------
-    // MARK: 分块内接口函数注释
-
+    
+    // MARK: 服务请求
     func serviceHandlerRequest(succeeded: succeededBlock, failed: failedBlock) {
 
         if self.isNeedLoadingView {
@@ -40,10 +40,8 @@ class BBServiceHandler: NSObject {
 
         switch serviceTag {
         case .kCommon_http:
-//            bean.setValue(bean.foo, forKey: "foo")
             break
         case .kCommon_https:
-//            bean.setValue(bean.foo, forKey: "foo")
             break
         case .kCommon_weather:
             bean.setValue(bean.location, forKey: "location")
@@ -54,46 +52,39 @@ class BBServiceHandler: NSObject {
         
         // 服务分发
         BBServiceDispatch.serviceStart(self, succeeded: succeeded, failed: failed)
-        
-//        // 通过自定义网络库发送服务
-//        BBHTTPExcutor(url: apiModel.url, method: apiModel.method, params: bean.propertyDictinory()) { (data, response, error) -> Void in
-//            
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                if self.isNeedLoadingView {
-//                    BBLoadingView.dismiss()
-//                }
-//
-//                if (response.isKindOfClass(NSHTTPURLResponse)) {
-//                    let response: NSHTTPURLResponse = response as! NSHTTPURLResponse
-//                    if (response.statusCode == 200 && error == nil) {
-//                        let value = BBResult(json: NSString(data: data!, encoding: NSUTF8StringEncoding)! as String)
-//                        succeeded(response: value)
-//                    } else {
-//                        failed(error: error)
-//                    }
-//                }
-//
-//            })
-//
-//        }.fire()
     }
     
     
+    
+    // MARK: 服务回答    
     func serviceHandlerResponse(data: NSData, response: NSURLResponse, succeeded: succeededBlock, failed: failedBlock) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             if self.isNeedLoadingView {
                 BBLoadingView.dismiss()
             }
-            
-            if (response.isKindOfClass(NSHTTPURLResponse)) {
-                let response: NSHTTPURLResponse = response as! NSHTTPURLResponse
-                if (response.statusCode == 200) {
-                    let value = BBResult(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
-                    succeeded(response: value)
-                } else {
-                    let userInfo = [NSLocalizedFailureReasonErrorKey: "HTTP statusCode != 200"]
-                    failed(error: NSError(domain: "HTTP", code: 100, userInfo: userInfo))
+
+            if ((response as! NSHTTPURLResponse).statusCode == 200) {
+                var value = BBModel()
+                switch self.serviceTag {
+                case .kCommon_http:
+                    value = BBValue(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
+                    break
+                case .kCommon_https:
+                    value = BBModel(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
+                    break
+                case .kCommon_weather:
+                    value = BBResult(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
+                    break
                 }
+                
+                succeeded(response: value)
+            } else {
+                
+                if (self.isNeedErrorAlert) {
+                    let alertController = BBAlertController.initWithMessage("HTTP层解析有误！！")
+                    BBRootViewController.getCurrentViewController().presentViewController(alertController, animated: true, completion: nil)
+                }
+                failed(error: NSError(domain: "HTTP", code: 100, userInfo: [NSLocalizedFailureReasonErrorKey: "HTTP statusCode != 200"]))
             }
         })
     }

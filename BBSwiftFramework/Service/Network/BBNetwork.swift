@@ -30,7 +30,7 @@ class BBNetwork: BBObject {
     - parameter failedBlock:    失败回调
     - parameter error:          失败信息
     */
-    class func serverSend(
+    func serverSend(
         serviceTag:     eServiceTags,
         bean:           BBBean,
         succeeded:      succeededBlock,

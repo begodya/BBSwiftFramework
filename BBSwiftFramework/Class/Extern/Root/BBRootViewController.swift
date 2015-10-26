@@ -148,5 +148,17 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
         let rightItem:UIBarButtonItem = UIBarButtonItem(title: title, style: UIBarButtonItemStyle.Plain, target: self, action: action)
         setRightBarButtonItem(rightItem)
     }
+    
+    // MARK: 获取顶层视图
+    class func getCurrentViewController() -> UIViewController {
+        let applicationWindow: UIWindow! = (UIApplication.sharedApplication().delegate?.window)!
+        var rootViewController = applicationWindow.rootViewController
+        if ((rootViewController?.isKindOfClass(BBNavigationController)) != nil) {
+            let tempViewController: BBNavigationController = rootViewController as! BBNavigationController
+            rootViewController = tempViewController.visibleViewController
+        }
 
+        return rootViewController!
+    }
+    
 }

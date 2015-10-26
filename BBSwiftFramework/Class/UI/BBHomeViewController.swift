@@ -54,13 +54,12 @@ class BBHomeViewController: BBRootViewController {
         bean.location = "上海"
         bean.output = "json"
         bean.ak = "wl82QREF9dNMEEGYu3LAGqdU"
-        
-        // 第一种方法：调用Alamofire
-        BBNetwork.serverSend(eServiceTags.kCommon_weather, bean: bean, succeeded: { (response) -> Void in
-            
+    
+        let network: BBNetwork = BBNetwork()
+        network.serverSend(eServiceTags.kCommon_weather, bean: bean, succeeded: { (response) -> Void in
             let model: BBResult = response as! BBResult
             self.viewModel?.dataModel = model
-            log.info("response model: \n\(model)\n\n")
+            log.info("response BBResult: \n\(model)\n\n")
             self.viewModel!.reloadTableData()
             self.contentTableView.reloadData()
             
@@ -69,12 +68,13 @@ class BBHomeViewController: BBRootViewController {
         }
         
         // 第一种方法：调用自定义网络请求库
-//        BBNetwork.serverSend(eServiceTags.kCommon_http, bean: bean) { (data, response, error) -> Void in
-//
-//            let result = NSString(data: data!, encoding: NSASCIIStringEncoding)!
-//            let value = BBValue(json: result as String)
-//            log.info("response model: \n\(value)\n\n")
-//        }
+        network.serverSend(eServiceTags.kCommon_http, bean: bean, succeeded: { (response) -> Void in
+            let model: BBValue = response as! BBValue
+            log.info("response BBValue: \n\(model)\n\n")
+            
+            }) { (error) -> Void in
+                
+        }
     }
     
     // MARK: - --------------------手势事件--------------------
