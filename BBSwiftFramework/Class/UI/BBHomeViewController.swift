@@ -66,25 +66,6 @@ class BBHomeViewController: BBRootViewController {
             }) { (task, error) -> Void in
                 
         }
-        
-//        network.serverSend(eServiceTags.kCommon_weather, bean: bean, succeeded: { (response) -> Void in
-//            let model: BBResult = response as! BBResult
-//            self.viewModel?.dataModel = model
-//            log.info("response BBResult: \n\(model)\n\n")
-//            self.viewModel!.reloadTableData()
-//            self.contentTableView.reloadData()
-//            
-//            }) { (error) -> Void in
-//                
-//        }
-        
-//        network.serverSend(eServiceTags.kCommon_http, bean: bean, succeeded: { (response) -> Void in
-//            let model: BBValue = response as! BBValue
-//            log.info("response BBValue: \n\(model)\n\n")
-//            
-//            }) { (error) -> Void in
-//                
-//        }
     }
     
     // MARK: - --------------------手势事件--------------------

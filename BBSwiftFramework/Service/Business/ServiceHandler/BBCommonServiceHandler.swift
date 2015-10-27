@@ -28,6 +28,7 @@ class BBCommonServiceHandler: BBServiceHandler {
         super.serviceHandlerRequest(succeeded, failed: failed)
     }
     
+    
     override func serviceHandlerResponse(result: BBModel, succeeded: succeededBlock, failed: failedBlock) {
 
         let bean: BBBean = self.bean
