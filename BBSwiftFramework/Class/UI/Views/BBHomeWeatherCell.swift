@@ -10,7 +10,6 @@ import UIKit
 
 class BBHomeWeatherCell: BBTableViewCell {
 
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var windLabel: UILabel!
