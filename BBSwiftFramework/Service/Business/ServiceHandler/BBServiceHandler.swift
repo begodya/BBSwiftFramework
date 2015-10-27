@@ -8,7 +8,6 @@
 
 import UIKit
 
-@objc(BBServiceHandler)
 class BBServiceHandler: NSObject {
 
     var isNeedLoadingView: Bool = true
