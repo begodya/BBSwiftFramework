@@ -179,6 +179,7 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
             maskView_.alpha = 0.0
             maskView_.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(backgroundAlpha)
         }
+        contentView.center = CGPointMake(maskView_.bounds.size.width/2.0, maskView_.bounds.size.height/2.0)
         maskView_.isHideWhenTouchBackground = isHideWhenTouchBackground
         maskView_.addSubview(contentView)
         applicationWindow_.addSubview(maskView_)
