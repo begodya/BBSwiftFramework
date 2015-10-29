@@ -42,8 +42,8 @@ class BBNetwork: BBObject {
             let configModel: BBServiceConfigModel = BBServiceConfigManager.getConfigModelByTag(serviceTag)
             let handlerClass = NSClassFromString(configModel.handler) as! BBServiceHandler.Type
             let serviceHandler = handlerClass.init()
-            serviceHandler.isNeedErrorAlert = BBNetwork().isNeedErrorAlert
-            serviceHandler.isNeedLoadingView = BBNetwork().isNeedLoadingView
+            serviceHandler.isNeedErrorAlert = self.isNeedErrorAlert
+            serviceHandler.isNeedLoadingView = self.isNeedLoadingView
             serviceHandler.serviceTag = serviceTag
             serviceHandler.bean = bean
             serviceHandler.apiModel = BBServiceConfigManager.getApiModelByTag(serviceTag)

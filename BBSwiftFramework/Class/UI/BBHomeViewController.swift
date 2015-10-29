@@ -33,6 +33,20 @@ class BBHomeViewController: BBRootViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.contentTableView.addPullToRefresh(PullToRefresh(), action: { [weak self] in
+            self?.requestService(false)
+        })
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.contentTableView.removePullToRefresh(self.contentTableView.pullToRefresh!)
+    }
+    
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
     
@@ -41,7 +55,7 @@ class BBHomeViewController: BBRootViewController {
         
         self.setupViewModel()
         
-        self.requestService()
+        self.requestService(true)
     }
     
     private func setupViewModel() {
@@ -49,22 +63,24 @@ class BBHomeViewController: BBRootViewController {
         self.viewModel?.createTableData()
     }
     
-    private func requestService() {
+    private func requestService(isLoading: Bool) {
         let bean: BBBean = BBBean.init()
         bean.location = "上海"
         bean.output = "json"
         bean.ak = "wl82QREF9dNMEEGYu3LAGqdU"
     
         let network: BBNetwork = BBNetwork()
+        network.isNeedLoadingView = isLoading
         network.serverSend(eServiceTags.kCommon_weather, bean: bean, succeeded: { (task) -> Void in
             let model: BBResult = bean.resultModel
             self.viewModel?.dataModel = model
             log.info("response BBResult: \n\(model)\n\n")
+
             self.viewModel!.reloadTableData()
             self.contentTableView.reloadData()
-
+            self.contentTableView.endRefreshing()
             }) { (task, error) -> Void in
-                
+            self.contentTableView.endRefreshing()
         }
     }
     
