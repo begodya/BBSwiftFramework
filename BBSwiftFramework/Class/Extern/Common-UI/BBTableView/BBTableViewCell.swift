@@ -10,6 +10,9 @@ import UIKit
 
 class BBTableViewCell: UITableViewCell {
 
+    var separatorLength: CGFloat! = BBDevice.deviceWidth() - 15.0
+    var separatorColor: UIColor! = BBColor.defaultColor()
+    
     // MARK: - --------------------System--------------------
     
     override func awakeFromNib() {
@@ -25,6 +28,13 @@ class BBTableViewCell: UITableViewCell {
 
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
+    override func drawRect(rect: CGRect) {
+        super.drawRect(rect)
+        
+        let separatorView: BBRootView = BBRootView.init(frame: CGRectMake(BBDevice.deviceWidth()-separatorLength, self.bounds.size.height-0.5, separatorLength, 0.5))
+        separatorView.backgroundColor = separatorColor
+        self.addSubview(separatorView)
+    }
     
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释
