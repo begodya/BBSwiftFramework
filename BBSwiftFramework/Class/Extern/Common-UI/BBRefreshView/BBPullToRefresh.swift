@@ -18,19 +18,20 @@ class Animator: RefreshViewAnimator {
     func animateState(state: State) {
         // animate refreshView according to state
         switch state {
-        case .Inital:
-            break // do inital layout for elements
-        case .Releasing( _):
+        case .Inital:        // do inital layout for elements
+            break
+        case .Releasing( _): // animate elements according to progress
             refreshView.refreshImageView?.startAnimatingGif()
-            break // animate elements according to progress
-        case .Loading:
-            break // start loading animations
-        case .Finished:
+            break
+        case .Loading:       // start loading animations
+            break
+        case .Finished:      // show some finished state if needed
             refreshView.refreshImageView?.stopAnimatingGif()
-            break // show some finished state if needed
+            break
         }
     }
 }
+
 
 class BBPullToRefresh: PullToRefresh {
 
