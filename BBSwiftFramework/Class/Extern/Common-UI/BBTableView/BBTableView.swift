@@ -11,6 +11,11 @@ import UIKit
 class BBTableView: UITableView {
 
     // MARK: - --------------------System--------------------
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        self.backgroundColor = BBColor.defaultColor()
+    }
     
     // MARK: - --------------------功能函数--------------------
     // MARK: 初始化
@@ -30,5 +35,11 @@ class BBTableView: UITableView {
     
     // MARK: - --------------------接口API--------------------
     // MARK: 分块内接口函数注释
+    
+    func addPullToRefresh(action:()->()) {
+        self.addPullToRefresh(BBPullToRefresh()) { () -> () in
+            action()
+        }
+    }
 
 }

@@ -35,12 +35,12 @@ class BBHomeViewController: BBRootViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.contentTableView.addPullToRefresh(BBPullToRefresh(), action: { [weak self] in
+        self.contentTableView.addPullToRefresh { [weak self] in
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue()) {
                 self?.requestService()
             }
-        })
+        }
         self.contentTableView.startRefreshing()        
     }
     
@@ -54,8 +54,6 @@ class BBHomeViewController: BBRootViewController {
     // MARK: 初始化
     
     private func setupView() {
-        self.contentTableView.backgroundColor = BBColor.defaultColor()
-        
         self.setupViewModel()
     }
     
