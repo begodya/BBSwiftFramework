@@ -14,6 +14,13 @@
 		3B4C4BAE1BE1F13B004C33D7 /* BBPullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BAD1BE1F13B004C33D7 /* BBPullToRefresh.swift */; };
 		3B4C4BB01BE1F1D6004C33D7 /* BBRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BAF1BE1F1D6004C33D7 /* BBRefreshView.swift */; };
 		3B4C4BB21BE1F1E9004C33D7 /* BBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BB11BE1F1E9004C33D7 /* BBRefreshView.xib */; };
+		3B4C4BBD1BE20FD8004C33D7 /* BBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BB41BE20FD8004C33D7 /* BBHomeViewController.swift */; };
+		3B4C4BBE1BE20FD8004C33D7 /* BBHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BB51BE20FD8004C33D7 /* BBHomeViewController.xib */; };
+		3B4C4BBF1BE20FD8004C33D7 /* BBHomeCellsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BB71BE20FD8004C33D7 /* BBHomeCellsModel.swift */; };
+		3B4C4BC01BE20FD8004C33D7 /* BBHomeClothesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BB91BE20FD8004C33D7 /* BBHomeClothesCell.swift */; };
+		3B4C4BC11BE20FD8004C33D7 /* BBHomeClothesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BBA1BE20FD8004C33D7 /* BBHomeClothesCell.xib */; };
+		3B4C4BC21BE20FD8004C33D7 /* BBHomeWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BBB1BE20FD8004C33D7 /* BBHomeWeatherCell.swift */; };
+		3B4C4BC31BE20FD8004C33D7 /* BBHomeWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BBC1BE20FD8004C33D7 /* BBHomeWeatherCell.xib */; };
 		3B561DA11BBB84BF000CAC0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */; };
 		3B561DA61BBB84BF000CAC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA41BBB84BF000CAC0E /* Main.storyboard */; };
 		3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA91BBB84BF000CAC0E /* LaunchScreen.storyboard */; };
@@ -25,12 +32,7 @@
 		3B561DE71BBBC3CF000CAC0E /* BBDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DE61BBBC3CF000CAC0E /* BBDevice.swift */; };
 		3B561DF41BBBE72F000CAC0E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DF31BBBE72F000CAC0E /* String.swift */; };
 		3B6FA0681BD8AD2D0008BB4C /* BBHTTPExcutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA0671BD8AD2D0008BB4C /* BBHTTPExcutor.swift */; };
-		3B6FA06C1BD8E37F0008BB4C /* BBHomeCellsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA06B1BD8E37F0008BB4C /* BBHomeCellsModel.swift */; };
-		3B6FA06E1BD8E4050008BB4C /* BBHomeClothesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA06D1BD8E4050008BB4C /* BBHomeClothesCell.swift */; };
-		3B6FA0701BD8E4110008BB4C /* BBHomeClothesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FA06F1BD8E4110008BB4C /* BBHomeClothesCell.xib */; };
 		3B6FA0721BD9F0300008BB4C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA0711BD9F0300008BB4C /* UIView.swift */; };
-		3B6FA0741BD9F2170008BB4C /* BBHomeWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA0731BD9F2170008BB4C /* BBHomeWeatherCell.swift */; };
-		3B6FA0761BD9F2220008BB4C /* BBHomeWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FA0751BD9F2220008BB4C /* BBHomeWeatherCell.xib */; };
 		3B6FA0781BD9FE060008BB4C /* BBServiceTest.cer in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FA0771BD9FE060008BB4C /* BBServiceTest.cer */; };
 		3B6FA07B1BDA01CE0008BB4C /* BBServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA07A1BDA01CE0008BB4C /* BBServiceHandler.swift */; };
 		3B6FA07F1BDA08A60008BB4C /* BBServiceCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA07E1BDA08A60008BB4C /* BBServiceCallback.swift */; };
@@ -68,8 +70,6 @@
 		3BD069AE1BCFB61A00E656FC /* AnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069AB1BCFB61A00E656FC /* AnimationDelegate.swift */; };
 		3BD069AF1BCFB61A00E656FC /* CircularRevealAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069AC1BCFB61A00E656FC /* CircularRevealAnimator.swift */; };
 		3BD069B01BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069AD1BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift */; };
-		3BD069B31BCFB69600E656FC /* BBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069B11BCFB69600E656FC /* BBHomeViewController.swift */; };
-		3BD069B41BCFB69600E656FC /* BBHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD069B21BCFB69600E656FC /* BBHomeViewController.xib */; };
 		3BD069BE1BCFB81A00E656FC /* BBDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069BA1BCFB81A00E656FC /* BBDataSource.swift */; };
 		3BD069BF1BCFB81A00E656FC /* BBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069BC1BCFB81A00E656FC /* BBMenuViewController.swift */; };
 		3BD069C01BCFB81A00E656FC /* BBMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD069BD1BCFB81A00E656FC /* BBMenuViewController.xib */; };
@@ -104,6 +104,13 @@
 		3B4C4BAD1BE1F13B004C33D7 /* BBPullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBPullToRefresh.swift; sourceTree = "<group>"; };
 		3B4C4BAF1BE1F1D6004C33D7 /* BBRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBRefreshView.swift; sourceTree = "<group>"; };
 		3B4C4BB11BE1F1E9004C33D7 /* BBRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBRefreshView.xib; sourceTree = "<group>"; };
+		3B4C4BB41BE20FD8004C33D7 /* BBHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeViewController.swift; sourceTree = "<group>"; };
+		3B4C4BB51BE20FD8004C33D7 /* BBHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeViewController.xib; sourceTree = "<group>"; };
+		3B4C4BB71BE20FD8004C33D7 /* BBHomeCellsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeCellsModel.swift; sourceTree = "<group>"; };
+		3B4C4BB91BE20FD8004C33D7 /* BBHomeClothesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeClothesCell.swift; sourceTree = "<group>"; };
+		3B4C4BBA1BE20FD8004C33D7 /* BBHomeClothesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeClothesCell.xib; sourceTree = "<group>"; };
+		3B4C4BBB1BE20FD8004C33D7 /* BBHomeWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeWeatherCell.swift; sourceTree = "<group>"; };
+		3B4C4BBC1BE20FD8004C33D7 /* BBHomeWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeWeatherCell.xib; sourceTree = "<group>"; };
 		3B561D9D1BBB84BF000CAC0E /* BBSwiftFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBSwiftFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B561DA51BBB84BF000CAC0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,12 +128,7 @@
 		3B561DE61BBBC3CF000CAC0E /* BBDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDevice.swift; sourceTree = "<group>"; };
 		3B561DF31BBBE72F000CAC0E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3B6FA0671BD8AD2D0008BB4C /* BBHTTPExcutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHTTPExcutor.swift; sourceTree = "<group>"; };
-		3B6FA06B1BD8E37F0008BB4C /* BBHomeCellsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeCellsModel.swift; sourceTree = "<group>"; };
-		3B6FA06D1BD8E4050008BB4C /* BBHomeClothesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeClothesCell.swift; sourceTree = "<group>"; };
-		3B6FA06F1BD8E4110008BB4C /* BBHomeClothesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeClothesCell.xib; sourceTree = "<group>"; };
 		3B6FA0711BD9F0300008BB4C /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		3B6FA0731BD9F2170008BB4C /* BBHomeWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeWeatherCell.swift; sourceTree = "<group>"; };
-		3B6FA0751BD9F2220008BB4C /* BBHomeWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeWeatherCell.xib; sourceTree = "<group>"; };
 		3B6FA0771BD9FE060008BB4C /* BBServiceTest.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = BBServiceTest.cer; sourceTree = "<group>"; };
 		3B6FA07A1BDA01CE0008BB4C /* BBServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBServiceHandler.swift; sourceTree = "<group>"; };
 		3B6FA07E1BDA08A60008BB4C /* BBServiceCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBServiceCallback.swift; sourceTree = "<group>"; };
@@ -165,8 +167,6 @@
 		3BD069AB1BCFB61A00E656FC /* AnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationDelegate.swift; sourceTree = "<group>"; };
 		3BD069AC1BCFB61A00E656FC /* CircularRevealAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealAnimator.swift; sourceTree = "<group>"; };
 		3BD069AD1BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealTransitionAnimator.swift; sourceTree = "<group>"; };
-		3BD069B11BCFB69600E656FC /* BBHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeViewController.swift; sourceTree = "<group>"; };
-		3BD069B21BCFB69600E656FC /* BBHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeViewController.xib; sourceTree = "<group>"; };
 		3BD069BA1BCFB81A00E656FC /* BBDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDataSource.swift; sourceTree = "<group>"; };
 		3BD069BC1BCFB81A00E656FC /* BBMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBMenuViewController.swift; sourceTree = "<group>"; };
 		3BD069BD1BCFB81A00E656FC /* BBMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuViewController.xib; sourceTree = "<group>"; };
@@ -233,6 +233,36 @@
 				3B4C4BA91BE1E9A6004C33D7 /* UIScrollView+PullToRefresh.swift */,
 			);
 			path = PullToRefresh;
+			sourceTree = "<group>";
+		};
+		3B4C4BB31BE20FD8004C33D7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C4BB41BE20FD8004C33D7 /* BBHomeViewController.swift */,
+				3B4C4BB51BE20FD8004C33D7 /* BBHomeViewController.xib */,
+				3B4C4BB61BE20FD8004C33D7 /* ViewModel */,
+				3B4C4BB81BE20FD8004C33D7 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3B4C4BB61BE20FD8004C33D7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C4BB71BE20FD8004C33D7 /* BBHomeCellsModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3B4C4BB81BE20FD8004C33D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C4BB91BE20FD8004C33D7 /* BBHomeClothesCell.swift */,
+				3B4C4BBA1BE20FD8004C33D7 /* BBHomeClothesCell.xib */,
+				3B4C4BBB1BE20FD8004C33D7 /* BBHomeWeatherCell.swift */,
+				3B4C4BBC1BE20FD8004C33D7 /* BBHomeWeatherCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3B561D941BBB84BF000CAC0E = {
@@ -359,10 +389,7 @@
 		3B561DD51BBB866D000CAC0E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				3BD069B11BCFB69600E656FC /* BBHomeViewController.swift */,
-				3BD069B21BCFB69600E656FC /* BBHomeViewController.xib */,
-				3B6FA0691BD8E35F0008BB4C /* ViewModel */,
-				3B6FA06A1BD8E35F0008BB4C /* Views */,
+				3B4C4BB31BE20FD8004C33D7 /* Home */,
 				3BD069951BCF834700E656FC /* Extern */,
 			);
 			path = UI;
@@ -394,25 +421,6 @@
 				3B6FA0711BD9F0300008BB4C /* UIView.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		3B6FA0691BD8E35F0008BB4C /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3B6FA06B1BD8E37F0008BB4C /* BBHomeCellsModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3B6FA06A1BD8E35F0008BB4C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3B6FA06D1BD8E4050008BB4C /* BBHomeClothesCell.swift */,
-				3B6FA06F1BD8E4110008BB4C /* BBHomeClothesCell.xib */,
-				3B6FA0731BD9F2170008BB4C /* BBHomeWeatherCell.swift */,
-				3B6FA0751BD9F2220008BB4C /* BBHomeWeatherCell.xib */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		3B6FA0791BDA01B10008BB4C /* ServiceHandler */ = {
@@ -728,15 +736,15 @@
 				3B4C4BB21BE1F1E9004C33D7 /* BBRefreshView.xib in Resources */,
 				3BD069C01BCFB81A00E656FC /* BBMenuViewController.xib in Resources */,
 				3BD069C21BD08ECC00E656FC /* Assets.xcassets in Resources */,
-				3BD069B41BCFB69600E656FC /* BBHomeViewController.xib in Resources */,
+				3B4C4BC31BE20FD8004C33D7 /* BBHomeWeatherCell.xib in Resources */,
+				3B4C4BBE1BE20FD8004C33D7 /* BBHomeViewController.xib in Resources */,
 				3BD069921BCE4D0100E656FC /* Loading.gif in Resources */,
+				3B4C4BC11BE20FD8004C33D7 /* BBHomeClothesCell.xib in Resources */,
 				3B73CF141BD628A100E5C7F0 /* BBServiceConfig.plist in Resources */,
-				3B6FA0701BD8E4110008BB4C /* BBHomeClothesCell.xib in Resources */,
 				3BBB680B1BC6125A0011ED71 /* BBTableViewCell.xib in Resources */,
 				3BD0699D1BCFABEC00E656FC /* TrendSansOne.otf in Resources */,
 				3B4C4BAA1BE1E9A6004C33D7 /* Info.plist in Resources */,
 				3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */,
-				3B6FA0761BD9F2220008BB4C /* BBHomeWeatherCell.xib in Resources */,
 				3B6FA0781BD9FE060008BB4C /* BBServiceTest.cer in Resources */,
 				3B87B41F1BCCF4A400890E2B /* BBH5ViewController.xib in Resources */,
 				3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */,
@@ -822,15 +830,15 @@
 				3B4C4BAB1BE1E9A6004C33D7 /* PullToRefresh.swift in Sources */,
 				3B73CF001BD4E4C600E5C7F0 /* BBConfig.swift in Sources */,
 				3BD069BF1BCFB81A00E656FC /* BBMenuViewController.swift in Sources */,
+				3B4C4BBD1BE20FD8004C33D7 /* BBHomeViewController.swift in Sources */,
 				3BC853771BD0A094001CD7E3 /* BBMenuCellsModel.swift in Sources */,
 				3B73CF1C1BD62BE500E5C7F0 /* BBObject.swift in Sources */,
 				3B6FA07B1BDA01CE0008BB4C /* BBServiceHandler.swift in Sources */,
-				3BD069B31BCFB69600E656FC /* BBHomeViewController.swift in Sources */,
 				3B4C4BAC1BE1E9A6004C33D7 /* UIScrollView+PullToRefresh.swift in Sources */,
 				3B7093201BD0F93500E1E3D2 /* BBMenuButtonCell.swift in Sources */,
 				3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */,
-				3B6FA06C1BD8E37F0008BB4C /* BBHomeCellsModel.swift in Sources */,
 				3BD069BE1BCFB81A00E656FC /* BBDataSource.swift in Sources */,
+				3B4C4BC21BE20FD8004C33D7 /* BBHomeWeatherCell.swift in Sources */,
 				3BD0698C1BCE499D00E656FC /* BBLoadingView.swift in Sources */,
 				3BBB680A1BC6125A0011ED71 /* BBTableViewCell.swift in Sources */,
 				3BD069941BCE667200E656FC /* BBNavigationController.swift in Sources */,
@@ -842,13 +850,14 @@
 				3B561DE71BBBC3CF000CAC0E /* BBDevice.swift in Sources */,
 				3BBB68051BC60CC60011ED71 /* BBTableView.swift in Sources */,
 				3B6FA0681BD8AD2D0008BB4C /* BBHTTPExcutor.swift in Sources */,
+				3B4C4BBF1BE20FD8004C33D7 /* BBHomeCellsModel.swift in Sources */,
 				3BD069A61BCFB5E200E656FC /* Menu.swift in Sources */,
 				3BD069AE1BCFB61A00E656FC /* AnimationDelegate.swift in Sources */,
 				3BBB680E1BC6402E0011ED71 /* BBAlertController.swift in Sources */,
 				3B73CF1F1BD62C3500E5C7F0 /* BBBean.swift in Sources */,
+				3B4C4BC01BE20FD8004C33D7 /* BBHomeClothesCell.swift in Sources */,
 				3B561DE51BBBBFB5000CAC0E /* BBColor.swift in Sources */,
 				3B561DD91BBB8794000CAC0E /* BBRootViewController.swift in Sources */,
-				3B6FA0741BD9F2170008BB4C /* BBHomeWeatherCell.swift in Sources */,
 				3B4C4BAE1BE1F13B004C33D7 /* BBPullToRefresh.swift in Sources */,
 				3B73CF251BD6381F00E5C7F0 /* BBServiceConfigManager.swift in Sources */,
 				3BD069A81BCFB5E200E656FC /* MenuSegue.swift in Sources */,
@@ -859,7 +868,6 @@
 				3BD069A71BCFB5E200E656FC /* MenuItemsAnimator.swift in Sources */,
 				3BBB68071BC60D480011ED71 /* BBRootView.swift in Sources */,
 				3B73CF1D1BD62BE500E5C7F0 /* BBModel.swift in Sources */,
-				3B6FA06E1BD8E4050008BB4C /* BBHomeClothesCell.swift in Sources */,
 				3BD069901BCE4BA300E656FC /* UIImageView.swift in Sources */,
 				3BD069AF1BCFB61A00E656FC /* CircularRevealAnimator.swift in Sources */,
 			);
