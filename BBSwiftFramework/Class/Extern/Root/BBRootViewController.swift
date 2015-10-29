@@ -8,14 +8,16 @@
 
 import UIKit
 
-class BBRootViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class BBRootViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate, BBFullScreenMaskViewDelegate {
     
+    private var applicationWindow_: UIWindow!
+    private var maskView_: BBFullScreenMaskView!
     // MARK: - --------------------System--------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
+        applicationWindow_ = (UIApplication.sharedApplication().delegate?.window)!
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,8 +45,7 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
             if (self.navigationController?.viewControllers.count > 1) {
                 self.setBackBarButtonWithTarget(self, action: Selector("clickedBackBarButtonAction"))
             } else if (self.navigationController?.viewControllers.count == 1) {
-                let applicationWindow: UIWindow! = (UIApplication.sharedApplication().delegate?.window)!
-                var rootViewController = applicationWindow.rootViewController
+                var rootViewController = applicationWindow_.rootViewController
                 if ((rootViewController?.isKindOfClass(BBNavigationController)) != nil) {
                     let tempViewController: BBNavigationController = rootViewController as! BBNavigationController
                     rootViewController = tempViewController.topViewController
@@ -87,6 +88,11 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
         if (navigationController.respondsToSelector(Selector("interactivePopGestureRecognizer"))) {
             navigationController.interactivePopGestureRecognizer?.enabled = true
         }
+    }
+    
+    // MARK: BBFullScreenMaskViewDelegate
+    func maskViewwillRemoveFromSuperView(maskView: BBFullScreenMaskView, superView: UIView) {
+        maskView_ = nil
     }
     
     // MARK: - --------------------属性相关--------------------
@@ -161,4 +167,24 @@ class BBRootViewController: UIViewController, UINavigationControllerDelegate, UI
         return rootViewController!
     }
     
+    // MARK: 添加遮盖层
+    func showCoverViewWithContentView(contentView: UIView, alpha: CGFloat) {
+        self.showCoverViewWithContentView(contentView, isHideWhenTouchBackground: true, backgroundAlpha: alpha)
+    }
+
+    func showCoverViewWithContentView(contentView: UIView, isHideWhenTouchBackground: Bool, backgroundAlpha: CGFloat) {
+        if (maskView_ == nil) {
+            maskView_ = UIView.init(frame: (applicationWindow_?.bounds)!) as! BBFullScreenMaskView
+            maskView_.delegate = self
+            maskView_.alpha = 0.0
+            maskView_.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(backgroundAlpha)
+        }
+        maskView_.isHideWhenTouchBackground = isHideWhenTouchBackground
+        maskView_.addSubview(contentView)
+        applicationWindow_.addSubview(maskView_)
+        
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.maskView_.alpha = 1.0
+        }
+    }
 }

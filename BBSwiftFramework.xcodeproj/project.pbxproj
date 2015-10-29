@@ -21,6 +21,7 @@
 		3B4C4BC11BE20FD8004C33D7 /* BBHomeClothesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BBA1BE20FD8004C33D7 /* BBHomeClothesCell.xib */; };
 		3B4C4BC21BE20FD8004C33D7 /* BBHomeWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BBB1BE20FD8004C33D7 /* BBHomeWeatherCell.swift */; };
 		3B4C4BC31BE20FD8004C33D7 /* BBHomeWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BBC1BE20FD8004C33D7 /* BBHomeWeatherCell.xib */; };
+		3B4C4BC61BE21ACF004C33D7 /* BBFullScreenMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BC51BE21ACF004C33D7 /* BBFullScreenMaskView.swift */; };
 		3B561DA11BBB84BF000CAC0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */; };
 		3B561DA61BBB84BF000CAC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA41BBB84BF000CAC0E /* Main.storyboard */; };
 		3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA91BBB84BF000CAC0E /* LaunchScreen.storyboard */; };
@@ -111,6 +112,7 @@
 		3B4C4BBA1BE20FD8004C33D7 /* BBHomeClothesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeClothesCell.xib; sourceTree = "<group>"; };
 		3B4C4BBB1BE20FD8004C33D7 /* BBHomeWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeWeatherCell.swift; sourceTree = "<group>"; };
 		3B4C4BBC1BE20FD8004C33D7 /* BBHomeWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeWeatherCell.xib; sourceTree = "<group>"; };
+		3B4C4BC51BE21ACF004C33D7 /* BBFullScreenMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBFullScreenMaskView.swift; sourceTree = "<group>"; };
 		3B561D9D1BBB84BF000CAC0E /* BBSwiftFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBSwiftFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B561DA51BBB84BF000CAC0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -265,6 +267,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3B4C4BC41BE21AB7004C33D7 /* BBFullScreenMaskView */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C4BC51BE21ACF004C33D7 /* BBFullScreenMaskView.swift */,
+			);
+			path = BBFullScreenMaskView;
+			sourceTree = "<group>";
+		};
 		3B561D941BBB84BF000CAC0E = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +366,7 @@
 		3B561DD21BBB866D000CAC0E /* Common-UI */ = {
 			isa = PBXGroup;
 			children = (
+				3B4C4BC41BE21AB7004C33D7 /* BBFullScreenMaskView */,
 				3B4C4BA41BE1E9A6004C33D7 /* BBRefreshView */,
 				3BD0698A1BCE496400E656FC /* BBLoadingView */,
 				3B87B4191BCCECD900890E2B /* BBH5ViewController */,
@@ -852,6 +863,7 @@
 				3B6FA0681BD8AD2D0008BB4C /* BBHTTPExcutor.swift in Sources */,
 				3B4C4BBF1BE20FD8004C33D7 /* BBHomeCellsModel.swift in Sources */,
 				3BD069A61BCFB5E200E656FC /* Menu.swift in Sources */,
+				3B4C4BC61BE21ACF004C33D7 /* BBFullScreenMaskView.swift in Sources */,
 				3BD069AE1BCFB61A00E656FC /* AnimationDelegate.swift in Sources */,
 				3BBB680E1BC6402E0011ED71 /* BBAlertController.swift in Sources */,
 				3B73CF1F1BD62C3500E5C7F0 /* BBBean.swift in Sources */,
