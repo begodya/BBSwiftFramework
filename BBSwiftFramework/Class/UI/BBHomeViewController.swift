@@ -39,9 +39,10 @@ class BBHomeViewController: BBRootViewController {
         self.contentTableView.addPullToRefresh(BBPullToRefresh(), action: { [weak self] in
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue()) {
-                self?.requestService(false)
+                self?.requestService()
             }
         })
+        self.contentTableView.startRefreshing()        
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -57,8 +58,6 @@ class BBHomeViewController: BBRootViewController {
         self.contentTableView.backgroundColor = BBColor.defaultColor()
         
         self.setupViewModel()
-        
-        self.requestService(true)
     }
     
     private func setupViewModel() {
@@ -66,14 +65,14 @@ class BBHomeViewController: BBRootViewController {
         self.viewModel?.createTableData()
     }
     
-    private func requestService(isLoading: Bool) {
+    private func requestService() {
         let bean: BBBean = BBBean.init()
         bean.location = "上海"
         bean.output = "json"
         bean.ak = "wl82QREF9dNMEEGYu3LAGqdU"
     
         let network: BBNetwork = BBNetwork()
-        network.isNeedLoadingView = isLoading
+        network.isNeedLoadingView = false
         network.serverSend(eServiceTags.kCommon_weather, bean: bean, succeeded: { (task) -> Void in
             let model: BBResult = bean.resultModel
             self.viewModel?.dataModel = model

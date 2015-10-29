@@ -184,15 +184,17 @@ class BBHomeCellsModel: NSObject {
     
     func heightForHeaderInSection(section: NSInteger) -> CGFloat {
         var height: CGFloat = 0.0
-        switch section {
-        case eSectionType.Section_0.rawValue:
-            height = 25.0
-            break
-        case eSectionType.Section_1.rawValue:
-            height = 25.0
-            break
-        default:
+        if self.dataModel != nil {
+            switch section {
+            case eSectionType.Section_0.rawValue:
+                height = 25.0
                 break
+            case eSectionType.Section_1.rawValue:
+                height = 25.0
+                break
+            default:
+                    break
+            }
         }
         
         return height
