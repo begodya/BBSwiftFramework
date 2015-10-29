@@ -11,6 +11,9 @@
 		3B4C4BAA1BE1E9A6004C33D7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BA61BE1E9A6004C33D7 /* Info.plist */; };
 		3B4C4BAB1BE1E9A6004C33D7 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BA81BE1E9A6004C33D7 /* PullToRefresh.swift */; };
 		3B4C4BAC1BE1E9A6004C33D7 /* UIScrollView+PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BA91BE1E9A6004C33D7 /* UIScrollView+PullToRefresh.swift */; };
+		3B4C4BAE1BE1F13B004C33D7 /* BBPullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BAD1BE1F13B004C33D7 /* BBPullToRefresh.swift */; };
+		3B4C4BB01BE1F1D6004C33D7 /* BBRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BAF1BE1F1D6004C33D7 /* BBRefreshView.swift */; };
+		3B4C4BB21BE1F1E9004C33D7 /* BBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BB11BE1F1E9004C33D7 /* BBRefreshView.xib */; };
 		3B561DA11BBB84BF000CAC0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */; };
 		3B561DA61BBB84BF000CAC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA41BBB84BF000CAC0E /* Main.storyboard */; };
 		3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA91BBB84BF000CAC0E /* LaunchScreen.storyboard */; };
@@ -98,6 +101,9 @@
 		3B4C4BA71BE1E9A6004C33D7 /* PullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefresh.h; sourceTree = "<group>"; };
 		3B4C4BA81BE1E9A6004C33D7 /* PullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		3B4C4BA91BE1E9A6004C33D7 /* UIScrollView+PullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+PullToRefresh.swift"; sourceTree = "<group>"; };
+		3B4C4BAD1BE1F13B004C33D7 /* BBPullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBPullToRefresh.swift; sourceTree = "<group>"; };
+		3B4C4BAF1BE1F1D6004C33D7 /* BBRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBRefreshView.swift; sourceTree = "<group>"; };
+		3B4C4BB11BE1F1E9004C33D7 /* BBRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBRefreshView.xib; sourceTree = "<group>"; };
 		3B561D9D1BBB84BF000CAC0E /* BBSwiftFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBSwiftFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B561DA51BBB84BF000CAC0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -211,6 +217,9 @@
 			isa = PBXGroup;
 			children = (
 				3B4C4BA51BE1E9A6004C33D7 /* PullToRefresh */,
+				3B4C4BAD1BE1F13B004C33D7 /* BBPullToRefresh.swift */,
+				3B4C4BAF1BE1F1D6004C33D7 /* BBRefreshView.swift */,
+				3B4C4BB11BE1F1E9004C33D7 /* BBRefreshView.xib */,
 			);
 			path = BBRefreshView;
 			sourceTree = "<group>";
@@ -716,6 +725,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4C4BB21BE1F1E9004C33D7 /* BBRefreshView.xib in Resources */,
 				3BD069C01BCFB81A00E656FC /* BBMenuViewController.xib in Resources */,
 				3BD069C21BD08ECC00E656FC /* Assets.xcassets in Resources */,
 				3BD069B41BCFB69600E656FC /* BBHomeViewController.xib in Resources */,
@@ -806,6 +816,7 @@
 				3B6FA0721BD9F0300008BB4C /* UIView.swift in Sources */,
 				3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */,
 				3B6FA07F1BDA08A60008BB4C /* BBServiceCallback.swift in Sources */,
+				3B4C4BB01BE1F1D6004C33D7 /* BBRefreshView.swift in Sources */,
 				3B561DE31BBBB37A000CAC0E /* BBFont.swift in Sources */,
 				3BD0698E1BCE4AF100E656FC /* GIFImage.swift in Sources */,
 				3B4C4BAB1BE1E9A6004C33D7 /* PullToRefresh.swift in Sources */,
@@ -838,6 +849,7 @@
 				3B561DE51BBBBFB5000CAC0E /* BBColor.swift in Sources */,
 				3B561DD91BBB8794000CAC0E /* BBRootViewController.swift in Sources */,
 				3B6FA0741BD9F2170008BB4C /* BBHomeWeatherCell.swift in Sources */,
+				3B4C4BAE1BE1F13B004C33D7 /* BBPullToRefresh.swift in Sources */,
 				3B73CF251BD6381F00E5C7F0 /* BBServiceConfigManager.swift in Sources */,
 				3BD069A81BCFB5E200E656FC /* MenuSegue.swift in Sources */,
 				3BD069B01BCFB61A00E656FC /* CircularRevealTransitionAnimator.swift in Sources */,

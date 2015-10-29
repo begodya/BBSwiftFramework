@@ -36,8 +36,11 @@ class BBHomeViewController: BBRootViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.contentTableView.addPullToRefresh(PullToRefresh(), action: { [weak self] in
-            self?.requestService(false)
+        self.contentTableView.addPullToRefresh(BBPullToRefresh(), action: { [weak self] in
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                self?.requestService(false)
+            }
         })
     }
     
