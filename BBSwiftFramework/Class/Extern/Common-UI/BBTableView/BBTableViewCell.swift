@@ -10,10 +10,10 @@ import UIKit
 
 enum eGroupTableViewCellPosition: Int{
     case None
-    case Top       //section中居于顶部
-    case Middle    //section中居于中间
-    case Bottom    //section中居于底部
-    case Single    //单个cell的section
+    case Top       // section中居于顶部
+    case Middle    // section中居于中间
+    case Bottom    // section中居于底部
+    case Single    // 单个cell的section
 }
 
 
@@ -23,6 +23,7 @@ class BBTableViewCell: UITableViewCell {
     var separatorColor: UIColor! = BBColor.defaultColor()
     
     private var position: eGroupTableViewCellPosition = .None
+    private var lineHeight: CGFloat = 0.5
     
     // MARK: - --------------------System--------------------
     
@@ -42,11 +43,11 @@ class BBTableViewCell: UITableViewCell {
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
-        let separatorView: BBRootView = BBRootView.init(frame: CGRectMake(BBDevice.deviceWidth()-separatorLength, self.bounds.size.height-0.5, separatorLength, 0.5))
+        let separatorView: BBRootView = BBRootView.init(frame: CGRectMake(BBDevice.deviceWidth()-separatorLength, self.bounds.size.height-lineHeight, separatorLength, lineHeight))
         separatorView.backgroundColor = separatorColor
         switch self.position {
         case .Top:
-            let topSeparatorView: BBRootView = BBRootView.init(frame: CGRectMake(0, 0.2, BBDevice.deviceWidth(), 0.5))
+            let topSeparatorView: BBRootView = BBRootView.init(frame: CGRectMake(0, 0.2, BBDevice.deviceWidth(), lineHeight))
             topSeparatorView.backgroundColor = separatorColor
             self.addSubview(topSeparatorView)
             break
