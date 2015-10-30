@@ -131,6 +131,7 @@ class BBHomeViewController: BBRootViewController {
             cell = self.viewModel?.cellForRowAtIndexPath(indexPath)
         }
         self.viewModel?.configCell(cell!, forRowAtIndexPath: indexPath)
+        cell?.setGroupPositionForIndexPath(indexPath, tableView: tableView)
         
         return cell;
     }

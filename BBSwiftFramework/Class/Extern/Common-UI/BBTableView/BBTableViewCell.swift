@@ -8,10 +8,21 @@
 
 import UIKit
 
+enum eGroupTableViewCellPosition: Int{
+    case None
+    case Top       //section中居于顶部
+    case Middle    //section中居于中间
+    case Bottom    //section中居于底部
+    case Single    //单个cell的section
+}
+
+
 class BBTableViewCell: UITableViewCell {
 
     var separatorLength: CGFloat! = BBDevice.deviceWidth() - 15.0
     var separatorColor: UIColor! = BBColor.defaultColor()
+    
+    private var position: eGroupTableViewCellPosition = .None
     
     // MARK: - --------------------System--------------------
     
@@ -33,6 +44,24 @@ class BBTableViewCell: UITableViewCell {
         
         let separatorView: BBRootView = BBRootView.init(frame: CGRectMake(BBDevice.deviceWidth()-separatorLength, self.bounds.size.height-0.5, separatorLength, 0.5))
         separatorView.backgroundColor = separatorColor
+        switch self.position {
+        case .Top:
+            let topSeparatorView: BBRootView = BBRootView.init(frame: CGRectMake(0, 0.2, BBDevice.deviceWidth(), 0.5))
+            topSeparatorView.backgroundColor = separatorColor
+            self.addSubview(topSeparatorView)
+            break
+        case .Middle:
+            break
+        case .Single:
+            break
+        case .Bottom:
+            separatorView.setViewX(0)
+            separatorView.setViewWidth(BBDevice.deviceWidth())
+            break
+        default:
+            break
+        }
+
         self.addSubview(separatorView)
     }
     
@@ -50,6 +79,24 @@ class BBTableViewCell: UITableViewCell {
     // MARK: 属性操作函数注释
     
     // MARK: - --------------------接口API--------------------
+    
+    func setGroupPositionForIndexPath(indexPath: NSIndexPath, tableView: UITableView) {
+        let rowsInSection: NSInteger = tableView.numberOfRowsInSection(indexPath.section)
+        let row = indexPath.row
+        
+        var position: eGroupTableViewCellPosition = .Bottom
+        if row == 0 {
+            position = .Top
+        } else if (row < rowsInSection-1) {
+            position = .Middle
+        } else if (row == 1) {
+            position = .Single
+        }
+        
+        if self.position != position {
+            self.position = position
+        }
+    }
     
     /**
     *  从XIB获取cell对象

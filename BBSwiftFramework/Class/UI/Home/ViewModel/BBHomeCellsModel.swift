@@ -203,8 +203,8 @@ class BBHomeCellsModel: NSObject {
     func viewForHeaderInSection(section: NSInteger) -> UIView {
         let headerView: BBRootView = BBRootView()
         headerView.local { () -> () in
+            headerView.backgroundColor = BBColor.defaultColor()
             let sectionLabel: UILabel = UILabel.init(frame: CGRectMake(15, self.heightForHeaderInSection(section)-25, BBDevice.deviceWidth()-15, 25.0))
-            sectionLabel.backgroundColor = BBColor.defaultColor()
             headerView.addSubview(sectionLabel)
             
             switch section {
