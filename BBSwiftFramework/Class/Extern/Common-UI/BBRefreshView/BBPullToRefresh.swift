@@ -36,7 +36,7 @@ class Animator: RefreshViewAnimator {
 class BBPullToRefresh: PullToRefresh {
 
     convenience init() {
-        let refreshView = NSBundle.mainBundle().loadNibNamed("BBRefreshView", owner: nil, options: nil).first as! BBRefreshView
+        let refreshView = BBRootView.getViewFromXib("BBRefreshView") as! BBRefreshView
         let animator = Animator(refreshView: refreshView)
         self.init(refreshView: refreshView, animator: animator)
     }
