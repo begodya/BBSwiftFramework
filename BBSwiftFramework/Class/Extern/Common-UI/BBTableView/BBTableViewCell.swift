@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum eGroupTableViewCellPosition: Int{
+enum eGroupTableViewCellPosition: Int {
     case None
     case Top       // section中居于顶部
     case Middle    // section中居于中间
@@ -53,11 +53,11 @@ class BBTableViewCell: UITableViewCell {
             break
         case .Middle:
             break
-        case .Single:
-            break
         case .Bottom:
             separatorView.setViewX(0)
             separatorView.setViewWidth(BBDevice.deviceWidth())
+            break
+        case .Single:
             break
         default:
             break
@@ -65,7 +65,7 @@ class BBTableViewCell: UITableViewCell {
 
         self.addSubview(separatorView)
     }
-    
+
     // MARK: - --------------------手势事件--------------------
     // MARK: 各种手势处理函数注释
     
@@ -117,7 +117,6 @@ class BBTableViewCell: UITableViewCell {
         return cell;
     }
     
-    
     /**
     *  从XIB获取第index个对象cell
     *
@@ -137,7 +136,6 @@ class BBTableViewCell: UITableViewCell {
         return cell;
     }
 
-    
     /**
     *  从XIB获取identifier对象cell
     *
