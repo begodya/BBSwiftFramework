@@ -21,6 +21,9 @@
 		3B4C4BC21BE20FD8004C33D7 /* BBHomeWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BBB1BE20FD8004C33D7 /* BBHomeWeatherCell.swift */; };
 		3B4C4BC31BE20FD8004C33D7 /* BBHomeWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BBC1BE20FD8004C33D7 /* BBHomeWeatherCell.xib */; };
 		3B4C4BC61BE21ACF004C33D7 /* BBFullScreenMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C4BC51BE21ACF004C33D7 /* BBFullScreenMaskView.swift */; };
+		3B4C4BCC1BE36804004C33D7 /* Cow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BC91BE36804004C33D7 /* Cow.gif */; };
+		3B4C4BCD1BE36804004C33D7 /* Geometry.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BCA1BE36804004C33D7 /* Geometry.gif */; };
+		3B4C4BCE1BE36804004C33D7 /* Loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C4BCB1BE36804004C33D7 /* Loading.gif */; };
 		3B561DA11BBB84BF000CAC0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */; };
 		3B561DA61BBB84BF000CAC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA41BBB84BF000CAC0E /* Main.storyboard */; };
 		3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B561DA91BBB84BF000CAC0E /* LaunchScreen.storyboard */; };
@@ -60,7 +63,6 @@
 		3BD0698C1BCE499D00E656FC /* BBLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0698B1BCE499D00E656FC /* BBLoadingView.swift */; };
 		3BD0698E1BCE4AF100E656FC /* GIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0698D1BCE4AF100E656FC /* GIFImage.swift */; };
 		3BD069901BCE4BA300E656FC /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0698F1BCE4BA300E656FC /* UIImageView.swift */; };
-		3BD069921BCE4D0100E656FC /* Loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3BD069911BCE4D0100E656FC /* Loading.gif */; };
 		3BD069941BCE667200E656FC /* BBNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069931BCE667200E656FC /* BBNavigationController.swift */; };
 		3BD0699D1BCFABEC00E656FC /* TrendSansOne.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3BD0699C1BCFABEC00E656FC /* TrendSansOne.otf */; };
 		3BD069A61BCFB5E200E656FC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069A11BCFB5E200E656FC /* Menu.swift */; };
@@ -111,6 +113,9 @@
 		3B4C4BBB1BE20FD8004C33D7 /* BBHomeWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBHomeWeatherCell.swift; sourceTree = "<group>"; };
 		3B4C4BBC1BE20FD8004C33D7 /* BBHomeWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHomeWeatherCell.xib; sourceTree = "<group>"; };
 		3B4C4BC51BE21ACF004C33D7 /* BBFullScreenMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBFullScreenMaskView.swift; sourceTree = "<group>"; };
+		3B4C4BC91BE36804004C33D7 /* Cow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Cow.gif; sourceTree = "<group>"; };
+		3B4C4BCA1BE36804004C33D7 /* Geometry.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Geometry.gif; sourceTree = "<group>"; };
+		3B4C4BCB1BE36804004C33D7 /* Loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loading.gif; sourceTree = "<group>"; };
 		3B561D9D1BBB84BF000CAC0E /* BBSwiftFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBSwiftFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B561DA01BBB84BF000CAC0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B561DA51BBB84BF000CAC0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,7 +161,6 @@
 		3BD0698B1BCE499D00E656FC /* BBLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBLoadingView.swift; sourceTree = "<group>"; };
 		3BD0698D1BCE4AF100E656FC /* GIFImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFImage.swift; sourceTree = "<group>"; };
 		3BD0698F1BCE4BA300E656FC /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		3BD069911BCE4D0100E656FC /* Loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loading.gif; sourceTree = "<group>"; };
 		3BD069931BCE667200E656FC /* BBNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNavigationController.swift; sourceTree = "<group>"; };
 		3BD0699C1BCFABEC00E656FC /* TrendSansOne.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TrendSansOne.otf; sourceTree = "<group>"; };
 		3BD069A11BCFB5E200E656FC /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -270,6 +274,16 @@
 				3B4C4BC51BE21ACF004C33D7 /* BBFullScreenMaskView.swift */,
 			);
 			path = BBFullScreenMaskView;
+			sourceTree = "<group>";
+		};
+		3B4C4BC81BE36804004C33D7 /* GIFS */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C4BC91BE36804004C33D7 /* Cow.gif */,
+				3B4C4BCA1BE36804004C33D7 /* Geometry.gif */,
+				3B4C4BCB1BE36804004C33D7 /* Loading.gif */,
+			);
+			path = GIFS;
 			sourceTree = "<group>";
 		};
 		3B561D941BBB84BF000CAC0E = {
@@ -557,7 +571,7 @@
 		3BD0698A1BCE496400E656FC /* BBLoadingView */ = {
 			isa = PBXGroup;
 			children = (
-				3BD069911BCE4D0100E656FC /* Loading.gif */,
+				3B4C4BC81BE36804004C33D7 /* GIFS */,
 				3BD0698B1BCE499D00E656FC /* BBLoadingView.swift */,
 				3BD0698D1BCE4AF100E656FC /* GIFImage.swift */,
 			);
@@ -744,15 +758,17 @@
 				3B4C4BB21BE1F1E9004C33D7 /* BBRefreshView.xib in Resources */,
 				3BD069C01BCFB81A00E656FC /* BBMenuViewController.xib in Resources */,
 				3BD069C21BD08ECC00E656FC /* Assets.xcassets in Resources */,
+				3B4C4BCE1BE36804004C33D7 /* Loading.gif in Resources */,
 				3B4C4BC31BE20FD8004C33D7 /* BBHomeWeatherCell.xib in Resources */,
 				3B4C4BBE1BE20FD8004C33D7 /* BBHomeViewController.xib in Resources */,
-				3BD069921BCE4D0100E656FC /* Loading.gif in Resources */,
 				3B4C4BC11BE20FD8004C33D7 /* BBHomeClothesCell.xib in Resources */,
 				3B73CF141BD628A100E5C7F0 /* BBServiceConfig.plist in Resources */,
 				3BBB680B1BC6125A0011ED71 /* BBTableViewCell.xib in Resources */,
 				3BD0699D1BCFABEC00E656FC /* TrendSansOne.otf in Resources */,
+				3B4C4BCC1BE36804004C33D7 /* Cow.gif in Resources */,
 				3B7093211BD0F93500E1E3D2 /* BBMenuButtonCell.xib in Resources */,
 				3B6FA0781BD9FE060008BB4C /* BBServiceTest.cer in Resources */,
+				3B4C4BCD1BE36804004C33D7 /* Geometry.gif in Resources */,
 				3B87B41F1BCCF4A400890E2B /* BBH5ViewController.xib in Resources */,
 				3B561DAB1BBB84BF000CAC0E /* LaunchScreen.storyboard in Resources */,
 				3B561DA61BBB84BF000CAC0E /* Main.storyboard in Resources */,
