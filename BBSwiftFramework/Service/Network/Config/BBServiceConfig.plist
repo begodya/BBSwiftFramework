@@ -24,7 +24,7 @@
 			<key>serviceHTTPS</key>
 			<dict>
 				<key>url</key>
-				<string>https://www.pierup.cn:8443/common_api_cn/v1/query/all_provinces</string>
+				<string></string>
 				<key>method</key>
 				<string>GET</string>
 				<key>output</key>

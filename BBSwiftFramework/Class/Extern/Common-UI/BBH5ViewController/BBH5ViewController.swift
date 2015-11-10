@@ -32,7 +32,7 @@ class BBH5ViewController: BBRootViewController, UIWebViewDelegate {
     }
     
     // MARK: - --------------------功能函数--------------------
-    private func initWithURL(url: NSURL) -> BBH5ViewController{
+    private func initWithURL(url: NSURL) -> BBH5ViewController {
         h5WebView = BBH5WebView(frame:CGRectMake(0, 0, BBDevice.deviceWidth(), BBDevice.deviceHeight()))
         local { () -> () in
             self.h5WebView.autoresizesSubviews = true
