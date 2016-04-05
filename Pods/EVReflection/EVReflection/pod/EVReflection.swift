@@ -25,7 +25,6 @@ final public class EVReflection {
     */
     public class func fromDictionary(dictionary:NSDictionary, anyobjectTypeString: String) -> NSObject? {
         if var nsobject = swiftClassFromString(anyobjectTypeString) {
-            NSLog("\(nsobject)")
             nsobject = setPropertiesfromDictionary(dictionary, anyObject: nsobject)
             return nsobject
         }
@@ -273,8 +272,14 @@ final public class EVReflection {
         let (rhsdict,_) = toDictionary(rhs, performKeyCleanup:false)
         
         for (key, value) in rhsdict {
-            if let compareTo: AnyObject = lhsdict[key as! String] {
-                if !compareTo.isEqual(value) {
+            if let compareTo = lhsdict[key as! String] {
+                if let dateCompareTo = compareTo as? NSDate, dateValue = value as? NSDate {
+                    let t1 = Int64(dateCompareTo.timeIntervalSince1970)
+                    let t2 = Int64(dateValue.timeIntervalSince1970)
+                    if t1 != t2 {
+                        return false
+                    }
+                } else if !compareTo.isEqual(value) {
                     return false
                 }
             }
@@ -334,6 +339,32 @@ final public class EVReflection {
         }
     }
     
+    /// This dateformatter will be used when a conversion from string to NSDate is required
+    private static var dateFormatter: NSDateFormatter? = nil
+
+    /**
+    This function can be used to force using an alternat dateformatter for converting String to NSDate
+    
+    - parameter formatter: The new DateFormatter
+    */
+    public class func setDateFormatter(formatter: NSDateFormatter) {
+        dateFormatter = formatter
+    }
+    
+    /**
+    This function is used for getting the dateformatter and defaulting to a standard if it's not set
+    
+    - returns: The dateformatter
+    */    private class func getDateFormatter() -> NSDateFormatter {
+        if let formatter = dateFormatter {
+            return formatter
+        }
+        dateFormatter = NSDateFormatter()
+        dateFormatter!.dateStyle = .ShortStyle
+        dateFormatter!.timeStyle = .LongStyle
+        return dateFormatter!
+    }
+    
     /**
     Get the swift Class type from a string
     
@@ -363,7 +394,7 @@ final public class EVReflection {
     
     :returns: The Class type
     */
-    public class func swiftClassFromString(className: String) -> NSObject! {
+    public class func swiftClassFromString(className: String) -> NSObject? {
         var result: NSObject? = nil
         if className == "NSObject" {
             return NSObject()
@@ -502,6 +533,10 @@ final public class EVReflection {
             } else if typeInObject == "NSNumber" && (type == "String" || type == "NSString") {
                 if let convertedValue = value as? String {
                     value = NSNumber(double: Double(convertedValue) ?? 0)
+                }
+            } else if typeInObject == "NSDate"  && (type == "String" || type == "NSString") {
+                if let convertedValue = value as? String {
+                    value = getDateFormatter().dateFromString(convertedValue)
                 }
             }
             anyObject.setValue(value, forKey: key)
@@ -659,10 +694,12 @@ final public class EVReflection {
     
     :returns: The object that is created from the dictionary
     */
-    private class func dictToObject<T where T:NSObject>(type:String, original:T? ,dict:NSDictionary) -> T {
-        var returnObject:NSObject = swiftClassFromString(type)
-        returnObject = setPropertiesfromDictionary(dict, anyObject: returnObject)
-        return returnObject as! T
+    private class func dictToObject<T where T:NSObject>(type:String, original:T? ,dict:NSDictionary) -> T? {
+        if var returnObject:NSObject = swiftClassFromString(type) {
+            returnObject = setPropertiesfromDictionary(dict, anyObject: returnObject)
+            return returnObject as? T
+        }
+        return nil
     }
     
     /**
@@ -690,8 +727,9 @@ final public class EVReflection {
         var result = [NSObject]()
         for item in array {
             let org = swiftClassFromString(subtype)
-            let arrayObject = self.dictToObject(subtype, original:org, dict: item)
-            result.append(arrayObject)
+            if let arrayObject = self.dictToObject(subtype, original:org, dict: item) {
+                result.append(arrayObject)                
+            }
         }
         return result
     }
@@ -774,6 +812,8 @@ final public class EVReflection {
                 tempArray.addObject(convertValueForJsonSerialization(value))
             }
             return tempArray
+        case let date as NSDate:
+            return (getDateFormatter().stringFromDate(date) ?? "") 
         case let ok as NSDictionary:
             return convertDictionaryForJsonSerialization(ok)
         default:
