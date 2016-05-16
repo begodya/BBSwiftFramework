@@ -22,7 +22,7 @@ class BBHomeViewController: BBRootViewController {
         self.setCustomTitle("BooYah")
         
 //        self.setMoreBarButtonWithTarget(self, action: Selector("clickedMoreAction"))
-        self.setInboxBarButtonWithTarget(self, action: Selector("clickedInboxAction"))
+        self.setInboxBarButtonWithTarget(self, action: #selector(BBHomeViewController.clickedInboxAction))
         
         self.setupView()
     }

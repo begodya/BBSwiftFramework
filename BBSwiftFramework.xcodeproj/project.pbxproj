@@ -51,6 +51,11 @@
 		3B73CF211BD62D2300E5C7F0 /* BBNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CF201BD62D2300E5C7F0 /* BBNetwork.swift */; };
 		3B73CF231BD62D6E00E5C7F0 /* BBServiceTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CF221BD62D6E00E5C7F0 /* BBServiceTags.swift */; };
 		3B73CF251BD6381F00E5C7F0 /* BBServiceConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CF241BD6381F00E5C7F0 /* BBServiceConfigManager.swift */; };
+		3B7AB3FC1CE9BBA00089F131 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FB1CE9BBA00089F131 /* Alamofire.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3B7AB4001CE9BBB90089F131 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FD1CE9BBB90089F131 /* Haneke.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3B7AB4011CE9BBB90089F131 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FE1CE9BBB90089F131 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3B7AB4021CE9BBB90089F131 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FF1CE9BBB90089F131 /* XCGLogger.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3B7AB4041CE9BBC70089F131 /* EVReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB4031CE9BBC70089F131 /* EVReflection.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B41A1BCCECD900890E2B /* BBH5WebView.swift */; };
 		3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B41C1BCCF4A400890E2B /* BBH5ViewController.swift */; };
 		3B87B41F1BCCF4A400890E2B /* BBH5ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B87B41D1BCCF4A400890E2B /* BBH5ViewController.xib */; };
@@ -149,6 +154,11 @@
 		3B73CF201BD62D2300E5C7F0 /* BBNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNetwork.swift; sourceTree = "<group>"; };
 		3B73CF221BD62D6E00E5C7F0 /* BBServiceTags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBServiceTags.swift; sourceTree = "<group>"; };
 		3B73CF241BD6381F00E5C7F0 /* BBServiceConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBServiceConfigManager.swift; sourceTree = "<group>"; };
+		3B7AB3FB1CE9BBA00089F131 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BBSwiftFramework-cazlknrmmvxvgjbfpbcuiwvlbyrs/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		3B7AB3FD1CE9BBB90089F131 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BBSwiftFramework-cazlknrmmvxvgjbfpbcuiwvlbyrs/Build/Products/Debug-iphonesimulator/HanekeSwift/Haneke.framework"; sourceTree = "<group>"; };
+		3B7AB3FE1CE9BBB90089F131 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BBSwiftFramework-cazlknrmmvxvgjbfpbcuiwvlbyrs/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		3B7AB3FF1CE9BBB90089F131 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BBSwiftFramework-cazlknrmmvxvgjbfpbcuiwvlbyrs/Build/Products/Debug-iphonesimulator/XCGLogger/XCGLogger.framework"; sourceTree = "<group>"; };
+		3B7AB4031CE9BBC70089F131 /* EVReflection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EVReflection.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BBSwiftFramework-cazlknrmmvxvgjbfpbcuiwvlbyrs/Build/Products/Debug-iphonesimulator/EVReflection/EVReflection.framework"; sourceTree = "<group>"; };
 		3B87B41A1BCCECD900890E2B /* BBH5WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBH5WebView.swift; sourceTree = "<group>"; };
 		3B87B41C1BCCF4A400890E2B /* BBH5ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBH5ViewController.swift; sourceTree = "<group>"; };
 		3B87B41D1BCCF4A400890E2B /* BBH5ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBH5ViewController.xib; sourceTree = "<group>"; };
@@ -185,6 +195,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B7AB4041CE9BBC70089F131 /* EVReflection.framework in Frameworks */,
+				3B7AB4001CE9BBB90089F131 /* Haneke.framework in Frameworks */,
+				3B7AB4011CE9BBB90089F131 /* SwiftyJSON.framework in Frameworks */,
+				3B7AB4021CE9BBB90089F131 /* XCGLogger.framework in Frameworks */,
+				3B7AB3FC1CE9BBA00089F131 /* Alamofire.framework in Frameworks */,
 				DC6E8469828F13666F7AE2E3 /* Pods_BBSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +224,11 @@
 		14B939AF1C65A97C0EDC1D14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B7AB4031CE9BBC70089F131 /* EVReflection.framework */,
+				3B7AB3FD1CE9BBB90089F131 /* Haneke.framework */,
+				3B7AB3FE1CE9BBB90089F131 /* SwiftyJSON.framework */,
+				3B7AB3FF1CE9BBB90089F131 /* XCGLogger.framework */,
+				3B7AB3FB1CE9BBA00089F131 /* Alamofire.framework */,
 				63E603B474DBC094241CCA26 /* Pods.framework */,
 				10E2AC42CDFC6F8522AA9B66 /* Pods_BBSwiftFramework.framework */,
 			);

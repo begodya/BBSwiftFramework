@@ -145,7 +145,7 @@ class BBTableViewCell: UITableViewCell {
     class func cellFromXib(xibName: String, identifier: String) -> BBTableViewCell {
         let array = NSBundle.mainBundle().loadNibNamed(xibName, owner: nil, options: nil)
         var cell: BBTableViewCell!
-        for var i=0; i<array.count; ++i {
+        for i in 0 ..< array.count {
             let view = array[i]
             if ((view as? BBTableViewCell) != nil) {
                 cell = view as! BBTableViewCell
