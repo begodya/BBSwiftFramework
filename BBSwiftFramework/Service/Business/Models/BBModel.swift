@@ -61,7 +61,7 @@ public class City: BBModel {
 }
 
 @objc(BBResult)
-public class BBResult: BBObject {
+public class BBResult: BBModel {
     var error: String = ""
     var status: String = ""
     var date: String = ""
