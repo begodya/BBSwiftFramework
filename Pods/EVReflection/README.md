@@ -10,9 +10,9 @@
 [![Stars](https://img.shields.io/github/stars/evermeer/EVReflection.svg?style=flat)](https://github.com/evermeer/EVReflection/stargazers)
 
 [![Version](https://img.shields.io/cocoapods/v/EVReflection.svg?style=flat)](http://cocoadocs.org/docsets/EVReflection)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Language](https://img.shields.io/badge/language-swift2-f48041.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform](https://img.shields.io/cocoapods/p/EVReflection.svg?style=flat)](http://cocoadocs.org/docsets/EVReflection)
-[![Support](https://img.shields.io/badge/support-iOS%208%2B%20|%20OSX%2010.9+%20|%20WOS%202+-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
 [![License](https://img.shields.io/cocoapods/l/EVReflection.svg?style=flat)](http://cocoadocs.org/docsets/EVReflection)
 
 [![Git](https://img.shields.io/badge/GitHub-evermeer-blue.svg?style=flat)](https://github.com/evermeer)
@@ -24,17 +24,18 @@
 
 Run the unit tests to see EVReflection in action.
 
-EVReflection is used extensively in [EVCloudKitDao](https://github.com/evermeer/EVCloudKitDao) and [AlamofireJsonToObjects](https://github.com/evermeer/AlamofireJsonToObjects)
+EVReflection is used extensively in [EVCloudKitDao](https://github.com/evermeer/EVCloudKitDao), [AlamofireJsonToObjects](https://github.com/evermeer/AlamofireJsonToObjects) and [AlamofireXmlToObjects](https://github.com/evermeer/AlamofireXmlToObjects)
 
 ## Main features of EVReflection:
 - Parsing objects based on NSObject to and from a dictionary.
 - Parsing objects to and from a JSON string.
 - Support NSCoding methods encodeWithCoder and decodeObjectWithCoder
 - Supporting Printable, Hashable and Equatable while using all properties. (Support for Set in Swift 1.2)
+- Mapping objects from one type to an other
 
 ## It's easy to use:
 
-Defining an object. You only have to set NSObject as it's base class (or EVObject for if you want all functionality):
+Defining an object. You only have to set EVObject as it's base class:
 ```
 class User: EVObject {
     var id: Int = 0
@@ -45,7 +46,7 @@ class User: EVObject {
 
 Parsing JSON to an object:
 ```
-let json:String = "{\"id\": 24, \"name\": \"Bob Jefferson\" \"friends\": {[{\"id\": 29, \"name\": \"Jen Jackson\"}]}}"
+let json:String = "{\"id\": 24, \"name\": \"Bob Jefferson\", \"friends\": [{\"id\": 29, \"name\": \"Jen Jackson\"}]}"
 let user = User(json: json)
 ```
 
@@ -69,6 +70,21 @@ let result = TestObject2(fileNameInTemp: "temp.dat")
 XCTAssert(theObject == result, "Pass")
 ```
 
+Mapping object to another type:
+```
+let administrator: Administrator = user.mapObjectTo()
+```
+
+
+## If you have XML instead of JSON
+
+If you want to do the same but you have XML, then you can achieve that using the XMLDictionary library.[XMLDictionary](https://github.com/nicklockwood/XMLDictionary) Is a simple way to parse and generate XML. Converts an XML file to an NSDictionary. With that library your code will look like this:
+
+
+```
+let xml = "<user><id>27</id><name>Bob</name><friends><user><id>20</id><name>Jen</name></user></friends></user>"
+let user = User(dictionary: NSDictionary(XMLString: xml))
+```
 
 ## Using EVReflection in your own App 
 
@@ -158,13 +174,58 @@ public class TestObject5: EVObject {
 }
 ```
 
-### When to use EVObject instead of NSObject as a base class.
-There is some functionality that could not be added as an extension to NSObject because of limitations or unwanted side effects. For this the EVObject class can be used. Use EVObject in the folowing situations:
+### Custom property converters
+You can also use your own property converters. For this you need to implement the propertyConverters method in your object. For each property you can create a custom getter and setter that will then be used by EVReflection. In the sample below the JSON texts 'Sure' and 'Nah' will be converted to true or false for the property isGreat.
+```
+public class TestObject6: EVObject {
+    var isGreat: Bool = false
 
-- When using NSCoding
-- When comparing objects with .isEqual == or !=
-- When using hash or hashValue
-- When you expect there will be keys in your dictionary or json while there will be no property where the value can be mapped to. Instead of using EVObject you can also implement the setValue forUndefinedKey yourself.
+    override public func propertyConverters() -> [(String?, (Any?)->(), () -> Any? )] {
+        return [
+            ( // We want a custom converter for the field isGreat
+              "isGreat"
+              // isGreat will be true if the json says 'Sure'
+              , { self.isGreat = ($0 as? String == "Sure") }
+              // The json will say 'Sure  if isGreat is true, otherwise it will say 'Nah'
+              , { return self.isGreat ? "Sure": "Nah"})
+        ]
+    }
+}
+```
+
+### What to do when you use object enheritance
+You can deserialize json to an object that uses enheritance. When the properties are specified as the base class, then the correct specific object type will be returned by the function getSecificType. See the sample code below or the unit test in EVReflectionEnheritanceTests.swift
+
+```
+class Quz: EVObject {
+    var fooArray: Array<Foo> = []
+    var fooBar: Foo?
+    var fooBaz: Foo?
+}
+
+class Foo: EVObject {
+    var allFoo: String = "all Foo"
+
+    // What you need to do to get the correct type for when you deserialize enherited classes
+    override func getSpecificType(dict: NSDictionary) -> EVObject {
+        if dict["justBar"] != nil {
+            return Bar()
+        } else if dict["justBaz"] != nil {
+            return Baz()
+        }
+        return self
+    }
+}
+
+class Bar : Foo {
+    var justBar: String = "For bar only"
+}
+
+class Baz: Foo {
+    var justBaz: String = "For baz only"
+}
+```
+
 
 ### Known issues
 EVReflection is trying to handle all types. With some types there are limitations in Swift. So far there is a workaround for any of these limitations. Here is an overview:
@@ -174,6 +235,7 @@ EVReflection is trying to handle all types. With some types there are limitation
 - properties based on an enum
 - an Array of nullable objects like [MyObject?] 
 - generic properties like var myVal:T = T()
+- structs like CGRect or CGPoint
 
 For all these issues there are workarounds. The easiest workaround is just using a difrent type like:
 
@@ -181,6 +243,7 @@ For all these issues there are workarounds. The easiest workaround is just using
 - Instead of [MyObject?] use [MyObject]
 - Instead of 'var status: StatysType' use 'var status:Int' and save the rawValue
 - Instead of a generic property use a specific property that can hold the data (a dictionary?)
+- Instead of using a struct, create your own object model for that struct
 
 If you want to keep on using the same type, You can override the setValue forUndefinedKey in the object itself. See WorkaroundsTests.swift and WorkaroundSwiftGenericsTests.swift to see the workaround for all these types in action. 
 
@@ -189,6 +252,9 @@ For generic properties the protocol EVGenericsKVC is required. see WorkaroundSwi
 
 ####Arrays with nullable objects
 For arrays with nullable objects like [MyObj?] the protocol EVArrayConvertable is required. see WorkaroundsTests.swift
+
+####Swift Dictionaries
+For Swift Dictionaries (and not NSDictionary) the protocol EVDictionaryConvertable is required. See WorkaroundsTests.swift
 
 ## License
 
@@ -202,6 +268,7 @@ Also see my other open source iOS libraries:
 - [EVFaceTracker](https://github.com/evermeer/EVFaceTracker) - Calculate the distance and angle of your device with regards to your face in order to simulate a 3D effect
 - [EVURLCache](https://github.com/evermeer/EVURLCache) - a NSURLCache subclass for handling all web requests that use NSURLReques
 - [AlamofireJsonToObject](https://github.com/evermeer/AlamofireJsonToObjects) - An Alamofire extension which converts JSON response data into swift objects using EVReflection
+- [AlamofireXmlToObject](https://github.com/evermeer/AlamofireXmlToObjects) - An Alamofire extension which converts XML response data into swift objects using EVReflection and XMLDictionary
 - [AlamofireOauth2](https://github.com/evermeer/AlamofireOauth2) - A swift implementation of OAuth2 using Alamofire
 - [EVWordPressAPI](https://github.com/evermeer/EVWordPressAPI) - Swift Implementation of the WordPress (Jetpack) API using AlamofireOauth2, AlomofireJsonToObjects and EVReflection (work in progress)
 - [PassportScanner](https://github.com/evermeer/PassportScanner) - Scan the MRZ code of a passport and extract the firstname, lastname, passport number, nationality, date of birth, expiration date and personal numer.

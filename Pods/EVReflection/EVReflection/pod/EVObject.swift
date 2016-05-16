@@ -10,7 +10,7 @@ import Foundation
 /**
 Object that will support NSCoding, Printable, Hashable and Equeatable for all properties. Use this object as your base class instead of NSObject and you wil automatically have support for all these protocols.
 */
-public class EVObject: NSObject, NSCoding, CustomDebugStringConvertible { // These are redundant in Swift 2: CustomStringConvertible, Hashable, Equatable
+public class EVObject: NSObject, NSCoding { // These are redundant in Swift 2+: CustomDebugStringConvertible, CustomStringConvertible, Hashable, Equatable
     
     /**
     This basic init override is needed so we can use EVObject as a base class.
@@ -70,7 +70,7 @@ public class EVObject: NSObject, NSCoding, CustomDebugStringConvertible { // The
     public convenience required init(fileNameInTemp:String) {
         self.init()
         let filePath = (NSTemporaryDirectory() as NSString).stringByAppendingPathComponent(fileNameInTemp)
-        if let temp = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? NSObject {
+        if let temp = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? EVObject {
             EVReflection.setPropertiesfromDictionary( temp.toDictionary(false), anyObject: self)
         }
     }
@@ -83,7 +83,7 @@ public class EVObject: NSObject, NSCoding, CustomDebugStringConvertible { // The
     public convenience required init(fileNameInDocuments:String) {
         self.init()
         let filePath = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent(fileNameInDocuments)
-        if let temp = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? NSObject {
+        if let temp = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? EVObject {
             EVReflection.setPropertiesfromDictionary( temp.toDictionary(false), anyObject: self)
         }
     }
@@ -118,7 +118,7 @@ public class EVObject: NSObject, NSCoding, CustomDebugStringConvertible { // The
     */
     public override var hashValue: Int {
         get {
-            return EVReflection.hashValue(self)
+            return Int(EVReflection.hashValue(self))
         }
     }
     
@@ -140,22 +140,30 @@ public class EVObject: NSObject, NSCoding, CustomDebugStringConvertible { // The
     
     :returns: Nothing
     */
-    public func saveToTemp(fileName:String) {
+    public func saveToTemp(fileName:String) -> Bool {
         let filePath = (NSTemporaryDirectory() as NSString).stringByAppendingPathComponent(fileName)
-        NSKeyedArchiver.archiveRootObject(self, toFile: filePath)
+        return NSKeyedArchiver.archiveRootObject(self, toFile: filePath)
     }
 
-    /**
-    Save this object to a file in the documents directory
     
-    :parameter: fileName The filename
+
+    #if os(tvOS)
+        // Save to documents folder is not supported on tvOS
+    #else
+        /**
+        Save this object to a file in the documents directory
+        
+        :parameter: fileName The filename
+        
+        :returns: Nothing
+        */
+        public func saveToDocuments(fileName:String) -> Bool {
+            let filePath = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent(fileName)
+            return NSKeyedArchiver.archiveRootObject(self, toFile: filePath)
+        }
+    #endif
     
-    :returns: Nothing
-    */
-    public func saveToDocuments(fileName:String) {
-        let filePath = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent(fileName)
-        NSKeyedArchiver.archiveRootObject(self, toFile: filePath)
-    }
+    
     
     
     /**
@@ -198,112 +206,89 @@ public class EVObject: NSObject, NSCoding, CustomDebugStringConvertible { // The
     
     This method is in EVObject and not in extension of NSObject because a functions from extensions cannot be overwritten yet
     
-    :returns: Return an array with valupairs of the object property name and json key name.
+    :returns: Return an array with value pairs of the object property name and json key name.
     */
     public func propertyMapping() -> [(String?, String?)] {
         return []
     }
-}
-
-
-
-/**
-Protocol for the workaround when using generics. See WorkaroundSwiftGenericsTests.swift
-*/
-public protocol EVGenericsKVC {
-    /**
-    Implement this protocol in a class with generic properties so that we can still use a standard mechanism for setting property values.
-    */
-    func setValue(value: AnyObject!, forUndefinedKey key: String)
-}
-
-/**
-Protocol for the workaround when using an enum with a rawValue of type Int
-*/
-public protocol EVRawInt {
-    /**
-    Protocol EVRawString can be added to an Enum that has Int as it's rawValue so that we can detect from a generic enum what it's rawValue is.
-    */
-    var rawValue: Int { get }
-}
-
-/**
-Protocol for the workaround when using an enum with a rawValue of type String
-*/
-public protocol EVRawString {
-    /**
-    Protocol EVRawString can be added to an Enum that has String as it's rawValue so that we can detect from a generic enum what it's rawValue is.
-    */
-    var rawValue: String { get }
-}
-
-/**
-Protocol for the workaround when using an enum with a rawValue of an undefined type
-*/
-public protocol EVRaw {
-    /**
-    For implementing a function that will return the rawValue for a non sepecific enum
-    */
-    var anyRawValue: Any { get }
-}
-
-/**
-Protocol for the workaround when using an array with nullable values
-*/
-public protocol EVArrayConvertable {
-    /**
-    For implementing a function for converting a generic array to a specific array.
-    */
-    func convertArray(key: String, array: Any) -> NSArray
-}
-
-
-/**
-Add a property to an enum to get the associated value
-*/
-public protocol EVAssociated {
-}
-
-/**
-The implrementation of the protocol for getting the associated value
-*/
-public extension EVAssociated {
-    /**
-    Easy access to the associated value of an enum.
     
-    :returns: The label of the enum plus the associated value
+    /**
+    Override this method when you want custom property value conversion
+    
+    This method is in EVObject and not in extension of NSObject because a functions from extensions cannot be overwritten yet
+    
+    :returns: Returns an array where each item is a combination of the folowing 3 values: A string for the property name where the custom conversion is for, a setter function and a getter function.
     */
-    public var associated: (label:String, value: Any?) {
-        get {
-            let mirror = Mirror(reflecting: self)
-            if let associated = mirror.children.first {
-                return (associated.label!, associated.value)
-            }
-            print("WARNING: Enum option of \(self) does not have an associated value")
-            return ("\(self)", nil)
-        }
+    public func propertyConverters() -> [(String?, ((Any?)->())?, (() -> Any?)? )] {
+        return []
     }
-}
 
-/**
-Dictionary extension for creating a dictionary from an array of enum values
-*/
-public extension Dictionary {
     /**
-    Create a dictionairy based on all associated values of an enum array
-    
-    - parameter associated: array of dictionairy values which have an associated value
-    
-    - returns: A dictionairy of all enum values and associated values
-    */
-    init<T :EVAssociated>(associated: [T]?) {
-        self.init()
-        if associated != nil {
-            for myEnum in associated! {
-                self[myEnum.associated.label as! Key] = myEnum.associated.value as? Value
-            }
-        }
+     When a property is declared as a base type for multiple enherited classes, then this function will let you pick the right specific type based on the suplied dictionary.
+     
+     - parameter dict: The dictionary for the specific type
+     
+     - returns: The specific type
+     */
+    public func getSpecificType(dict: NSDictionary) -> EVObject {
+        return self
     }
+    
+    
+    
+    // MARK: - The code below was originally in a NSObject extension.
+    
+    
+    /**
+    Returns the dictionary representation of this object.
+    
+    :parameter: performKeyCleanup set to true if you want to cleanup the keys
+    
+    :returns: The dictionary
+    */
+    final public func toDictionary(performKeyCleanup:Bool = false) -> NSDictionary {
+        let (reflected, _) = EVReflection.toDictionary(self, performKeyCleanup: performKeyCleanup)
+        return reflected
+    }
+    
+    /**
+     Convert this object to a json string
+     
+     :parameter: performKeyCleanup set to true if you want to cleanup the keys
+     
+     :returns: The json string
+     */
+    final public func toJsonString(performKeyCleanup:Bool = false) -> String {
+        return EVReflection.toJsonString(self, performKeyCleanup: performKeyCleanup)
+    }
+    
+    /**
+     Convenience method for instantiating an array from a json string.
+     
+     :parameter: json The json string
+     
+     :returns: An array of objects
+     */
+    public class func arrayFromJson<T where T:NSObject>(json:String?) -> [T] {
+        return EVReflection.arrayFromJson(T(), json: json)
+    }
+    
+    /**
+     Auto map an opbject to an object of an other type.
+     Properties with the same name will be mapped automattically.
+     Automattic cammpelCase, PascalCase, snake_case conversion
+     Supports propperty mapping and conversion when using EVObject as base class
+     
+     - returns: The targe object with the mapped values
+     */
+    public func mapObjectTo<T where T:NSObject>() -> T {
+        let nsobjectype : NSObject.Type = T.self as NSObject.Type
+        let nsobject: NSObject = nsobjectype.init()
+        let dict = self.toDictionary()
+        let result = EVReflection.setPropertiesfromDictionary(dict, anyObject: nsobject)
+        return result as! T
+    }
+    
 }
 
 

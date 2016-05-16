@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EVReflection
 
 public class BBObject: EVObject {
 
