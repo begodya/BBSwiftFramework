@@ -51,11 +51,11 @@
 		3B73CF211BD62D2300E5C7F0 /* BBNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CF201BD62D2300E5C7F0 /* BBNetwork.swift */; };
 		3B73CF231BD62D6E00E5C7F0 /* BBServiceTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CF221BD62D6E00E5C7F0 /* BBServiceTags.swift */; };
 		3B73CF251BD6381F00E5C7F0 /* BBServiceConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B73CF241BD6381F00E5C7F0 /* BBServiceConfigManager.swift */; };
-		3B7AB3FC1CE9BBA00089F131 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FB1CE9BBA00089F131 /* Alamofire.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		3B7AB4001CE9BBB90089F131 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FD1CE9BBB90089F131 /* Haneke.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		3B7AB4011CE9BBB90089F131 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FE1CE9BBB90089F131 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		3B7AB4021CE9BBB90089F131 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FF1CE9BBB90089F131 /* XCGLogger.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		3B7AB4041CE9BBC70089F131 /* EVReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB4031CE9BBC70089F131 /* EVReflection.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3B7AB4061CE9C94C0089F131 /* EVReflection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB4031CE9BBC70089F131 /* EVReflection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3B7AB4081CE9C94D0089F131 /* Haneke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FD1CE9BBB90089F131 /* Haneke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3B7AB40A1CE9C94D0089F131 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FE1CE9BBB90089F131 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3B7AB40C1CE9C94D0089F131 /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FF1CE9BBB90089F131 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3B7AB40E1CE9C94D0089F131 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7AB3FB1CE9BBA00089F131 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B87B41B1BCCECD900890E2B /* BBH5WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B41A1BCCECD900890E2B /* BBH5WebView.swift */; };
 		3B87B41E1BCCF4A400890E2B /* BBH5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B41C1BCCF4A400890E2B /* BBH5ViewController.swift */; };
 		3B87B41F1BCCF4A400890E2B /* BBH5ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B87B41D1BCCF4A400890E2B /* BBH5ViewController.xib */; };
@@ -81,7 +81,7 @@
 		3BD069BF1BCFB81A00E656FC /* BBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD069BC1BCFB81A00E656FC /* BBMenuViewController.swift */; };
 		3BD069C01BCFB81A00E656FC /* BBMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD069BD1BCFB81A00E656FC /* BBMenuViewController.xib */; };
 		3BD069C21BD08ECC00E656FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD069C11BD08ECC00E656FC /* Assets.xcassets */; };
-		DC6E8469828F13666F7AE2E3 /* Pods_BBSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E2AC42CDFC6F8522AA9B66 /* Pods_BBSwiftFramework.framework */; };
+		DC6E8469828F13666F7AE2E3 /* Pods_BBSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E2AC42CDFC6F8522AA9B66 /* Pods_BBSwiftFramework.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +100,24 @@
 			remoteInfo = BBSwiftFramework;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3B7AB40F1CE9C94D0089F131 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3B7AB4081CE9C94D0089F131 /* Haneke.framework in Embed Frameworks */,
+				3B7AB40C1CE9C94D0089F131 /* XCGLogger.framework in Embed Frameworks */,
+				3B7AB4061CE9C94C0089F131 /* EVReflection.framework in Embed Frameworks */,
+				3B7AB40E1CE9C94D0089F131 /* Alamofire.framework in Embed Frameworks */,
+				3B7AB40A1CE9C94D0089F131 /* SwiftyJSON.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		10E2AC42CDFC6F8522AA9B66 /* Pods_BBSwiftFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBSwiftFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,11 +213,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7AB4041CE9BBC70089F131 /* EVReflection.framework in Frameworks */,
-				3B7AB4001CE9BBB90089F131 /* Haneke.framework in Frameworks */,
-				3B7AB4011CE9BBB90089F131 /* SwiftyJSON.framework in Frameworks */,
-				3B7AB4021CE9BBB90089F131 /* XCGLogger.framework in Frameworks */,
-				3B7AB3FC1CE9BBA00089F131 /* Alamofire.framework in Frameworks */,
 				DC6E8469828F13666F7AE2E3 /* Pods_BBSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,6 +691,7 @@
 				3B561D9B1BBB84BF000CAC0E /* Resources */,
 				B6A3A7B3AB071ED33E592880 /* 📦 Embed Pods Frameworks */,
 				D7869D6A5235E1F7939EBF92 /* 📦 Copy Pods Resources */,
+				3B7AB40F1CE9C94D0089F131 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
