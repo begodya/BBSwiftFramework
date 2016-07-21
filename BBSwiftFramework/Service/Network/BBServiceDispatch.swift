@@ -39,7 +39,9 @@ class BBServiceDispatch: NSObject {
             self.sharedInstance.urlResponse = response as! NSHTTPURLResponse
             
             let modelClass = NSClassFromString(handler.apiModel.output) as! BBModel.Type
-            let result = modelClass.init(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
+            let responseJSONData = NSString(data: data, encoding: NSUTF8StringEncoding)! as String;
+            let result = modelClass.init(json: responseJSONData)
+//            let result = modelClass.init(json: NSString(data: data, encoding: NSUTF8StringEncoding)! as String)
             handler.serviceHandlerResponse(result, succeeded: succeeded, failed: failed)
             
             }.fire()

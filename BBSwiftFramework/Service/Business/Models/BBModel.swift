@@ -10,7 +10,9 @@ import UIKit
 
 @objc(BBModel)
 public class BBModel: BBObject {
-
+    public required init() {
+        
+    }
 }
 
 
